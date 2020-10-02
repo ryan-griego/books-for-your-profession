@@ -39,50 +39,50 @@ class SearchBar extends React.Component {
     const names = [
       {
         key: 'Academic librarian',
-        value: 'Academic librarian',
+        value: 'Academic librarian'
       },
       {
         key: 'Clinical research associate',
-        value: 'Clinical research associate',
+        value: 'Clinical research associate'
       },
       {
         key: 'Web developer',
-        value: 'Web developer',
+        value: 'Web developer'
       },
       {
         key: 'Plumber',
-        value: 'Plumber',
+        value: 'Plumber'
       },
       {
         key: 'Lawyer',
-        value: 'Lawyer',
-      },
+        value: 'Lawyer'
+      }
     ];
 
     return (
       <div className="s003" >
         <form onSubmit={this.handleSubmit}>
 
-      <ReactSearchBox
-        placeholder="Enter a profession name"
-        data={names}
-        onSelect={record => console.log(record)}
-        onSumbit={this.onSumbit}
-        onFocus={() => {
-          console.log('This function is called when is focused')
-        }}
-        onChange={value => console.log(value)}
-        fuseConfigs={{
-          threshold: 0.05,
-        }}
-        value=""
-      />
+          <ReactSearchBox
+            placeholder="Enter a profession name"
+            data={names}
+            onSelect={record => console.log(record)}
+            onSumbit={this.onSumbit}
+            onFocus={() => {
+              console.log('This function is called when is focused');
+            }}
+            onChange={value => console.log(value)}
+            fuseConfigs={{
+              threshold: 0.05
+            }}
+            value=""
+          />
           <input type="submit" value="Search"/>
 
-      </form>
+        </form>
 
       </div>
-    )
+    );
   }
 }
 
