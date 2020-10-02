@@ -6,7 +6,6 @@ class ProfessionBookListItem extends React.Component {
   render() {
     return (
       <>
-
           <div className="card">
             <div className="row no-gutters">
               <div className="col-sm-5">
@@ -22,7 +21,6 @@ class ProfessionBookListItem extends React.Component {
               </div>
             </div>
           </div>
-
       </>
     )
 
