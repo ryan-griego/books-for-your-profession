@@ -1,7 +1,7 @@
 {
-  "name": "full-stack-project",
+  "name": "profession-books",
   "version": "1.0.0",
-  "description": "A Full Stack Node.js &amp; React app.",
+  "description": "An app for professionals who want to find out the top 5 most recommended books for their profession.",
   "main": "server/index.js",
   "scripts": {
     "dev": "npm-run-all --silent --parallel dev:*",
