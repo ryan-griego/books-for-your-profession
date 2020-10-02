@@ -5,7 +5,48 @@ class ProfessionBookList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: []
+      books: [
+        {
+          "author": "William Gibson",
+          "bookId": 1,
+          "genre": "Science Fiction",
+          "name": "Neuromancer",
+          "releaseYear": 1984,
+          "shortDescription": "The first book added to this list"
+        },
+        {
+          "author": "Walter Isaacson",
+          "bookId": 2,
+          "genre": "Biography",
+          "name": "The Biography of Steve Jobs",
+          "releaseYear": 2016,
+          "shortDescription": "The story of Steve Jobs"
+        },
+        {
+          "author": "Marijn Haverbeke",
+          "bookId": 3,
+          "genre": "Programming",
+          "name": "Eloquent Javascript",
+          "releaseYear": 2018,
+          "shortDescription": "How to program in Javascript"
+        },
+        {
+          "author": "Darrin Hardy",
+          "bookId": 4,
+          "genre": "Self-help",
+          "name": "The Compound Effect",
+          "releaseYear": 2015,
+          "shortDescription": "How to jumpstart your life, income and more"
+        },
+        {
+          "author": "Isaac Asimov",
+          "bookId": 5,
+          "genre": "Science Fiction",
+          "name": "Foundation",
+          "releaseYear": 1964,
+          "shortDescription": "Book one in the trilogy"
+        }
+      ]
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,52 +74,22 @@ class ProfessionBookList extends React.Component {
     return (
       <>
       <div className="card-group">
-        <div className="card">
-          <div className="row no-gutters">
-            <div className="col-sm-5">
-              <img className="card-img" src="https://static.thenounproject.com/png/2009843-200.png" alt="Book title"/>
-    </div>
-              <div className="col-sm-7">
-                <div className="card-body">
-                  <h2 className="card-rank">#</h2>
-                  <h5 className="card-title">Book title:</h5>
-                  <p className="card-text">Author name:</p>
-                  <a href="#" className="btn btn-primary">More information</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="card">
-            <div className="row no-gutters">
-              <div className="col-sm-5">
-                <img className="card-img" src="https://static.thenounproject.com/png/2009843-200.png" alt="Book title"/>
-    </div>
-                <div className="col-sm-7">
-                  <div className="card-body">
-                    <h2 className="card-rank">#</h2>
-                    <h5 className="card-title">Book title:</h5>
-                    <p className="card-text">Author name:</p>
-                    <a href="#" className="btn btn-primary">More information</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card">
-              <div className="row no-gutters">
-                <div className="col-sm-5">
-                  <img className="card-img" src="https://static.thenounproject.com/png/2009843-200.png" alt="Book title"/>
-    </div>
-                  <div className="col-sm-7">
-                    <div className="card-body">
-                      <h2 className="card-rank">#</h2>
-                      <h5 className="card-title">Book title:</h5>
-                      <p className="card-text">Author name:</p>
-                      <a href="#" className="btn btn-primary">More information</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {
+            this.state.books.map(book => {
+              return <ProfessionBookListItem
+                key={book.bookId}
+                product={book}
+                name={book.name}
+                author={book.author}
+                genre={book.genre}
+                releaseYear={book.releaseYear}
+                shortDescription={book.shortDescription}
+                bookId={book.bookId}
+                view={this.setView} />;
+            })
+          }
+
+      </div>
             </>
     )
 

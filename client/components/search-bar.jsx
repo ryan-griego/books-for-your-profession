@@ -62,6 +62,7 @@ class SearchBar extends React.Component {
     return (
       <div className="s003" >
         <form onSubmit={this.handleSubmit}>
+
       <ReactSearchBox
         placeholder="Enter a profession name"
         data={names}
@@ -76,6 +77,8 @@ class SearchBar extends React.Component {
         }}
         value=""
       />
+          <input type="submit" value="Search"/>
+
       </form>
 
       </div>
