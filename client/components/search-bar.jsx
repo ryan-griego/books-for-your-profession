@@ -1,6 +1,7 @@
 import React from 'react';
 import professions from 'professions';
 import ReactSearchBox from 'react-search-box';
+import ProfessionBookList from './profession-book-list';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -10,9 +11,14 @@ class SearchBar extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.setView = this.setView.bind(this);
   }
 
+  setView(e) {
+    // might need to add a value for the params propertie later
+    this.props.view('professionBookList', {});
 
+  }
 
   handleChange(event) {
     this.setState({ profession: event.target.value });
@@ -20,11 +26,12 @@ class SearchBar extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.setState({ profession: event.target.value });
 
     console.log('state: ' + this.state.profession);
+
     console.log('list all professions: ' + professions);
-
-
+    this.setView();
 
   }
 
@@ -61,7 +68,7 @@ class SearchBar extends React.Component {
         onSelect={record => console.log(record)}
         onSumbit={this.onSumbit}
         onFocus={() => {
-          console.log('This function is called when is focussed')
+          console.log('This function is called when is focused')
         }}
         onChange={value => console.log(value)}
         fuseConfigs={{

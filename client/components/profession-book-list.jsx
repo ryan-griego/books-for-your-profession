@@ -1,0 +1,89 @@
+import React from 'react';
+import ProfessionBookListItem from './profession-book-list-item';
+
+class ProfessionBookList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      books: []
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.setView = this.setView.bind(this);
+  }
+
+  setView(e) {
+    this.props.view('bookDetails', {});
+  }
+
+  handleChange(event) {
+    this.setState({ profession: event.target.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+
+
+
+
+  }
+
+  render() {
+    return (
+      <>
+      <div className="card-group">
+        <div className="card">
+          <div className="row no-gutters">
+            <div className="col-sm-5">
+              <img className="card-img" src="https://static.thenounproject.com/png/2009843-200.png" alt="Book title"/>
+    </div>
+              <div className="col-sm-7">
+                <div className="card-body">
+                  <h2 className="card-rank">#</h2>
+                  <h5 className="card-title">Book title:</h5>
+                  <p className="card-text">Author name:</p>
+                  <a href="#" className="btn btn-primary">More information</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="card">
+            <div className="row no-gutters">
+              <div className="col-sm-5">
+                <img className="card-img" src="https://static.thenounproject.com/png/2009843-200.png" alt="Book title"/>
+    </div>
+                <div className="col-sm-7">
+                  <div className="card-body">
+                    <h2 className="card-rank">#</h2>
+                    <h5 className="card-title">Book title:</h5>
+                    <p className="card-text">Author name:</p>
+                    <a href="#" className="btn btn-primary">More information</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="card">
+              <div className="row no-gutters">
+                <div className="col-sm-5">
+                  <img className="card-img" src="https://static.thenounproject.com/png/2009843-200.png" alt="Book title"/>
+    </div>
+                  <div className="col-sm-7">
+                    <div className="card-body">
+                      <h2 className="card-rank">#</h2>
+                      <h5 className="card-title">Book title:</h5>
+                      <p className="card-text">Author name:</p>
+                      <a href="#" className="btn btn-primary">More information</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </>
+    )
+
+
+  }
+}
+
+export default ProfessionBookList;
