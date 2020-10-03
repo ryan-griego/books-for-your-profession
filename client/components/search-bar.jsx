@@ -1,7 +1,7 @@
 import React from 'react';
 import professions from 'professions';
 import ReactSearchBox from 'react-search-box';
-import ProfessionBookList from './profession-book-list';
+const $ = window.$;
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -15,8 +15,8 @@ class SearchBar extends React.Component {
   }
 
   setView(e) {
-    // might need to add a value for the params propertie later
-    this.props.view('professionBookList', {});
+    const currentProfession = $(e.target).find('.jwfbbd').attr('value');
+    this.props.view('professionBookList', { currentProfession });
 
   }
 
@@ -27,60 +27,42 @@ class SearchBar extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.setState({ profession: event.target.value });
-
-    console.log('state: ' + this.state.profession);
-
-    console.log('list all professions: ' + professions);
-    this.setView();
+    this.setView(event);
 
   }
 
   render() {
-    const names = [
-      {
-        key: 'Academic librarian',
-        value: 'Academic librarian'
-      },
-      {
-        key: 'Clinical research associate',
-        value: 'Clinical research associate'
-      },
-      {
-        key: 'Web developer',
-        value: 'Web developer'
-      },
-      {
-        key: 'Plumber',
-        value: 'Plumber'
-      },
-      {
-        key: 'Lawyer',
-        value: 'Lawyer'
-      }
-    ];
+
+    const allProfessions = professions.map(profession => {
+      return {
+        key: profession,
+        value: profession
+
+      };
+    });
 
     return (
-      <div className="s003" >
-        <form onSubmit={this.handleSubmit}>
+      <div className="container">
+        <div className="s003" >
+          <form onSubmit={this.handleSubmit}>
 
-          <ReactSearchBox
-            placeholder="Enter a profession name"
-            data={names}
-            onSelect={record => console.log(record)}
-            onSumbit={this.onSumbit}
-            onFocus={() => {
-              console.log('This function is called when is focused');
-            }}
-            onChange={value => console.log(value)}
-            fuseConfigs={{
-              threshold: 0.05
-            }}
-            value=""
-          />
-          <input type="submit" value="Search"/>
-
-        </form>
-
+            <ReactSearchBox
+              placeholder="Enter a profession name"
+              data={allProfessions}
+              // onSelect={record => console.log(record)}
+              onSumbit={this.onSumbit}
+              onFocus={() => {
+                // console.log('This function is called when is focused');
+              }}
+              // onChange={value => console.log(value)}
+              fuseConfigs={{
+                threshold: 0.05
+              }}
+              value=""
+            />
+            <input type="submit" value="Search" className="btn btn-success search-button"/>
+          </form>
+        </div>
       </div>
     );
   }
