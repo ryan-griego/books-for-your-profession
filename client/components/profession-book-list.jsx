@@ -69,22 +69,25 @@ class ProfessionBookList extends React.Component {
   render() {
     return (
       <>
-        <div className="card-group">
-          {
-            this.state.books.map(book => {
-              return <ProfessionBookListItem
-                key={book.bookId}
-                product={book}
-                name={book.name}
-                author={book.author}
-                genre={book.genre}
-                releaseYear={book.releaseYear}
-                shortDescription={book.shortDescription}
-                bookId={book.bookId}
-                view={this.setView} />;
-            })
-          }
+        <div className="container">
+          <h1>{this.props.viewParams.currentProfession}</h1>
+          <div className="card-group">
+            {
+              this.state.books.map(book => {
+                return <ProfessionBookListItem
+                  key={book.bookId}
+                  product={book}
+                  name={book.name}
+                  author={book.author}
+                  genre={book.genre}
+                  releaseYear={book.releaseYear}
+                  shortDescription={book.shortDescription}
+                  bookId={book.bookId}
+                  view={this.setView} />;
+              })
+            }
 
+          </div>
         </div>
       </>
     );
