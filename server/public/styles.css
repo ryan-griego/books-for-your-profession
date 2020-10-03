@@ -14,6 +14,9 @@ html {
  */
 body {
   margin: 0;
+  background-image: url('images/book-stack-closeup.jpg');
+  background-size: cover;
+  background-position: center center;
 }
 
 /**
@@ -123,8 +126,14 @@ strong {
   font-weight: bolder;
 }
 .dePyzG {
+    width: 135%;
 
-    width: 25rem;
+}
+
+/** Search bar list fixes **/
+.zNoeh > ul {
+    height: 200px;
+    overflow-x:hidden;
 }
 
 
@@ -288,6 +297,13 @@ button:-moz-focusring,
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring {
   outline: 1px dotted ButtonText;
+}
+
+/** Search bar button edit **/
+
+.search-button {
+  margin-left: 10px;
+  height: 50%;
 }
 
 /**
@@ -824,16 +840,15 @@ legend {
   -ms-flex-align: center;
       align-items: center;
   font-family: 'Poppins', sans-serif;
-  background-image: url('images/book-stack-closeup.jpg');
-  background-size: cover;
-  background-position: center center;
+
   padding: 15px;
 }
 
 .s003 form {
-  width: 100%;
+  width: 30%;
   max-width: 790px;
   margin-bottom: 0;
+  display: flex;
 }
 
 .s003 form .inner-form {
