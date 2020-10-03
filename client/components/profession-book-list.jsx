@@ -7,44 +7,44 @@ class ProfessionBookList extends React.Component {
     this.state = {
       books: [
         {
-          "author": "William Gibson",
-          "bookId": 1,
-          "genre": "Science Fiction",
-          "name": "Neuromancer",
-          "releaseYear": 1984,
-          "shortDescription": "The first book added to this list"
+          author: 'William Gibson',
+          bookId: 1,
+          genre: 'Science Fiction',
+          name: 'Neuromancer',
+          releaseYear: 1984,
+          shortDescription: 'The first book added to this list'
         },
         {
-          "author": "Walter Isaacson",
-          "bookId": 2,
-          "genre": "Biography",
-          "name": "The Biography of Steve Jobs",
-          "releaseYear": 2016,
-          "shortDescription": "The story of Steve Jobs"
+          author: 'Walter Isaacson',
+          bookId: 2,
+          genre: 'Biography',
+          name: 'The Biography of Steve Jobs',
+          releaseYear: 2016,
+          shortDescription: 'The story of Steve Jobs'
         },
         {
-          "author": "Marijn Haverbeke",
-          "bookId": 3,
-          "genre": "Programming",
-          "name": "Eloquent Javascript",
-          "releaseYear": 2018,
-          "shortDescription": "How to program in Javascript"
+          author: 'Marijn Haverbeke',
+          bookId: 3,
+          genre: 'Programming',
+          name: 'Eloquent Javascript',
+          releaseYear: 2018,
+          shortDescription: 'How to program in Javascript'
         },
         {
-          "author": "Darrin Hardy",
-          "bookId": 4,
-          "genre": "Self-help",
-          "name": "The Compound Effect",
-          "releaseYear": 2015,
-          "shortDescription": "How to jumpstart your life, income and more"
+          author: 'Darrin Hardy',
+          bookId: 4,
+          genre: 'Self-help',
+          name: 'The Compound Effect',
+          releaseYear: 2015,
+          shortDescription: 'How to jumpstart your life, income and more'
         },
         {
-          "author": "Isaac Asimov",
-          "bookId": 5,
-          "genre": "Science Fiction",
-          "name": "Foundation",
-          "releaseYear": 1964,
-          "shortDescription": "Book one in the trilogy"
+          author: 'Isaac Asimov',
+          bookId: 5,
+          genre: 'Science Fiction',
+          name: 'Foundation',
+          releaseYear: 1964,
+          shortDescription: 'Book one in the trilogy'
         }
       ]
     };
@@ -64,16 +64,12 @@ class ProfessionBookList extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
-
-
-
-
   }
 
   render() {
     return (
       <>
-      <div className="card-group">
+        <div className="card-group">
           {
             this.state.books.map(book => {
               return <ProfessionBookListItem
@@ -89,10 +85,9 @@ class ProfessionBookList extends React.Component {
             })
           }
 
-      </div>
-            </>
-    )
-
+        </div>
+      </>
+    );
 
   }
 }
