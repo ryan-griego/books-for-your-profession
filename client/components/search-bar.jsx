@@ -35,8 +35,8 @@ class SearchBar extends React.Component {
 
     const allProfessions = professions.map(profession => {
       return {
-        key: profession,
-        value: profession
+        key: profession.toLowerCase(),
+        value: profession.toLowerCase()
 
       };
     });
