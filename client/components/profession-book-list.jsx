@@ -27,7 +27,8 @@ class ProfessionBookList extends React.Component {
   }
 
   setView(e) {
-    this.props.view('bookDetails', {});
+    const bookId = e.currentTarget.getAttribute('id');
+    this.props.view('bookDetails', { bookId });
   }
 
   // handleChange(event) {
@@ -47,8 +48,9 @@ class ProfessionBookList extends React.Component {
       // this.props.view('searchByProfession', {});
       return (
         <>
-
-          <h1>{`There are no books or booklists in the database with that profession name ${this.props.viewParams.currentProfession} linked to it`}</h1>
+          <div className="container">
+            <h2>{`There are no books or booklists in the database with the profession ${this.props.viewParams.currentProfession} linked to it`}</h2>
+          </div>
         </>
       );
 
