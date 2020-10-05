@@ -17,6 +17,7 @@ class SearchBar extends React.Component {
   setView(e) {
     const currentProfession = $(e.target).find('.jwfbbd').attr('value');
     this.props.view('professionBookList', { currentProfession });
+    this.props.searchProfession = currentProfession;
 
   }
 

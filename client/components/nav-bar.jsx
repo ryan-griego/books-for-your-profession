@@ -2,38 +2,54 @@ import React from 'react';
 
 class NavBar extends React.Component {
 
-  render() {
-
-    return (
-
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <>
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a className="navbar-brand" href="#">Profession Books</a>
-            <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-
-              <li className="nav-item">
-                <a className="nav-link" href="#">Top Books by Profession</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Add Books to my List</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Log In/Out</a>
-              </li>
-            </ul>
-
-          </div>
-        </>
-      </nav>
-
-    );
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      sideDrawerOpen: false
+    };
+    this.drawerToggleClickHandler = this.drawerToggleClickHandler.bind(this);
+    this.backdropClickHandler = this.backdropClickHandler.bind(this);
   }
 
+  drawerToggleClickHandler(event) {
+    event.preventDefault();
+    this.setState({ sideDrawerOpen: true });
+  }
+
+  backdropClickHandler(event) {
+    event.preventDefault();
+    this.setState({ sideDrawerOpen: false });
+  }
+
+  render() {
+    const links = document.getElementsByTagName('A');
+    links.onclick = this.backdropClickHandler;
+    let sideDrawer = null;
+    let backdrop = null;
+
+    if (this.state.sideDrawerOpen) {
+      sideDrawer = <nav className="side-drawer"><ul><h2>Profession Books</h2><li><a href="">Search Books by Profession</a></li><li><a href="">Search Books by Title</a></li><li><a href="">Sign in/out</a></li></ul></nav>;
+      backdrop = <div className="backdrop" onClick={this.backdropClickHandler}></div>;
+    }
+
+    return (
+      <div style={{ height: '100%' }}>
+        <header className="toolbar">
+          <nav className="toolbar-navigation">
+            {sideDrawer}
+            {backdrop}
+            <div>
+              <button className="toggle-button" onClick={this.drawerToggleClickHandler}>
+                <i className="fa fa-bars" aria-hidden="true"></i>
+              </button>
+            </div>
+          </nav>
+        </header>
+        <main style={{ marginTop: '64px' }}>
+        </main>
+      </div>
+    );
+  }
 }
 
 export default NavBar;

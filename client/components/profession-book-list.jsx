@@ -40,13 +40,15 @@ class ProfessionBookList extends React.Component {
   // }
 
   render() {
+    const bookCount = this.state.books.length;
+    const messageCheck = bookCount <= 0 ? 'There are no books listed for this profession yet. We are still waiting for someone to create an account from this profession to add their top books' : '';
 
     if (this.state.books.error) {
-      this.props.view('searchByProfession', {});
+      // this.props.view('searchByProfession', {});
       return (
         <>
 
-          <h1>There are no books or booklists in the database with that profession name linked to it</h1>
+          <h1>{`There are no books or booklists in the database with that profession name ${this.props.viewParams.currentProfession} linked to it`}</h1>
         </>
       );
 
@@ -57,7 +59,7 @@ class ProfessionBookList extends React.Component {
             <h1>{this.props.viewParams.currentProfession}</h1>
             <div className="row row-cols-1 row-cols-md-2 mt-5">
               <div className="card-group">
-
+                {messageCheck}
                 {
                   this.state.books.map(book => {
                     return <ProfessionBookListItem
