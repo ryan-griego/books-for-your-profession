@@ -31,19 +31,9 @@ class ProfessionBookList extends React.Component {
     this.props.view('bookDetails', { bookId });
   }
 
-  // handleChange(event) {
-  //   this.setState({ profession: event.target.value });
-  // }
-
-  // handleSubmit(event) {
-  //   event.preventDefault();
-
-  // }
-
   render() {
     const bookCount = this.state.books.length;
     const messageCheck = bookCount <= 0 ? 'There are no books listed for this profession yet. We are still waiting for someone to create an account from this profession to add their top books' : '';
-
     if (this.state.books.error) {
       // this.props.view('searchByProfession', {});
       return (
@@ -64,9 +54,10 @@ class ProfessionBookList extends React.Component {
                 {messageCheck}
                 {
                   this.state.books.map(book => {
+
                     return <ProfessionBookListItem
                       key={book.bookId}
-                      product={book}
+                      book={book}
                       name={book.name}
                       author={book.author}
                       genre={book.genre}
