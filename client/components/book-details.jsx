@@ -4,7 +4,8 @@ class BookDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      book: null
+      book: null,
+      testProduct: { name: 'Neuromancer', author: 'William Gibson', genre: 'Science Fiction', releaseYear: 1984, shortDescription: 'The first book added to this list' }
 
     };
     this.setView = this.setView.bind(this);
@@ -21,8 +22,7 @@ class BookDetails extends React.Component {
   }
 
   setView(e) {
-    const bookId = e.currentTarget.getAttribute('id');
-    this.props.view('bookDetails', { bookId });
+    this.props.view('searchByProfession', {});
   }
 
   render() {
@@ -30,15 +30,28 @@ class BookDetails extends React.Component {
     return (
       <>
         <div className="container">
+          <div className="hover my-3 px-0 btn d-flex justify-content-start" onClick={this.setView} style={{ cursor: 'pointer' }}>&lt; Back to Search</div>
+
           <div className="col-md-6 mb-4 mx-auto">
-            <div className="card text-center" style={{ width: '100%' }} onClick={this.props.view} id={this.state.book.bookId}>
-              <img src={this.state.book.image} className="card-img-top"></img>
+            <div className="card text-center" style={{ width: '100%' }} id={this.state.book.bookId}>
+              <img src="/images/no-image-available.png" className="card-img-top img-thumbnail mt-2"></img>
               <div className="card-body">
                 <h5 className="card-title">{this.state.book.name}</h5>
                 <p className="card-text">{this.state.book.author}</p>
-                <p className="card-text">{this.state.book.shortDescription}</p>
-                <a className="btn btn-primary">More information</a>
 
+                <a className="btn btn-primary">Share</a>
+                <a className="btn btn-primary ml-4">Add to my list</a>
+                <div className="row">
+                  <div className="col-md-6">
+                    <p className="text-muted text-uppercase">Genre</p>
+                    <p>{this.state.book.genre}</p>
+                  </div>
+                  <div className="col-md-6">
+                    <p className="text-muted text-uppercase">Released</p>
+                    <p>{this.state.book.releaseYear}</p>
+                  </div>
+                </div>
+                <p className="card-text">{this.state.book.shortDescription}</p>
               </div>
             </div>
           </div>
