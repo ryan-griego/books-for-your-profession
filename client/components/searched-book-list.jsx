@@ -16,20 +16,20 @@ class SearchedBookList extends React.Component {
     const apiKey = 'AIzaSyCVzgENyKeQd7d3p8xZecRg5JQoM0D_X1I';
     // const book = encodeURIComponent(this.state.searchField);
     const that = this;
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=' + 'the%20giver' + '&key=' + ${apiKey} + '&maxResults=5`)
+    fetch('https://www.googleapis.com/books/v1/volumes?q=' + 'the%20giver' + '&key=' + apiKey + '&maxResults=5')
       .then(function (res) {
         return res.json();
 
       })
       .then(function (result) {
-        // const title = result.items[0].volumeInfo.title;
-        // const author = result.items[0].volumeInfo.authors.toString();
-        // const publishedDate = result.items[0].volumeInfo.publishedDate;
-        // const publishedYear = publishedDate.slice(0, 4);
-        // const genre = result.items[0].volumeInfo.categories[0];
+        const title = result.items[0].volumeInfo.title;
+        const author = result.items[0].volumeInfo.authors.toString();
+        const publishedDate = result.items[0].volumeInfo.publishedDate;
+        const publishedYear = publishedDate.slice(0, 4);
+        const genre = result.items[0].volumeInfo.categories[0];
         that.setState({ books: [...result.items] });
 
-        // const description = result.items[0].volumeInfo.description;
+        const description = result.items[0].volumeInfo.description;
         that.setView(event);
       }),
     function (error) {
@@ -42,10 +42,10 @@ class SearchedBookList extends React.Component {
   }
 
   setView(e) {
-    // needs work
+    console.log('log the e', e);
 
     // this.props.view('bookDetails', { });
-    // console.log('log this.props', this.props);
+    console.log('log this.props', this.props);
 
   }
 
