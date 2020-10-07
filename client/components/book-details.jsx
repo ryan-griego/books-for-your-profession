@@ -4,8 +4,7 @@ class BookDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      book: null,
-      testProduct: { name: 'Neuromancer', author: 'William Gibson', genre: 'Science Fiction', releaseYear: 1984, shortDescription: 'The first book added to this list' }
+      book: null
 
     };
     this.setView = this.setView.bind(this);

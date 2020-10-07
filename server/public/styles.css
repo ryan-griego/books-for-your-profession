@@ -18,8 +18,19 @@ body {
   background-size: cover;
   background-position: center center;
   font-family: 'Open Sans', sans-serif;
+
 }
 
+  body:before {
+    content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+	opacity: .8;
+  }
 /**
  * Add the correct display in IE 9-.
  */
@@ -807,6 +818,7 @@ legend {
 .card-img-top {
     width: 85%;
     margin: 0 auto;
+    margin-top: 1rem;
 }
 
 .card-title {
