@@ -14,21 +14,16 @@ class SearchedBookList extends React.Component {
 
   getGoogleBooks(event) {
     const apiKey = 'AIzaSyCVzgENyKeQd7d3p8xZecRg5JQoM0D_X1I';
+    // THIS WILL NEED TO BE CHANGED BACK SO USER CAN ENTER ANY BOOK TITLE
     // const book = encodeURIComponent(this.state.searchField);
     const that = this;
-    fetch('https://www.googleapis.com/books/v1/volumes?q=' + 'the%20giver' + '&key=' + apiKey + '&maxResults=5')
+    fetch('https://www.googleapis.com/books/v1/volumes?q=' + 'javascript' + '&key=' + apiKey + '&maxResults=5')
       .then(function (res) {
         return res.json();
 
       })
       .then(function (result) {
-        const title = result.items[0].volumeInfo.title;
-        const author = result.items[0].volumeInfo.authors.toString();
-        const publishedDate = result.items[0].volumeInfo.publishedDate;
-        const publishedYear = publishedDate.slice(0, 4);
-        const genre = result.items[0].volumeInfo.categories[0];
         that.setState({ books: [...result.items] });
-
         const description = result.items[0].volumeInfo.description;
         that.setView(event);
       }),
@@ -42,16 +37,12 @@ class SearchedBookList extends React.Component {
   }
 
   setView(e) {
-    console.log('log the e', e);
-
-    // this.props.view('bookDetails', { });
-    console.log('log this.props', this.props);
-
+    const bookIsbn = e.currentTarget.getAttribute('isbn');
+    this.props.view('searchBookDetails', { bookIsbn });
   }
 
   render() {
     // need to add a screen letting the user know that there are no books with that title
-
     const bookCount = this.state.books.length;
     const messageCheck = bookCount <= 0 ? 'There are no books listed for the title' : '';
     // if (this.state.books.error) {
@@ -74,9 +65,10 @@ class SearchedBookList extends React.Component {
               {messageCheck}
               {
                 this.state.books.map((book, index) => {
-
                   return <SearchedBookListItem
                     key={index}
+                    isbn={book.volumeInfo.industryIdentifiers[0].identifier}
+                    id={book.id}
                     book={book.volumeInfo}
                     image={book.volumeInfo.imageLinks.thumbnail}
                     name={book.volumeInfo.title}

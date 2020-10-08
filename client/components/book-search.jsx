@@ -15,8 +15,7 @@ class BookSearch extends React.Component {
   }
 
   setView(e) {
-    // this function needs to change
-    // const searchedBook = $(e.target).find('.jwfbbd').attr('value');
+
     const bookResults = this.state.books;
     this.props.view('searchBookList', { bookResults });
   }
@@ -41,7 +40,6 @@ class BookSearch extends React.Component {
           <div className="col-md-8 p-lg-5 mx-auto my-5">
             <h1 className="display-4 font-weight-normal">ValueReads</h1>
             <h2><strong>AN ONLINE COMMUNITY BUILDING THE MOST COMPREHENSIVE LIST OF INFLUENTIAL BOOKS FOR ALL PROFESSIONS</strong></h2>
-            <a className="btn btn-outline-secondary" href="#">Coming soon</a>
             <div className="s003" >
               <form onSubmit={this.handleSubmit}>
 

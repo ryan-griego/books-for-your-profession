@@ -21,6 +21,7 @@ class BookDetails extends React.Component {
   }
 
   setView(e) {
+
     this.props.view('searchByProfession', {});
   }
 
@@ -40,6 +41,8 @@ class BookDetails extends React.Component {
 
                 <a className="btn btn-primary">Share</a>
                 <a className="btn btn-primary ml-4">Add to my list</a>
+                <a className="btn btn-primary ml-4" onClick={this.setView}>Back to search</a>
+
                 <div className="row">
                   <div className="col-md-6">
                     <p className="text-muted text-uppercase">Genre</p>
