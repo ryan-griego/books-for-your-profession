@@ -8,8 +8,6 @@ class ProfessionBookList extends React.Component {
       books: []
 
     };
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
     this.setView = this.setView.bind(this);
   }
 
