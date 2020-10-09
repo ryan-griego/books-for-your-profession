@@ -41,7 +41,8 @@ class SearchBookDetails extends React.Component {
   setViewSearch(e) {
     // Works when i make this new function
     const bookObject = this.state.book;
-    this.props.view('searchByBook', { });
+    this.props.view('search', { });
+    console.log('setViewSearch was activated');
   }
 
   render() {

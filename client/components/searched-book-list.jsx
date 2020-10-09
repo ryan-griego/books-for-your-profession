@@ -13,8 +13,8 @@ class SearchedBookList extends React.Component {
   }
 
   getGoogleBooks(event) {
-    const apiKey = 'AIzaSyCVzgENyKeQd7d3p8xZecRg5JQoM0D_X1I';
     // THIS WILL NEED TO BE CHANGED BACK SO USER CAN ENTER ANY BOOK TITLE
+    const apiKey = process.env.REACT_APP_GOOGLE_BOOKS_API;
     // const book = encodeURIComponent(this.state.searchField);
     const that = this;
     fetch('https://www.googleapis.com/books/v1/volumes?q=' + 'javascript' + '&key=' + apiKey + '&maxResults=5')

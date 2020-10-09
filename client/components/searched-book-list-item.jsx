@@ -14,7 +14,6 @@ class SearchedBookListItem extends React.Component {
             <img src={this.props.book.imageLinks.thumbnail} className="card-img-top"></img>
             <div className="card-body">
               <h5 className="card-title">{this.props.name}</h5>
-              <h5 className="card-title">{this.props.isbn}</h5>
 
               <p className="card-text">{this.props.author}</p>
               <p className="card-text">Published: {releaseYear}</p>
