@@ -9,8 +9,10 @@ class Search extends React.Component {
     this.state = {
       profession: '',
       books: [],
-      searchField: ''
+      searchField: '',
+      message: ''
     };
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setView = this.setView.bind(this);
@@ -56,9 +58,7 @@ class Search extends React.Component {
   }
 
   render() {
-    console.log('log this.state.viewSearchType', this.props.searchType);
 
-    console.log('in the render function in search.jsx');
     const allProfessions = professions.map(profession => {
       return {
         key: profession.toLowerCase(),
@@ -113,7 +113,7 @@ class Search extends React.Component {
               <div className="s003" >
                 <form onSubmit={this.handleSubmit}>
 
-                  <input type="text" placeholder="Enter a book name" onChange={this.handleChange} />
+                  <input type="text" className="book-search-bar" placeholder="Enter a book name" onChange={this.handleChange} />
                   <input type="submit" value="Search" className="btn btn-success search-button" />
                 </form>
               </div>

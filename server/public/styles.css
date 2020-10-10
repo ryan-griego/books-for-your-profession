@@ -323,11 +323,19 @@ button:-moz-focusring,
   outline: 1px dotted ButtonText;
 }
 
+
 /** Search bar button edit **/
 
 .search-button {
   margin-left: 10px;
   height: 50%;
+}
+
+.book-search-bar {
+  border-radius: 5px;
+  width: 135%;
+  font-size: 14px;
+  padding: 10px 20px;
 }
 
 /**
