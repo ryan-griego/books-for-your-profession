@@ -3,9 +3,9 @@ import React from 'react';
 class BookListItem extends React.Component {
 
   render() {
-    console.log("what is the this.props.searchType inside book-list-item?", this.props.searchType);
+    console.log('what is the this.props.searchType inside book-list-item?', this.props.searchType);
     // if statement - if user was searching by profession
-    if (this.props.searchType == 'profession') {
+    if (this.props.searchType == 'profession' || this.props.searchType == 'user') {
 
       return (
         <>

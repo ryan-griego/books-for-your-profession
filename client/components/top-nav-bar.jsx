@@ -11,14 +11,17 @@ class TopNavBar extends React.Component {
   }
 
   setView(e) {
+    const searchType = e.currentTarget.id;
+    if (searchType == 'user') {
+      this.props.view('bookList', searchType, {});
 
-    let searchType = e.currentTarget.id;
-    this.props.view('search', searchType, { });
+    } else {
+
+      this.props.view('search', searchType, { });
     }
-
+  }
 
   render() {
-
 
     return (
       <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
