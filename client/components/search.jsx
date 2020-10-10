@@ -25,14 +25,16 @@ class Search extends React.Component {
       console.log('log the current search type', this.props.searchType);
 
       const currentProfession = $(e.target).find('.jwfbbd').attr('value');
-      console.log('log the professsion searched - currentProfession', currentProfession);
 
       this.props.view('bookList', this.props.searchType, { currentProfession });
-      console.log('log this.props.view.name', this.props.view.name);
 
     } else if (this.props.searchType == 'book') {
+      console.log("What is the $(e.target)", $(e.target));
+      const searchedBook = $(e.target).find('.book-search-bar').attr('value');
+      console.log("tell me the searchedBook in search.jsx", searchedBook);
+
       const bookResults = this.state.books;
-      this.props.view('bookList', this.props.searchType, { bookResults });
+      this.props.view('bookList', this.props.searchType, { searchedBook });
     }
   }
 
@@ -53,6 +55,9 @@ class Search extends React.Component {
       this.setState({ searchField: event.target.value });
 
       this.setView(event);
+      console.log("tell me the event value in handleSubmit in search.jsx", event);
+      console.log("tell me the event.currentTarget value in handleSubmit in search.jsx", event.currentTarget);
+
     }
 
   }
@@ -113,7 +118,7 @@ class Search extends React.Component {
               <div className="s003" >
                 <form onSubmit={this.handleSubmit}>
 
-                  <input type="text" className="book-search-bar" placeholder="Enter a book name" onChange={this.handleChange} />
+                  <input type="text" className="book-search-bar" placeholder="Enter a book name" onChange={this.handleChange} value={this.state.searchField}/>
                   <input type="submit" value="Search" className="btn btn-success search-button" />
                 </form>
               </div>
