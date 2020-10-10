@@ -92,7 +92,7 @@ class BookDetails extends React.Component {
                   <p className="card-text">{this.state.book.author}</p>
 
                   <a className="btn btn-primary">Share</a>
-                  <a className="btn btn-primary ml-4">Add to my list</a>
+                  <a className="btn btn-primary ml-4">Add to my book list</a>
 
                   <div className="row">
                     <div className="col-md-6">
@@ -120,7 +120,12 @@ class BookDetails extends React.Component {
       const limitedDescription = description.slice(0, count) + (description.length > count ? '...' : '');
 
       const releaseYear = this.state.book.publishedDate.slice(0, 4);
-      console.log('log the book state.volumeInfo on the details page', this.state.book);
+      let bookObject = this.state.book;
+
+
+
+      // this.props.view('bookDetails', this.props.searchType, { bookObject });
+
       return (
         <>
           <div className="container">
@@ -135,7 +140,7 @@ class BookDetails extends React.Component {
                   <p className="card-text">{this.state.book.authors}</p>
 
                   <a className="btn btn-primary">Share</a>
-                  <a className="btn btn-primary ml-4">Add to my list</a>
+                  <a className="btn btn-primary ml-4" onClick={this.props.add}>Add to my list</a>
 
                   <div className="row">
                     <div className="col-md-6">
