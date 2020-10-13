@@ -22,6 +22,7 @@ class ToggleNavBar extends React.Component {
   }
 
   render() {
+
     const links = document.getElementsByTagName('A');
     links.onclick = this.backdropClickHandler;
     let sideDrawer = null;

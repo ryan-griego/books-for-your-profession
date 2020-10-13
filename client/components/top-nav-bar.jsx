@@ -12,24 +12,28 @@ class TopNavBar extends React.Component {
 
   setView(e) {
     const searchType = e.currentTarget.id;
-    console.log("my list was clicked!");
-    console.log("log the searchType variable", searchType);
+    console.log('my list was clicked!');
+    console.log('log the searchType variable', searchType);
 
     if (searchType == 'user') {
       this.props.view('bookList', searchType, { });
-      console.log("log this.props.view.params", this.props.viewParams);
+      console.log('log this.props.view.params', this.props.viewParams);
 
-    } else if(searchType == 'profession' || searchType == 'book') {
+    } else if (searchType == 'profession' || searchType == 'book') {
 
       this.props.view('search', searchType, { });
     }
   }
 
   render() {
+    console.log("log the books state from app.jsx - this.props.bookList", this.props.bookList);
+
 
     return (
-      <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
-
+      <nav className="navbar navbar-expand-sm navbar-dark">
+        <a className="navbar-brand" href="#">
+          <img src="images/logo.png" width="60" height="60" alt=""/>
+  </a>
         <a className="navbar-brand" href="#">ValueReads</a>
 
         <ul className="navbar-nav ml-auto">
@@ -44,10 +48,10 @@ class TopNavBar extends React.Component {
             </div>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">Log in</a>
+            <a className="nav-link" href="#" onClick={this.setView} id="user">My List</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#" onClick={this.setView} id="user">My List</a>
+            <a className="nav-link" href="#">Log in</a>
           </li>
 
         </ul>
