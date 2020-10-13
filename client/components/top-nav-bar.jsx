@@ -12,10 +12,14 @@ class TopNavBar extends React.Component {
 
   setView(e) {
     const searchType = e.currentTarget.id;
-    if (searchType == 'user') {
-      this.props.view('bookList', searchType, {});
+    console.log("my list was clicked!");
+    console.log("log the searchType variable", searchType);
 
-    } else {
+    if (searchType == 'user') {
+      this.props.view('bookList', searchType, { });
+      console.log("log this.props.view.params", this.props.viewParams);
+
+    } else if(searchType == 'profession' || searchType == 'book') {
 
       this.props.view('search', searchType, { });
     }

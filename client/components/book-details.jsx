@@ -67,7 +67,7 @@ class BookDetails extends React.Component {
   backToSearch() {
     // Works when i make this new function
     // This cannot stay at changing the searchtype to book and has to go back to home eventually
-    this.props.view('search', 'profession', {});
+    this.props.view('search', this.props.searchType, {});
     console.log('backToSearch was activated');
   }
 
@@ -83,10 +83,11 @@ class BookDetails extends React.Component {
           <div className="container">
 
             <div className="col-md-6 mb-4 mx-auto">
-              <div className="hover my-3 px-0 btn d-flex justify-content-start" onClick={this.backToSearch} style={{ cursor: 'pointer' }}>&lt; Back to Search</div>
+              {/need to put an back to home page when user list page is being displayed/}
+              <div className="hover my-3 px-0 btn d-flex justify-content-start" disabled={disabled} onClick={this.backToSearch} style={{ cursor: 'pointer' }}>&lt; Back to Search</div>
 
               <div className="card text-center" style={{ width: '100%' }} id={this.state.book.bookId}>
-                <img src="" className="card-img-top img-thumbnail mt-2"></img>
+                <img src={this.state.book.imageurl} className="card-img-top img-thumbnail mt-2"></img>
                 <div className="card-body">
                   <h5 className="card-title">{this.state.book.name}</h5>
                   <p className="card-text">{this.state.book.author}</p>

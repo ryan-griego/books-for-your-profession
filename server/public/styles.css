@@ -20,7 +20,7 @@ body {
   font-family: 'Open Sans', sans-serif;
 
 }
-
+/*
   body:before {
     content: '';
 	position: absolute;
@@ -30,7 +30,7 @@ body {
 	left: 0;
 	background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
 	opacity: .8;
-  }
+  } */
 /**
  * Add the correct display in IE 9-.
  */
