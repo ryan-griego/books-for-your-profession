@@ -15,7 +15,6 @@ class BookDetails extends React.Component {
   getGoogleBooksByIsbn() {
     // console.log("tell me the isbn from book-details", this.props.viewParams.bookIsbn);
     const isbn = this.props.viewParams.bookIsbn;
-    console.log('tell me the isbn from book-details', isbn);
 
     const that = this;
     fetch('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn)
@@ -24,11 +23,9 @@ class BookDetails extends React.Component {
 
       })
       .then(function (result) {
-        console.log('tell me the state of books in book-details', that.state.book);
 
         that.setState({ book: result.items[0].volumeInfo });
         that.setView();
-        console.log('tell me the state of books in book-details', that.state.book);
       }),
     function (error) {
       console.log(error);
@@ -36,8 +33,6 @@ class BookDetails extends React.Component {
   }
 
   getGoogleBooksById() {
-    // console.log("tell me the isbn from book-details", this.props.viewParams.bookIsbn);
-    console.log("log the this.props.viewParams", this.props.viewParams);
     const id = this.props.viewParams.bookId;
 
     const that = this;
@@ -47,20 +42,16 @@ class BookDetails extends React.Component {
 
       })
       .then(function (result) {
-        console.log('tell me the state of books in book-details', that.state.book);
-
         that.setState({ book: result.items[0].volumeInfo });
         that.setView();
-        console.log('tell me the state of books in book-details', that.state.book);
       }),
-      function (error) {
-        console.log(error);
-      };
+    function (error) {
+      console.log(error);
+    };
   }
 
   componentDidMount() {
-    // if statement here
-    if (this.props.searchType == 'profession' || this.props.searchType == 'user') {
+    if (this.props.searchType === 'profession' || this.props.searchType === 'user') {
 
       fetch(`/api/books/id/${this.props.viewParams.bookId}`)
         .then(response => response.json())
@@ -71,8 +62,7 @@ class BookDetails extends React.Component {
 
     }
 
-    // if else statement here
-    if (this.props.searchType == 'book') {
+    if (this.props.searchType === 'book') {
       this.getGoogleBooksById();
     }
 
@@ -80,20 +70,15 @@ class BookDetails extends React.Component {
 
   setView(e) {
 
-    // this.props.view('search', {});
-    if (this.props.searchType == 'book') {
+    if (this.props.searchType === 'book') {
       const bookObject = this.state.book;
-      console.log('log the bookObject', bookObject);
 
       this.props.view('bookDetails', this.props.searchType, { bookObject });
     }
   }
 
   backToSearch() {
-    // Works when i make this new function
-    // This cannot stay at changing the searchtype to book and has to go back to home eventually
     this.props.view('search', this.props.searchType, {});
-    console.log('backToSearch was activated');
   }
 
   backToUserList() {
@@ -101,17 +86,16 @@ class BookDetails extends React.Component {
   }
 
   render() {
-    if (!this.state.book) return null;
-    console.log('show me the state of book', this.state.book);
-    if (this.props.searchType == 'profession' || this.props.searchType == 'user') {
 
-      const checkSearchButton = this.props.searchType == 'profession' ? this.backToSearch : this.backToUserList;
-      const checkSearchText = this.props.searchType == 'profession' ? 'Back to Profession Search' : 'Back to my List';
+    if (!this.state.book) return null;
+    if (this.props.searchType === 'profession' || this.props.searchType === 'user') {
+
+      const checkSearchButton = this.props.searchType === 'profession' ? this.backToSearch : this.backToUserList;
+      const checkSearchText = this.props.searchType === 'profession' ? 'Back to Profession Search' : 'Back to my List';
 
       const count = 300;
-      const description = this.state.book.description;
+      const description = this.state.book.shortDescription;
       const descriptionText = description ? description.slice(0, count) + (description.length > count ? '...' : '') : ' There currently is no description for this book title.';
-
       return (
         <>
           <div className="container">
@@ -125,7 +109,6 @@ class BookDetails extends React.Component {
                   <h5 className="card-title">{this.state.book.name}</h5>
                   <p className="card-text">{this.state.book.author}</p>
                   <p className="card-text">{this.props.message}</p>
-
 
                   <a className="btn btn-primary">Share</a>
                   <a className="btn btn-primary ml-4">Add to my book list</a>
@@ -150,18 +133,11 @@ class BookDetails extends React.Component {
         </>
 
       );
-    } else if (this.props.searchType == 'book') {
+    } else if (this.props.searchType === 'book') {
       const count = 300;
       const description = this.state.book.description;
       const descriptionText = description ? description.slice(0, count) + (description.length > count ? '...' : '') : ' There currently is no description for this book title.';
-
-      // const releaseYear = this.state.book.publishedDate.slice(0, 4);
-      // const bookObject = this.state.book;
-
-
-
-      // this.props.view('bookDetails', this.props.searchType, { bookObject });
-
+      const joinAuthor = this.state.book.authors.join(' ');
       return (
         <>
           <div className="container">
@@ -173,7 +149,7 @@ class BookDetails extends React.Component {
                 <img src={this.state.book.imageLinks.thumbnail} className="card-img-top img-thumbnail mt-2"></img>
                 <div className="card-body">
                   <h5 className="card-title">{this.state.book.title}</h5>
-                  <p className="card-text">{this.state.book.authors}</p>
+                  <p className="card-text">By {joinAuthor}</p>
                   <p className="card-text">{this.props.message}</p>
 
                   <a className="btn btn-primary">Share</a>

@@ -12,29 +12,24 @@ class TopNavBar extends React.Component {
 
   setView(e) {
     const searchType = e.currentTarget.id;
-    console.log('my list was clicked!');
-    console.log('log the searchType variable', searchType);
 
-    if (searchType == 'user') {
+    if (searchType === 'user') {
       this.props.view('bookList', searchType, { });
-      console.log('log this.props.view.params', this.props.viewParams);
-
-    } else if (searchType == 'profession' || searchType == 'book') {
+      this.props.getUserList();
+    } else if (searchType === 'profession' || searchType === 'book') {
 
       this.props.view('search', searchType, { });
     }
   }
 
   render() {
-    console.log("log the books state from app.jsx - this.props.bookList", this.props.bookList);
-
 
     return (
       <nav className="navbar navbar-expand-sm navbar-dark">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="#" onClick={this.setView}>
           <img src="images/logo.png" width="60" height="60" alt=""/>
-  </a>
-        <a className="navbar-brand" href="#">ValueReads</a>
+        </a>
+        <a className="navbar-brand" href="#" onClick={this.setView}>ValueReads</a>
 
         <ul className="navbar-nav ml-auto">
           <li className="nav-item dropdown">

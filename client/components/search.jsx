@@ -21,25 +21,19 @@ class Search extends React.Component {
 
   setView(e) {
 
-    if (this.props.searchType == 'profession') {
-      console.log('log the current search type', this.props.searchType);
-
+    if (this.props.searchType === 'profession') {
       const currentProfession = $(e.target).find('.jwfbbd').attr('value');
-
       this.props.view('bookList', this.props.searchType, { currentProfession });
 
-    } else if (this.props.searchType == 'book') {
-      console.log("What is the $(e.target)", $(e.target));
+    } else if (this.props.searchType === 'book') {
       const searchedBook = $(e.target).find('.book-search-bar').attr('value');
-      console.log("tell me the searchedBook in search.jsx", searchedBook);
 
-      const bookResults = this.state.books;
       this.props.view('bookList', this.props.searchType, { searchedBook });
     }
   }
 
   handleChange(event) {
-    if (this.props.searchType == 'profession') {
+    if (this.props.searchType === 'profession') {
       this.setState({ profession: event.target.value });
     } else if (this.props.searchType == 'book') {
       this.setState({ searchField: event.target.value });
@@ -48,15 +42,13 @@ class Search extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    if (this.props.searchType == 'profession') {
+    if (this.props.searchType === 'profession') {
       this.setState({ profession: event.target.value });
       this.setView(event);
-    } else if (this.props.searchType == 'book') {
+    } else if (this.props.searchType === 'book') {
       this.setState({ searchField: event.target.value });
 
       this.setView(event);
-      console.log("tell me the event value in handleSubmit in search.jsx", event);
-      console.log("tell me the event.currentTarget value in handleSubmit in search.jsx", event.currentTarget);
 
     }
 
@@ -108,7 +100,7 @@ class Search extends React.Component {
         </div>
       );
 
-    } else if (this.props.searchType == 'book') {
+    } else if (this.props.searchType === 'book') {
       return (
         <div className="container-fluid">
           <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
