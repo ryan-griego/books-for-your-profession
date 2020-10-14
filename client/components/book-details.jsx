@@ -75,6 +75,8 @@ class BookDetails extends React.Component {
 
       this.props.view('bookDetails', this.props.searchType, { bookObject });
     }
+
+
   }
 
   backToSearch() {
@@ -87,8 +89,9 @@ class BookDetails extends React.Component {
 
   render() {
 
+    // console.log("log this.props.viewParams", this.props.viewParams);
     if (!this.state.book) return null;
-    if (this.props.searchType === 'profession' || this.props.searchType === 'user') {
+    if (this.props.searchType === 'profession') {
 
       const checkSearchButton = this.props.searchType === 'profession' ? this.backToSearch : this.backToUserList;
       const checkSearchText = this.props.searchType === 'profession' ? 'Back to Profession Search' : 'Back to my List';
@@ -175,6 +178,53 @@ class BookDetails extends React.Component {
         </>
 
       );
+    } else if (this.props.searchType === 'user') {
+
+      const checkSearchButton = this.props.searchType === 'profession' ? this.backToSearch : this.backToUserList;
+      const checkSearchText = this.props.searchType === 'profession' ? 'Back to Profession Search' : 'Back to my List';
+
+      const count = 300;
+      const description = this.state.book.shortDescription;
+      const descriptionText = description ? description.slice(0, count) + (description.length > count ? '...' : '') : ' There currently is no description for this book title.';
+      return (
+        <>
+          <div className="container">
+
+            <div className="col-md-6 mb-4 mx-auto">
+              <div className="hover my-3 px-0 btn d-flex justify-content-start" onClick={checkSearchButton} style={{ cursor: 'pointer' }}>&lt; {checkSearchText}</div>
+
+              <div className="card text-center" style={{ width: '100%' }} id={this.state.book.bookId}>
+                <img src={this.state.book.imageurl} className="card-img-top img-thumbnail mt-2"></img>
+                <div className="card-body">
+                  <h5 className="card-title">{this.state.book.name}</h5>
+                  <p className="card-text">{this.state.book.author}</p>
+                  <p className="card-text">{this.props.message}</p>
+
+                  <a className="btn btn-primary">Share</a>
+                  <a className="btn btn-primary ml-4" onClick={this.props.delete}>Delete from my book list</a>
+
+                  <div className="row">
+                    <div className="col-md-6">
+                      <p className="text-muted text-uppercase">Genre</p>
+                      <p>{this.state.book.genre}</p>
+                    </div>
+                    <div className="col-md-6">
+                      <p className="text-muted text-uppercase">Released</p>
+                      <p>{this.state.book.releaseYear}</p>
+                    </div>
+                  </div>
+                  <p className="card-text">{descriptionText}</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </>
+
+      );
+
+
     }
   }
 
