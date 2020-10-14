@@ -23,14 +23,16 @@ body {
 
   body:before {
     content: '';
-	position: absolute;
+	position: fixed;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+	background-image: linear-gradient(to bottom right,#0d4964,#dc4225);
 	opacity: .8;
   }
+
+
 /**
  * Add the correct display in IE 9-.
  */
@@ -807,9 +809,22 @@ legend {
 }
 
 
+/** Navigation Styling Updates **/
+.navbar {
+background-color: #0d4964;
+
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-family: 'Libre Baskerville', serif;
+  font-weight:bold;
+}
+
 /** Text Styling Updates **/
 .btn {
   color:white;
+  z-index:100;
 }
 
 /** Card Styling Updates **/
