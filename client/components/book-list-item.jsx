@@ -5,11 +5,13 @@ class BookListItem extends React.Component {
   render() {
 
     const count = 300;
-    const description = this.props.shortDescription;
-    const descriptionText = description ? description.slice(0, count) + (description.length > count ? '...' : '') : ' There currently is no description for this book title.';
+    console.log("log the product descriptoin", this.props.shortDescription);
+    const description = this.props.shortDescription ? this.props.shortDescription.replace(/(<([^>]+)>)/gi, "") : 'No description available';
+
+    const descriptionText = description.slice(0, count) + (description.length > count ? '...' : '');
 
     if (this.props.searchType === 'profession' || this.props.searchType === 'user') {
-
+      console.log("log this.props", this.props);
       return (
         <>
           <div className="col-md-4 mb-4">
@@ -35,7 +37,7 @@ class BookListItem extends React.Component {
       return (
         <>
           <div className="col-md-4 mb-4">
-            <div className="card" style={{ width: '18rem' }} onClick={this.props.view} id={this.props.id}>
+            <div className="card" style={{ width: '18rem' }} onClick={this.props.view} id={this.props.id} selflink={this.props.link}>
               <img src={checkImage} className="card-img-top"></img>
               <div className="card-body">
                 <h5 className="card-title">{this.props.name}</h5>

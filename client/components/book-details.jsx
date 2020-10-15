@@ -13,7 +13,6 @@ class BookDetails extends React.Component {
   }
 
   getGoogleBooksByIsbn() {
-    // console.log("tell me the isbn from book-details", this.props.viewParams.bookIsbn);
     const isbn = this.props.viewParams.bookIsbn;
 
     const that = this;
@@ -33,10 +32,11 @@ class BookDetails extends React.Component {
   }
 
   getGoogleBooksById() {
+
     const id = this.props.viewParams.bookId;
 
     const that = this;
-    fetch('https://www.googleapis.com/books/v1/volumes?q=:' + id)
+    fetch('https://www.googleapis.com/books/v1/volumes?q=' + id)
       .then(function (res) {
         return res.json();
 
@@ -50,9 +50,29 @@ class BookDetails extends React.Component {
     };
   }
 
-  componentDidMount() {
-    if (this.props.searchType === 'profession' || this.props.searchType === 'user') {
+  getGoogleBooksBySelfLink() {
 
+    const selfLink = this.props.viewParams.selfLink;
+
+    const that = this;
+    fetch(`${selfLink}`)
+      .then(function (res) {
+        return res.json();
+
+      })
+      .then(function (result) {
+        console.log("log the result in getGoogleBooksBySelfLink", result.volumeInfo);
+        that.setState({ book: result.volumeInfo });
+        that.setView();
+      }),
+      function (error) {
+        console.log(error);
+      };
+  }
+
+  componentDidMount() {
+
+    if (this.props.searchType === 'profession' || this.props.searchType === 'user') {
       fetch(`/api/books/id/${this.props.viewParams.bookId}`)
         .then(response => response.json())
         .then(data => this.setState({ book: data }))
@@ -63,7 +83,7 @@ class BookDetails extends React.Component {
     }
 
     if (this.props.searchType === 'book') {
-      this.getGoogleBooksById();
+      this.getGoogleBooksBySelfLink();
     }
 
   }
@@ -99,6 +119,7 @@ class BookDetails extends React.Component {
       const count = 300;
       const description = this.state.book.shortDescription;
       const descriptionText = description ? description.slice(0, count) + (description.length > count ? '...' : '') : ' There currently is no description for this book title.';
+
       return (
         <>
           <div className="container">
@@ -137,10 +158,15 @@ class BookDetails extends React.Component {
 
       );
     } else if (this.props.searchType === 'book') {
+      console.log("log this.state.book from book-details", this.state.book);
       const count = 300;
-      const description = this.state.book.description;
-      const descriptionText = description ? description.slice(0, count) + (description.length > count ? '...' : '') : ' There currently is no description for this book title.';
-      const joinAuthor = this.state.book.authors.join(' ');
+      const description = this.state.book.description ? this.state.book.description.replace(/(<([^>]+)>)/gi, "") : 'No description available';
+
+      const descriptionText = description.slice(0, count) + (description.length > count ? '...' : '');
+      const joinAuthor = this.state.book.authors ? this.state.book.authors.join(' ') : 'No author listed';
+      const category = this.state.book.categories ? this.state.book.categories : 'N/A';
+      const publishedDate = this.state.book.publishedDate ? this.state.book.publishedDate : 'No release date listed'
+
       return (
         <>
           <div className="container">
@@ -152,7 +178,7 @@ class BookDetails extends React.Component {
                 <img src={this.state.book.imageLinks.thumbnail} className="card-img-top img-thumbnail mt-2"></img>
                 <div className="card-body">
                   <h5 className="card-title">{this.state.book.title}</h5>
-                  <p className="card-text">By {joinAuthor}</p>
+                  <p className="card-text">{joinAuthor}</p>
                   <p className="card-text">{this.props.message}</p>
 
                   <a className="btn btn-primary">Share</a>
@@ -161,11 +187,11 @@ class BookDetails extends React.Component {
                   <div className="row">
                     <div className="col-md-6">
                       <p className="text-muted text-uppercase">Genre</p>
-                      <p>{this.state.book.categories}</p>
+                      <p>{category}</p>
                     </div>
                     <div className="col-md-6">
                       <p className="text-muted text-uppercase">Released</p>
-                      <p>{this.state.book.publishedDate}</p>
+                      <p>{publishedDate}</p>
                     </div>
                   </div>
                   <p className="card-text">{descriptionText}</p>
@@ -201,7 +227,7 @@ class BookDetails extends React.Component {
                   <p className="card-text">{this.props.message}</p>
 
                   <a className="btn btn-primary">Share</a>
-                  <a className="btn btn-primary ml-4" onClick={this.props.delete}>Delete from my book list</a>
+                  <a className="btn btn-primary ml-4 btn-danger" onClick={this.props.delete}>Delete from my list</a>
 
                   <div className="row">
                     <div className="col-md-6">
