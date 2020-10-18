@@ -5,13 +5,11 @@ class BookListItem extends React.Component {
   render() {
 
     const count = 300;
-    console.log("log the product descriptoin", this.props.shortDescription);
     const description = this.props.shortDescription ? this.props.shortDescription.replace(/(<([^>]+)>)/gi, "") : 'No description available';
 
     const descriptionText = description.slice(0, count) + (description.length > count ? '...' : '');
 
     if (this.props.searchType === 'profession' || this.props.searchType === 'user') {
-      console.log("log this.props", this.props);
       return (
         <>
           <div className="col-md-4 mb-4">

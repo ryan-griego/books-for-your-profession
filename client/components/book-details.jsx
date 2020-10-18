@@ -1,4 +1,6 @@
 import React from 'react';
+import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
+
 
 class BookDetails extends React.Component {
   constructor(props) {
@@ -62,7 +64,7 @@ class BookDetails extends React.Component {
       })
       .then(function (result) {
         console.log("log the result in getGoogleBooksBySelfLink", result.volumeInfo);
-        that.setState({ book: result.volumeInfo });
+        that.setState({ book: result });
         that.setView();
       }),
       function (error) {
@@ -158,14 +160,27 @@ class BookDetails extends React.Component {
 
       );
     } else if (this.props.searchType === 'book') {
-      console.log("log this.state.book from book-details", this.state.book);
+      console.log("log this.props.message", this.props.message);
+      const bookExists = (
+        <Popover id="popover-basic">
+          <Popover.Title as="h3">Attention</Popover.Title>
+          <Popover.Content>
+            This book already exists in your list.
+      </Popover.Content>
+        </Popover>
+      );
+
+      const checkBook = this.props.message ? true : false;
+
+
+      console.log("log this.state.book.volumeInfo from book-details", this.state.book.volumeInfo);
       const count = 300;
-      const description = this.state.book.description ? this.state.book.description.replace(/(<([^>]+)>)/gi, "") : 'No description available';
+      const description = this.state.book.volumeInfo.description ? this.state.book.volumeInfo.description.replace(/(<([^>]+)>)/gi, "") : 'No description available';
 
       const descriptionText = description.slice(0, count) + (description.length > count ? '...' : '');
-      const joinAuthor = this.state.book.authors ? this.state.book.authors.join(' ') : 'No author listed';
-      const category = this.state.book.categories ? this.state.book.categories : 'N/A';
-      const publishedDate = this.state.book.publishedDate ? this.state.book.publishedDate : 'No release date listed'
+      const joinAuthor = this.state.book.volumeInfo.authors ? this.state.book.volumeInfo.authors.join(' ') : 'No author listed';
+      const category = this.state.book.volumeInfo.categories ? this.state.book.volumeInfo.categories : 'N/A';
+      const publishedDate = this.state.book.volumeInfo.publishedDate ? this.state.book.volumeInfo.publishedDate : 'No release date listed'
 
       return (
         <>
@@ -174,15 +189,17 @@ class BookDetails extends React.Component {
             <div className="col-md-6 mb-4 mx-auto">
               <div className="hover my-3 px-0 btn d-flex justify-content-start" onClick={this.backToSearch} style={{ cursor: 'pointer' }}>&lt; Back to Search</div>
 
-              <div className="card text-center" style={{ width: '100%' }} id={this.state.book.bookId}>
-                <img src={this.state.book.imageLinks.thumbnail} className="card-img-top img-thumbnail mt-2"></img>
+              <div className="card text-center" style={{ width: '100%' }} id={this.state.book.volumeInfo.bookId}>
+                <img src={this.state.book.volumeInfo.imageLinks.thumbnail} className="card-img-top img-thumbnail mt-2"></img>
                 <div className="card-body">
-                  <h5 className="card-title">{this.state.book.title}</h5>
+                  <h5 className="card-title">{this.state.book.volumeInfo.title}</h5>
                   <p className="card-text">{joinAuthor}</p>
-                  <p className="card-text">{this.props.message}</p>
 
                   <a className="btn btn-primary">Share</a>
-                  <a className="btn btn-primary ml-4" onClick={this.props.add}>Add to my list</a>
+                  <OverlayTrigger type="submit" value="Search" trigger="click" placement="bottom" overlay={bookExists} show={checkBook}>
+                    <a className="btn btn-primary ml-4" onClick={this.props.add}>Add to my list</a>
+
+                  </OverlayTrigger>
 
                   <div className="row">
                     <div className="col-md-6">

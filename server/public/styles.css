@@ -14,14 +14,14 @@ html {
  */
 body {
   margin: 0;
-  background-image: url('images/library-books.jpg');
+  background: linear-gradient(0deg, #0187c2 0%, #042d41 100%);
   background-size: cover;
   background-position: center center;
   font-family: 'Open Sans', sans-serif;
 
 }
 
-  body:before {
+  /* body:before {
     content: '';
 	position: fixed;
 	top: 0;
@@ -30,7 +30,7 @@ body {
 	left: 0;
 	background-image: linear-gradient(to bottom right,#0d4964,#dc4225);
 	opacity: .8;
-  }
+  } */
 
 
 /**
@@ -811,7 +811,7 @@ legend {
 
 /** Navigation Styling Updates **/
 .navbar {
-background-color: #0d4964;
+background-color: #042d41;
 
 }
 
