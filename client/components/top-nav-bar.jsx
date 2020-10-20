@@ -17,9 +17,13 @@ class TopNavBar extends React.Component {
       this.props.view('bookList', searchType, { });
       this.props.getUserList();
     } else if (searchType === 'profession' || searchType === 'book') {
-
+      console.log("log the state of books after clicking search book in nav", this.props.bookList);
+      console.log("log this.props.resetState", this.props.resetState);
+      this.props.resetState();
       this.props.view('search', searchType, { });
     }
+
+
   }
 
   render() {
