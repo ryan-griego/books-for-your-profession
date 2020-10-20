@@ -74,8 +74,23 @@ class BookDetails extends React.Component {
 
   componentDidMount() {
 
-    if (this.props.searchType === 'profession' || this.props.searchType === 'user') {
+    if (this.props.searchType === 'user') {
+      console.log("you hit rith before check profession");
+
       fetch(`/api/books/id/${this.props.viewParams.bookId}`)
+        .then(response => response.json())
+        .then(data => this.setState({ book: data }))
+        .catch(error => {
+          console.error('There was a problem with your fetch GET operation: ', error);
+        });
+
+    }
+
+    if (this.props.searchType === 'profession') {
+      console.log("you hit rith before check profession");
+      const clickedBook = this.props.viewParams["clickedBook"][0].bookId;
+      console.log("log the book that was clicked", this.props.viewParams["clickedBook"][0].bookId);
+      fetch(`/api/books/id/${clickedBook}`)
         .then(response => response.json())
         .then(data => this.setState({ book: data }))
         .catch(error => {
@@ -92,7 +107,8 @@ class BookDetails extends React.Component {
 
   setView(e) {
 
-    if (this.props.searchType === 'book') {
+    if (this.props.searchType === 'book' || this.props.searchType === 'profession') {
+      console.log("log this.state.book in setView in book-details", this.state.book);
       const bookObject = this.state.book;
 
       this.props.view('bookDetails', this.props.searchType, { bookObject });
@@ -113,13 +129,29 @@ class BookDetails extends React.Component {
 
     // console.log("log this.props.viewParams", this.props.viewParams);
     if (!this.state.book) return null;
+
+    const bookExists = (
+      <Popover id="popover-basic">
+        <Popover.Title as="h3">Attention</Popover.Title>
+        <Popover.Content>
+          This book already exists in your list.
+      </Popover.Content>
+      </Popover>
+    );
+
+    const checkBook = this.props.message ? true : false;
+
+
     if (this.props.searchType === 'profession') {
+      console.log("log this.state.book", this.state.book);
+
 
       const checkSearchButton = this.props.searchType === 'profession' ? this.backToSearch : this.backToUserList;
       const checkSearchText = this.props.searchType === 'profession' ? 'Back to Profession Search' : 'Back to my List';
 
       const count = 300;
-      const description = this.state.book.shortDescription;
+      const description = this.state.book.shortDescription ? this.state.book.shortDescription.replace(/(<([^>]+)>)/gi, "") : 'No description available';
+
       const descriptionText = description ? description.slice(0, count) + (description.length > count ? '...' : '') : ' There currently is no description for this book title.';
 
       return (
@@ -134,11 +166,12 @@ class BookDetails extends React.Component {
                 <div className="card-body">
                   <h5 className="card-title">{this.state.book.name}</h5>
                   <p className="card-text">{this.state.book.author}</p>
-                  <p className="card-text">{this.props.message}</p>
 
                   <a className="btn btn-primary">Share</a>
-                  <a className="btn btn-primary ml-4">Add to my book list</a>
+                  <OverlayTrigger type="submit" value="Search" trigger="click" placement="bottom" overlay={bookExists} show={checkBook}>
+                    <a className="btn btn-primary ml-4" onClick={this.props.add}>Add to my list</a>
 
+                  </OverlayTrigger>
                   <div className="row">
                     <div className="col-md-6">
                       <p className="text-muted text-uppercase">Genre</p>
@@ -161,16 +194,8 @@ class BookDetails extends React.Component {
       );
     } else if (this.props.searchType === 'book') {
       console.log("log this.props.message", this.props.message);
-      const bookExists = (
-        <Popover id="popover-basic">
-          <Popover.Title as="h3">Attention</Popover.Title>
-          <Popover.Content>
-            This book already exists in your list.
-      </Popover.Content>
-        </Popover>
-      );
 
-      const checkBook = this.props.message ? true : false;
+
 
 
       console.log("log this.state.book.volumeInfo from book-details", this.state.book.volumeInfo);

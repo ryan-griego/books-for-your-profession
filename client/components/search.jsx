@@ -29,6 +29,7 @@ class Search extends React.Component {
 
     if (this.props.searchType === 'profession') {
       const currentProfession = $(e.target).find('.jwfbbd').attr('value');
+      console.log("log the current profession in search.jsx", currentProfession);
       this.props.view('bookList', this.props.searchType, { currentProfession });
 
     } else if (this.props.searchType === 'book') {
@@ -54,12 +55,24 @@ class Search extends React.Component {
       return profession.toLowerCase();
     });
 
+    let searchValue = $(event.target).find('.jwfbbd').attr('value');
+    console.log("log the length of the search field", searchValue.length);
+    if (searchValue.length === 0) {
+      this.setState({ errorMessage: "There is no text entered in the search field" });
+
+
+    }
+
+
+
     if (this.props.searchType === 'profession') {
       let currentProfession = $(event.target).find('.jwfbbd').attr('value');
       console.log("log the currentProfession", currentProfession);
       const findProfession = newProfessions.indexOf(currentProfession);
       console.log(findProfession);
       if(findProfession === -1) {
+        this.setState({ errorMessage: "A profession with that name was not found." });
+
         console.log("a profession with that name was not found");
      }
       else {
@@ -81,12 +94,13 @@ class Search extends React.Component {
 
   checkProfession(currentProfession) {
     console.log("you triggered checkProfession");
+
     fetch(`/api/professions/${currentProfession}`)
       .then(response => {
         console.log("the the response.status", response.status);
         if(response.status === 404) {
           console.log("You got a 404 response");
-          this.setState({ errorMessage: 'profession' });
+          this.setState({ errorMessage: 'There are no books associated with that profession yet.' });
           return;
 
         }
@@ -116,15 +130,13 @@ class Search extends React.Component {
     console.log("you triggered checkGoogleBooks");
     fetch('https://www.googleapis.com/books/v1/volumes?q=' + book + '&maxResults=5')
       .then(response => {
-        console.log("the the response.status", response.status);
         if (response.status === 404) {
           console.log("You got a 404 response");
-          this.setState({ errorMessage: 'book' });
+          this.setState({ errorMessage: 'There are no books found with that title.' });
           return;
 
         }
         else if (response.status === 200) {
-          console.log("log the response in checkGoogleBooks", response)
           return response.json();
           // THIS IS WHERE WE CHANGE THE VIEW TO BOOKLIST IF THE CHECK WENT THROUGH
           // this.props.view('bookList', this.props.searchType, { book });
@@ -134,16 +146,14 @@ class Search extends React.Component {
       .then(data => {
 
         if(data.totalItems === 0) {
-          this.setState({ errorMessage: 'book' });
+          this.setState({ errorMessage: 'Unfortunately there are not yet any books found with that title.' });
 
-          console.log("no books were returned from api request");
           return;
         }
 
         else if(data.totalItems >= 1) {
         this.props.view('bookList', this.props.searchType, { book });
 
-        console.log('Success:', data);
         }
 
       })
@@ -165,21 +175,14 @@ class Search extends React.Component {
         <Popover id="popover-basic">
           <Popover.Title as="h3">Unavailable</Popover.Title>
           <Popover.Content>
-            Please use a profession title from the dropdown.
+            {this.state.errorMessage}
       </Popover.Content>
         </Popover>
       );
 
-      const noBooks = (
-        <Popover id="popover-basic">
-          <Popover.Title as="h3">Unavailable</Popover.Title>
-          <Popover.Content>
-            Unfortunately there are not yet any books listed for this profession.
-      </Popover.Content>
-        </Popover>
-      );
 
-      const checkPopover = errorMessage === "profession" ? noBooks : noProfession;
+
+      const checkPopover = errorMessage === "" ? false : true;
 
 
       const allProfessions = professions.map(profession => {
@@ -217,7 +220,7 @@ class Search extends React.Component {
                     }}
                     value=""
                   />
-                  <OverlayTrigger type="submit" value="Search" trigger="click" placement="bottom" overlay={checkPopover}>
+                  <OverlayTrigger type="submit" value="Search" trigger="click" placement="bottom" overlay={noProfession} show={checkPopover}>
                     <input type="submit" value="Search" className="btn btn-success search-button" />
 
                   </OverlayTrigger>
@@ -236,7 +239,6 @@ class Search extends React.Component {
 
     } else if (this.props.searchType === 'book') {
       const errorMessage = this.state.errorMessage;
-      console.log("log the error message from search.jsx", errorMessage);
 
 
 
@@ -245,7 +247,7 @@ class Search extends React.Component {
         <Popover id="popover-basic">
           <Popover.Title as="h3">Unavailable</Popover.Title>
           <Popover.Content>
-            Unfortunately there are not yet any books found with that title.
+            {this.state.errorMessage}
       </Popover.Content>
         </Popover>
       );
@@ -262,7 +264,7 @@ class Search extends React.Component {
               <div className="s003" >
                 <form onSubmit={this.handleSubmit}>
 
-                  <input type="text" className="book-search-bar" placeholder="Enter a book name" onChange={this.handleChange} value={this.state.searchField || ''}/>
+                  <input type="text" className="book-search-bar jwfbbd" placeholder="Enter a book name" onChange={this.handleChange} value={this.state.searchField || ''}/>
                   <OverlayTrigger type="submit" value="Search" trigger="click" placement="bottom" overlay={noBook} show={checkPopover}>
                     <input type="submit" value="Search" className="btn btn-success search-button" />
 
