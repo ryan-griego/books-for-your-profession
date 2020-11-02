@@ -17,10 +17,10 @@ class TopNavBar extends React.Component {
     if (searchType === 'user') {
 
       this.props.getUserList();
-      if(!this.props.loginStatus) {
+      if (!this.props.loginStatus) {
       } else {
-      this.props.view('bookList', searchType, { });
-    }
+        this.props.view('bookList', searchType, { });
+      }
     } else if (searchType === 'profession' || searchType === 'book') {
       this.props.resetState();
       this.props.view('search', searchType, { });
@@ -55,11 +55,9 @@ class TopNavBar extends React.Component {
         </Popover.Content>
       </Popover>
     );
-    if(this.props.loginStatus) {
+    if (this.props.loginStatus) {
       return (
-          <a className="nav-link" href="#" onClick={this.setView} id="user">My List</a>
-
-
+        <a className="nav-link" href="#" onClick={this.setView} id="user">My List</a>
 
       );
 
@@ -68,8 +66,6 @@ class TopNavBar extends React.Component {
   }
 
   render() {
-
-
 
     const checkBook = !!this.props.message;
 

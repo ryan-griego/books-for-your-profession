@@ -110,7 +110,6 @@ class Search extends React.Component {
         } else if (response.status === 200) {
           return response.json();
 
-
         }
       })
       .then(data => {
@@ -130,7 +129,7 @@ class Search extends React.Component {
 
   render() {
 
-    const renderTooltip = (props) => (
+    const renderTooltip = props => (
       <Tooltip id="button-tooltip" {...props}>
         Simple tooltip
       </Tooltip>
@@ -191,7 +190,6 @@ class Search extends React.Component {
                     <input type="submit" value="Search" className="btn btn-success search-button" />
 
                   </OverlayTrigger>
-
 
                 </form>
               </div>
