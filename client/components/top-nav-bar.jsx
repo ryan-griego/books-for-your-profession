@@ -13,16 +13,14 @@ class TopNavBar extends React.Component {
 
   setView(e) {
     const searchType = e.currentTarget.id;
-    console.log('you hit set view');
-    console.log('log the e.currentTarget.id', searchType);
-
-    console.log('log the search type', this.props.searchType);
 
     if (searchType === 'user') {
 
       this.props.getUserList();
-
-      // this.props.view('bookList', searchType, { });
+      if(!this.props.loginStatus) {
+      } else {
+      this.props.view('bookList', searchType, { });
+    }
     } else if (searchType === 'profession' || searchType === 'book') {
       this.props.resetState();
       this.props.view('search', searchType, { });
@@ -39,13 +37,12 @@ class TopNavBar extends React.Component {
     }
   }
 
-  render() {
-
+  checkLogin() {
     const noBooks = (
       <Popover id="popover-basic">
         <Popover.Title as="h3">Attention</Popover.Title>
         <Popover.Content>
-          {this.props.message}
+          {this.props.message}Not logged in
         </Popover.Content>
       </Popover>
     );
@@ -58,6 +55,21 @@ class TopNavBar extends React.Component {
         </Popover.Content>
       </Popover>
     );
+    if(this.props.loginStatus) {
+      return (
+          <a className="nav-link" href="#" onClick={this.setView} id="user">My List</a>
+
+
+
+      );
+
+    }
+
+  }
+
+  render() {
+
+
 
     const checkBook = !!this.props.message;
 
@@ -83,10 +95,8 @@ class TopNavBar extends React.Component {
           </li>
           <li className="nav-item px-2">
 
-            <OverlayTrigger trigger="focus" placement="bottom" flip={true} rootClose overlay={noBooks} show={checkBook}>
-              <a className="nav-link" href="#" onClick={this.setView} id="user">My List</a>
-
-            </OverlayTrigger>          </li>
+            {this.checkLogin()}
+          </li>
 
           <li className="nav-item px-2">
             <button type="button " className="btn btn-light" onClick={this.setView} id="log">{checkLoginStatus}</button>

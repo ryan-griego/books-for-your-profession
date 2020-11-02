@@ -120,23 +120,48 @@ class BookDetails extends React.Component {
     this.props.view('bookList', 'user', {});
   }
 
+  checkDetails() {
+
+    if (this.props.searchType === 'profession') {
+      const bookExists = (
+        <Popover id="popover-basic">
+          <Popover.Title as="h3">Attention</Popover.Title>
+          <Popover.Content>
+            This book already exists in your list.
+        </Popover.Content>
+        </Popover>
+      );
+
+      const checkBook = !!this.props.message;
+      return (
+        <OverlayTrigger type="submit" value="Search" trigger="click" placement="bottom" overlay={bookExists} show={checkBook}>
+          <a className="btn btn-primary" onClick={this.props.add}>Add to my list</a>
+
+        </OverlayTrigger>
+      );
+
+
+
+    }
+
+    else if (this.props.searchType === 'user') {
+      return (
+      <a className="btn btn-primary btn-danger" onClick={this.props.delete}>Delete from my list</a>
+
+      );
+
+
+    }
+
+  }
+
   render() {
 
     if (!this.state.book) return null;
 
-    const bookExists = (
-      <Popover id="popover-basic">
-        <Popover.Title as="h3">Attention</Popover.Title>
-        <Popover.Content>
-          This book already exists in your list.
-        </Popover.Content>
-      </Popover>
-    );
 
-    const checkBook = !!this.props.message;
 
-    if (this.props.searchType === 'profession') {
-      console.log('log this.state.book', this.state.book);
+    if (this.props.searchType === 'profession' || this.props.searchType === 'user') {
 
       const checkSearchButton = this.props.searchType === 'profession' ? this.backToSearch : this.backToUserList;
       const checkSearchText = this.props.searchType === 'profession' ? 'Back to Profession Search' : 'Back to my List';
@@ -145,6 +170,8 @@ class BookDetails extends React.Component {
       const description = this.state.book.shortDescription ? this.state.book.shortDescription.replace(/(<([^>]+)>)/gi, '') : 'No description available';
 
       const descriptionText = description ? description.slice(0, count) + (description.length > count ? '...' : '') : ' There currently is no description for this book title.';
+
+
 
       return (
         <>
@@ -160,10 +187,7 @@ class BookDetails extends React.Component {
                   <p className="card-text">{this.state.book.author}</p>
 
                   {/* <a className="btn btn-primary">Share</a> */}
-                  <OverlayTrigger type="submit" value="Search" trigger="click" placement="bottom" overlay={bookExists} show={checkBook}>
-                    <a className="btn btn-primary" onClick={this.props.add}>Add to my list</a>
-
-                  </OverlayTrigger>
+                  {this.checkDetails()}
                   <div className="row book-info">
                     <div className="col-md-6">
                       <p className="text-muted text-uppercase">Genre</p>
@@ -185,6 +209,16 @@ class BookDetails extends React.Component {
 
       );
     } else if (this.props.searchType === 'book') {
+      const bookExists = (
+        <Popover id="popover-basic">
+          <Popover.Title as="h3">Attention</Popover.Title>
+          <Popover.Content>
+            This book already exists in your list.
+        </Popover.Content>
+        </Popover>
+      );
+
+      const checkBook = !!this.props.message;
       const count = 300;
       const description = this.state.book.volumeInfo.description ? this.state.book.volumeInfo.description.replace(/(<([^>]+)>)/gi, '') : 'No description available';
       const checkImage = this.state.book.volumeInfo.imageLinks ? this.state.book.volumeInfo.imageLinks.thumbnail : 'images/no-image-available.png';
@@ -233,52 +267,7 @@ class BookDetails extends React.Component {
         </>
 
       );
-    } else if (this.props.searchType === 'user') {
 
-      const checkSearchButton = this.props.searchType === 'profession' ? this.backToSearch : this.backToUserList;
-      const checkSearchText = this.props.searchType === 'profession' ? 'Back to Profession Search' : 'Back to my List';
-
-      const count = 300;
-      const description = this.state.book.shortDescription ? this.state.book.shortDescription.replace(/(<([^>]+)>)/gi, '') : 'No description available';
-
-      const descriptionText = description ? description.slice(0, count) + (description.length > count ? '...' : '') : ' There currently is no description for this book title.';
-      return (
-        <>
-          <div className="container">
-
-            <div className="col-md-6 mb-4 mx-auto">
-              <div className="hover my-3 px-0 btn d-flex justify-content-start" onClick={checkSearchButton} style={{ cursor: 'pointer' }}>&lt; {checkSearchText}</div>
-
-              <div className="details-card fadeIn text-center" style={{ width: '100%' }} id={this.state.book.bookId}>
-                <img src={this.state.book.imageurl} className="card-img-top img-thumbnail mt-2"></img>
-                <div className="card-body">
-                  <h5 className="card-title text-center">{this.state.book.name}</h5>
-                  <p className="card-text text-center">{this.state.book.author}</p>
-                  <p className="card-text">{this.props.message}</p>
-
-                  {/* <a className="btn btn-primary">Share</a> */}
-                  <a className="btn btn-primary btn-danger" onClick={this.props.delete}>Delete from my list</a>
-
-                  <div className="row book-info">
-                    <div className="col-md-6">
-                      <p className="text-muted text-uppercase">Genre</p>
-                      <p>{this.state.book.genre}</p>
-                    </div>
-                    <div className="col-md-6">
-                      <p className="text-muted text-uppercase">Released</p>
-                      <p>{this.state.book.releaseYear}</p>
-                    </div>
-                  </div>
-                  <p className="card-text">{descriptionText}</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </>
-
-      );
     }
   }
 }
