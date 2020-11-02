@@ -1,7 +1,7 @@
 import React from 'react';
 import professions from 'professions';
 import ReactSearchBox from 'react-search-box';
-import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
+import { Button, OverlayTrigger, Popover, Tooltip } from 'react-bootstrap';
 
 const $ = window.$;
 
@@ -109,8 +109,7 @@ class Search extends React.Component {
 
         } else if (response.status === 200) {
           return response.json();
-          // THIS IS WHERE WE CHANGE THE VIEW TO BOOKLIST IF THE CHECK WENT THROUGH
-          // this.props.view('bookList', this.props.searchType, { book });
+
 
         }
       })
@@ -130,6 +129,16 @@ class Search extends React.Component {
   }
 
   render() {
+
+    const renderTooltip = (props) => (
+      <Tooltip id="button-tooltip" {...props}>
+        Simple tooltip
+      </Tooltip>
+    );
+
+    // function renderTooltip(props) {
+    //   return <Tooltip {...props}>tooltip</Tooltip>;
+    // }
 
     if (this.props.searchType == 'profession') {
       const errorMessage = this.state.errorMessage;
@@ -178,10 +187,12 @@ class Search extends React.Component {
                     }}
                     value=""
                   />
-                  <OverlayTrigger type="submit" value="Search" trigger="click" placement="bottom" overlay={noProfession} show={checkPopover}>
+                  <OverlayTrigger type="submit" value="Search" trigger="click" placement="bottom" overlay={renderTooltip} show={checkPopover} delay={{ show: 250, hide: 400 }}>
                     <input type="submit" value="Search" className="btn btn-success search-button" />
 
                   </OverlayTrigger>
+
+
                 </form>
               </div>
 
