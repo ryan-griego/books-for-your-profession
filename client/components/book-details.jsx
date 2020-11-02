@@ -128,7 +128,7 @@ class BookDetails extends React.Component {
           <Popover.Title as="h3">Attention</Popover.Title>
           <Popover.Content>
             This book already exists in your list.
-        </Popover.Content>
+          </Popover.Content>
         </Popover>
       );
 
@@ -140,16 +140,11 @@ class BookDetails extends React.Component {
         </OverlayTrigger>
       );
 
-
-
-    }
-
-    else if (this.props.searchType === 'user') {
+    } else if (this.props.searchType === 'user') {
       return (
-      <a className="btn btn-primary btn-danger" onClick={this.props.delete}>Delete from my list</a>
+        <a className="btn btn-primary btn-danger" onClick={this.props.delete}>Delete from my list</a>
 
       );
-
 
     }
 
@@ -158,8 +153,6 @@ class BookDetails extends React.Component {
   render() {
 
     if (!this.state.book) return null;
-
-
 
     if (this.props.searchType === 'profession' || this.props.searchType === 'user') {
 
@@ -170,8 +163,6 @@ class BookDetails extends React.Component {
       const description = this.state.book.shortDescription ? this.state.book.shortDescription.replace(/(<([^>]+)>)/gi, '') : 'No description available';
 
       const descriptionText = description ? description.slice(0, count) + (description.length > count ? '...' : '') : ' There currently is no description for this book title.';
-
-
 
       return (
         <>
@@ -214,7 +205,7 @@ class BookDetails extends React.Component {
           <Popover.Title as="h3">Attention</Popover.Title>
           <Popover.Content>
             This book already exists in your list.
-        </Popover.Content>
+          </Popover.Content>
         </Popover>
       );
 
