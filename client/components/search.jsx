@@ -1,7 +1,6 @@
 import React from 'react';
 import professions from 'professions';
 import ReactSearchBox from 'react-search-box';
-import { Button, OverlayTrigger, Popover, Tooltip } from 'react-bootstrap';
 
 const $ = window.$;
 
@@ -129,29 +128,14 @@ class Search extends React.Component {
 
   render() {
 
-    const renderTooltip = props => (
-      <Tooltip id="button-tooltip" {...props}>
-        Simple tooltip
-      </Tooltip>
-    );
 
-    // function renderTooltip(props) {
-    //   return <Tooltip {...props}>tooltip</Tooltip>;
-    // }
 
     if (this.props.searchType == 'profession') {
       const errorMessage = this.state.errorMessage;
 
-      const noProfession = (
-        <Popover id="popover-basic">
-          <Popover.Title as="h3">Unavailable</Popover.Title>
-          <Popover.Content>
-            {this.state.errorMessage}
-          </Popover.Content>
-        </Popover>
-      );
 
-      const checkPopover = errorMessage !== '';
+
+      const checkSearch = errorMessage !== '';
       const allProfessions = professions.map(profession => {
         return {
           key: profession.toLowerCase(),
@@ -186,10 +170,8 @@ class Search extends React.Component {
                     }}
                     value=""
                   />
-                  <OverlayTrigger type="submit" value="Search" trigger="click" placement="bottom" overlay={renderTooltip} show={checkPopover} delay={{ show: 250, hide: 400 }}>
                     <input type="submit" value="Search" className="btn btn-success search-button" />
 
-                  </OverlayTrigger>
 
                 </form>
               </div>
@@ -204,16 +186,9 @@ class Search extends React.Component {
     } else if (this.props.searchType === 'book') {
       const errorMessage = this.state.errorMessage;
 
-      const noBook = (
-        <Popover id="popover-basic">
-          <Popover.Title as="h3">Unavailable</Popover.Title>
-          <Popover.Content>
-            {this.state.errorMessage}
-          </Popover.Content>
-        </Popover>
-      );
 
-      const checkPopover = errorMessage !== '';
+
+      const checkSearch = errorMessage !== '';
 
       return (
         <div className="container-fluid">
@@ -225,10 +200,8 @@ class Search extends React.Component {
                 <form onSubmit={this.handleSubmit} className="fadeIn">
 
                   <input type="text" className="book-search-bar jwfbbd" placeholder="Enter a book name" onChange={this.handleChange} value={this.state.searchField || ''} />
-                  <OverlayTrigger type="submit" value="Search" trigger="click" placement="bottom" overlay={noBook} show={checkPopover}>
                     <input type="submit" value="Search" className="btn btn-success search-button" />
 
-                  </OverlayTrigger>
                 </form>
               </div>
 

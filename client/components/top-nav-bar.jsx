@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button, OverlayTrigger, Popover, Tooltip } from 'react-bootstrap';
 
 class TopNavBar extends React.Component {
 
@@ -37,33 +36,6 @@ class TopNavBar extends React.Component {
     }
   }
 
-  checkLogin() {
-    const noBooks = (
-      <Popover id="popover-basic">
-        <Popover.Title as="h3">Attention</Popover.Title>
-        <Popover.Content>
-          {this.props.message}Not logged in
-        </Popover.Content>
-      </Popover>
-    );
-
-    const renderPopover = props => (
-      <Popover id={'popover-positioned-bottom'}>
-        <Popover.Title as="h3">{'Popover bottom'}</Popover.Title>
-        <Popover.Content>
-          <strong>Holy guacamole!</strong> Check this info.
-        </Popover.Content>
-      </Popover>
-    );
-    if (this.props.loginStatus) {
-      return (
-        <a className="nav-link" href="#" onClick={this.setView} id="user">My List</a>
-
-      );
-
-    }
-
-  }
 
   render() {
 
@@ -90,8 +62,8 @@ class TopNavBar extends React.Component {
             </div>
           </li>
           <li className="nav-item px-2">
+            <a className="nav-link" href="#" onClick={this.setView} id="user">My List</a>
 
-            {this.checkLogin()}
           </li>
 
           <li className="nav-item px-2">
