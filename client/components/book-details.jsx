@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
+import { ToastContainer, toast } from 'react-toastify';
 
 class BookDetails extends React.Component {
   constructor(props) {
@@ -123,22 +123,17 @@ class BookDetails extends React.Component {
   checkDetails() {
 
     if (this.props.searchType === 'profession') {
-      const bookExists = (
-        <Popover id="popover-basic">
-          <Popover.Title as="h3">Attention</Popover.Title>
-          <Popover.Content>
-            This book already exists in your list.
-          </Popover.Content>
-        </Popover>
-      );
+
 
       const checkBook = !!this.props.message;
+      console.log("tell me the current login Status", this.props.loginStatus);
+      console.log("tell me the this.props.searchedProfession in check Details in book details", this.props.searchedProfession);
+      if(this.props.loginStatus) {
       return (
-        <OverlayTrigger type="submit" value="Search" trigger="click" placement="bottom" overlay={bookExists} show={checkBook}>
           <a className="btn btn-primary" onClick={this.props.add}>Add to my list</a>
 
-        </OverlayTrigger>
       );
+      }
 
     } else if (this.props.searchType === 'user') {
       return (
@@ -178,6 +173,17 @@ class BookDetails extends React.Component {
                   <p className="card-text">{this.state.book.author}</p>
 
                   {/* <a className="btn btn-primary">Share</a> */}
+                  <ToastContainer
+                    position="top-center"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover={false}
+                  />
                   {this.checkDetails()}
                   <div className="row book-info">
                     <div className="col-md-6">
@@ -200,14 +206,7 @@ class BookDetails extends React.Component {
 
       );
     } else if (this.props.searchType === 'book') {
-      const bookExists = (
-        <Popover id="popover-basic">
-          <Popover.Title as="h3">Attention</Popover.Title>
-          <Popover.Content>
-            This book already exists in your list.
-          </Popover.Content>
-        </Popover>
-      );
+
 
       const checkBook = !!this.props.message;
       const count = 300;
@@ -233,10 +232,8 @@ class BookDetails extends React.Component {
                   <p className="card-text text-center">{joinAuthor}</p>
 
                   {/* <a className="btn btn-primary">Share</a> */}
-                  <OverlayTrigger type="submit" value="Search" trigger="click" placement="bottom" overlay={bookExists} show={checkBook}>
                     <a className="btn btn-primary" onClick={this.props.add}>Add to my list</a>
 
-                  </OverlayTrigger>
 
                   <div className="row book-info">
                     <div className="col-md-6">
