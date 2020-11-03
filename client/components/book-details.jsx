@@ -1,4 +1,5 @@
 import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 
 class BookDetails extends React.Component {
   constructor(props) {
@@ -125,10 +126,14 @@ class BookDetails extends React.Component {
 
 
       const checkBook = !!this.props.message;
+      console.log("tell me the current login Status", this.props.loginStatus);
+      console.log("tell me the this.props.searchedProfession in check Details in book details", this.props.searchedProfession);
+      if(this.props.loginStatus) {
       return (
           <a className="btn btn-primary" onClick={this.props.add}>Add to my list</a>
 
       );
+      }
 
     } else if (this.props.searchType === 'user') {
       return (
@@ -168,6 +173,17 @@ class BookDetails extends React.Component {
                   <p className="card-text">{this.state.book.author}</p>
 
                   {/* <a className="btn btn-primary">Share</a> */}
+                  <ToastContainer
+                    position="top-center"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover={false}
+                  />
                   {this.checkDetails()}
                   <div className="row book-info">
                     <div className="col-md-6">

@@ -36,6 +36,16 @@ class TopNavBar extends React.Component {
     }
   }
 
+  checkUserList() {
+    if(this.props.loginStatus) {
+    return (
+      <li className="nav-item px-2">
+        <a className="nav-link" href="#" onClick={this.setView} id="user">My List</a>
+      </li>
+    );
+    }
+  }
+
 
   render() {
 
@@ -61,11 +71,7 @@ class TopNavBar extends React.Component {
               <a className="dropdown-item" href="#" onClick={this.setView} id="book">Book name</a>
             </div>
           </li>
-          <li className="nav-item px-2">
-            <a className="nav-link" href="#" onClick={this.setView} id="user">My List</a>
-
-          </li>
-
+          {this.checkUserList()}
           <li className="nav-item px-2">
             <button type="button " className="btn btn-light" onClick={this.setView} id="log">{checkLoginStatus}</button>
           </li>
