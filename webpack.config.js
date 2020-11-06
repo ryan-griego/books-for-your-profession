@@ -12,7 +12,7 @@ module.exports = {
   output: {
     path: publicPath
   },
-  context: resolve(__dirname, 'src'),
+
   module: {
     rules: [
       {
@@ -35,6 +35,14 @@ module.exports = {
         ]
       },
       {
+        test: /\.s?(c|a)ss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      },
+      {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: ['file-loader?hash=sha512&digest=hex&name=assets/images/[hash].[ext]']
       },
@@ -46,17 +54,6 @@ module.exports = {
             outputPath: 'assets/fonts/'
           }
         }
-      }
-    ]
-  },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
       }
     ]
   },

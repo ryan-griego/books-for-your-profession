@@ -51,7 +51,7 @@ class Search extends React.Component {
         {this.state.errorMessage}
       </div>
     )
-    const notify = () => toast(<Msg />);
+    const notify = () => toast.error(<Msg />);
 
 
     const newProfessions = professions.map(profession => {
@@ -129,7 +129,7 @@ class Search extends React.Component {
         {this.state.errorMessage}
       </div>
     )
-    const notify = () => toast(<Msg />);
+    const notify = () => toast.error(<Msg />);
 
     fetch('https://www.googleapis.com/books/v1/volumes?q=' + book + '&maxResults=5')
       .then(response => {
