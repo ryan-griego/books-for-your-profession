@@ -55,10 +55,12 @@ class TopNavBar extends React.Component {
 
     return (
       <nav className="navbar navbar-expand-sm navbar-dark">
-        <a className="navbar-brand" id="profession" href="#" onClick={this.setView}>
+        <div onClick={this.setView} id="profession">
+        <a className="navbar-brand" href="#">
           <img src="images/logo.png" width="60" height="60" alt=""/>
         </a>
-        <a className="navbar-brand" href="#" onClick={this.setView}>ValueReads</a>
+        <a className="navbar-brand" href="#">ValueReads</a>
+        </div>
 
         <ul className="navbar-nav ml-auto">
           <li className="nav-item px-2 dropdown">

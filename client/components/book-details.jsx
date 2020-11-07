@@ -127,7 +127,7 @@ class BookDetails extends React.Component {
 
       const checkBook = !!this.props.message;
       console.log("tell me the current login Status", this.props.loginStatus);
-      console.log("tell me the this.props.searchedProfession in check Details in book details", this.props.searchedProfession);
+      console.log("tell me the this.props.searchedItem in check Details in book details", this.props.searchedItem);
       if(this.props.loginStatus) {
       return (
           <a className="btn btn-primary" onClick={this.props.add}>Add to my list</a>
@@ -220,6 +220,17 @@ class BookDetails extends React.Component {
 
       return (
         <>
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover={false}
+          />
           <div className="container">
 
             <div className="col-md-6 mb-4 mx-auto">
