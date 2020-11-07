@@ -164,8 +164,6 @@ class Search extends React.Component {
 
   render() {
 
-
-
     if (this.props.searchType == 'profession') {
       const errorMessage = this.state.errorMessage;
 
