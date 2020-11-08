@@ -249,8 +249,8 @@ input[type=text]:placeholder {
  */
 body {
   margin: 0;
-  background: linear-gradient(0deg, #0187c2 0%, #042d41 100%);
-  background-size: cover;
+  background-image: url("./images/paper-slate.png");
+  background-repeat: repeat;
   background-position: center center;
   font-family: 'Open Sans', sans-serif;
   background-attachment: fixed;
@@ -281,6 +281,10 @@ section {
   display: block;
 }
 
+.top-container {
+  margin-top: 8rem;
+}
+
 .bg-light {
 background-color: transparent!important;
 
@@ -305,10 +309,16 @@ h1 span {
 text-shadow: 0px 1px 4px #23430C;
 }
 
-
-h1,h2,h3,h4 {
+h1 {
   font-family: 'Libre Baskerville', serif;
-  color:white;
+
+  color: #042d41;
+}
+
+
+h2,h3,h4 {
+  font-family: 'Libre Baskerville', serif;
+  color:black;
 }
 
 /* Grouping content
@@ -1060,7 +1070,6 @@ legend {
 /** Navigation Styling Updates **/
 .navbar {
 background-color: #042d41;
-
 }
 
 .navbar-brand {
@@ -1172,7 +1181,7 @@ margin-bottom: 6px;
   left: 1em;
 }
 .Toastify__toast-container--top-center {
-  top: 1em;
+  top: 7em;
   left: 50%;
   transform: translateX(-50%);
 }

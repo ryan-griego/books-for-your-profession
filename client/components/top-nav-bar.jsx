@@ -37,15 +37,14 @@ class TopNavBar extends React.Component {
   }
 
   checkUserList() {
-    if(this.props.loginStatus) {
-    return (
-      <li className="nav-item px-2">
-        <a className="nav-link" href="#" onClick={this.setView} id="user">My List</a>
-      </li>
-    );
+    if (this.props.loginStatus) {
+      return (
+        <li className="nav-item px-2">
+          <a className="nav-link" href="#" onClick={this.setView} id="user">My List</a>
+        </li>
+      );
     }
   }
-
 
   render() {
 
@@ -54,12 +53,12 @@ class TopNavBar extends React.Component {
     const checkLoginStatus = this.props.loginStatus ? 'Log out' : 'Log in';
 
     return (
-      <nav className="navbar navbar-expand-sm navbar-dark">
+      <nav className="navbar navbar-expand-sm navbar-dark fixed-top">
         <div onClick={this.setView} id="profession">
-        <a className="navbar-brand" href="#">
-          <img src="images/logo.png" width="60" height="60" alt=""/>
-        </a>
-        <a className="navbar-brand" href="#">ValueReads</a>
+          <a className="navbar-brand" href="#">
+            <img src="images/logo.png" width="60" height="60" alt=""/>
+          </a>
+          <a className="navbar-brand" href="#">ValueReads</a>
         </div>
 
         <ul className="navbar-nav ml-auto">
