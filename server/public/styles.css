@@ -1093,10 +1093,34 @@ background-color: #042d41;
 
 }
 
+.back-btn {
+  font-size: 1.2rem;
+  font-weight: bolder;
+  color:#042d41;
+}
+
+.btn-primary {
+  color: white!important;
+  background-color:#0b72a5 !important;
+}
+
+.btn-success {
+  color: white!important;
+  background-color:#0b5a1d !important;
+}
+
+.btn-danger {
+
+    color: white!important;
+  background-color:#741019 !important;
+}
+
 .btn-light {
   color:#042d41 !important;
   margin-top: 2px;
 }
+
+
 
 .btn-light:hover {
   background-color: #86d9ff;
