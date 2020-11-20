@@ -124,15 +124,14 @@ class BookDetails extends React.Component {
 
     if (this.props.searchType === 'profession') {
 
-
       const checkBook = !!this.props.message;
-      console.log("tell me the current login Status", this.props.loginStatus);
-      console.log("tell me the this.props.searchedItem in check Details in book details", this.props.searchedItem);
-      if(this.props.loginStatus) {
-      return (
+      console.log('tell me the current login Status', this.props.loginStatus);
+      console.log('tell me the this.props.searchedItem in check Details in book details', this.props.searchedItem);
+      if (this.props.loginStatus) {
+        return (
           <a className="btn btn-primary" onClick={this.props.add}>Add to my list</a>
 
-      );
+        );
       }
 
     } else if (this.props.searchType === 'user') {
@@ -207,7 +206,6 @@ class BookDetails extends React.Component {
       );
     } else if (this.props.searchType === 'book') {
 
-
       const checkBook = !!this.props.message;
       const count = 300;
       const description = this.state.book.volumeInfo.description ? this.state.book.volumeInfo.description.replace(/(<([^>]+)>)/gi, '') : 'No description available';
@@ -243,8 +241,7 @@ class BookDetails extends React.Component {
                   <p className="card-text text-center">{joinAuthor}</p>
 
                   {/* <a className="btn btn-primary">Share</a> */}
-                    <a className="btn btn-primary" onClick={this.props.add}>Add to my list</a>
-
+                  <a className="btn btn-primary" onClick={this.props.add}>Add to my list</a>
 
                   <div className="row book-info">
                     <div className="col-md-6">
