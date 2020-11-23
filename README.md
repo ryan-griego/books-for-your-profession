@@ -1,4 +1,4 @@
-# wicked-sales-js
+# ValueReads
 An app for professionals who want to find out the most recommended books for their profession.
 > - Maintained by: `ryan-griego`
 
