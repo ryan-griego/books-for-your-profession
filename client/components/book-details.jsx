@@ -120,6 +120,8 @@ class BookDetails extends React.Component {
     this.props.view('bookList', 'user', {});
   }
 
+
+
   checkDetails() {
 
     if (this.props.searchType === 'profession') {
@@ -152,6 +154,7 @@ class BookDetails extends React.Component {
 
       const checkSearchButton = this.props.searchType === 'profession' ? this.backToSearch : this.backToUserList;
       const checkSearchText = this.props.searchType === 'profession' ? 'Back to Profession Search' : 'Back to my List';
+      const fixAuthors = this.state.book.author.length > 1 ? this.state.book.author.replace(/{|"|}/g, '').replace(/,/g, ', ') : this.state.book.author;
 
       const count = 300;
       const description = this.state.book.shortDescription ? this.state.book.shortDescription.replace(/(<([^>]+)>)/gi, '') : 'No description available';
@@ -169,7 +172,7 @@ class BookDetails extends React.Component {
                 <img src={this.state.book.imageurl} className="card-img-top img-thumbnail mt-2"></img>
                 <div className="card-body">
                   <h5 className="card-title">{this.state.book.name}</h5>
-                  <p className="card-text">{this.state.book.author}</p>
+                  <p className="card-text">{fixAuthors}</p>
 
                   {/* <a className="btn btn-primary">Share</a> */}
                   <ToastContainer
@@ -212,7 +215,7 @@ class BookDetails extends React.Component {
       const checkImage = this.state.book.volumeInfo.imageLinks ? this.state.book.volumeInfo.imageLinks.thumbnail : 'images/no-image-available.png';
 
       const descriptionText = description.slice(0, count) + (description.length > count ? '...' : '');
-      const joinAuthor = this.state.book.volumeInfo.authors ? this.state.book.volumeInfo.authors.join(' ') : 'No author listed';
+      const joinAuthor = this.state.book.volumeInfo.authors ? this.state.book.volumeInfo.authors.join(', ') : 'No author listed';
       const category = this.state.book.volumeInfo.categories ? this.state.book.volumeInfo.categories : 'N/A';
       const publishedDate = this.state.book.volumeInfo.publishedDate ? this.state.book.volumeInfo.publishedDate.slice(0, 4) : 'No release date listed';
 

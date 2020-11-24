@@ -3,7 +3,6 @@ import professions from 'professions';
 import ReactSearchBox from 'react-search-box';
 import { ToastContainer, toast } from 'react-toastify';
 
-
 const $ = window.$;
 
 class Search extends React.Component {
@@ -50,9 +49,8 @@ class Search extends React.Component {
       <div>
         {this.state.errorMessage}
       </div>
-    )
+    );
     const notify = () => toast.error(<Msg />);
-
 
     const newProfessions = professions.map(profession => {
       return profession.toLowerCase();
@@ -66,33 +64,30 @@ class Search extends React.Component {
     if (this.props.searchType === 'profession') {
       const currentProfession = $(event.target).find('.jwfbbd').attr('value');
       const findProfession = newProfessions.indexOf(currentProfession);
-        if (currentProfession.length === 0) {
-          this.setState({ errorMessage: 'There is no text entered in the search field' });
-          console.log('there was nothing entered into the profession search field');
+      if (currentProfession.length === 0) {
+        this.setState({ errorMessage: 'There is no text entered in the search field' });
+        console.log('there was nothing entered into the profession search field');
 
+        const errorMessage = this.state.errorMessage;
 
-          const errorMessage = this.state.errorMessage;
-
-          console.log("log the type of notify", notify);
-          notify();
+        console.log('log the type of notify', notify);
+        notify();
         // const checkSearch = errorMessage !== '';
 
+      } else if (findProfession === -1) {
+        this.setState({ errorMessage: 'A profession with that name was not found.' });
+        notify();
 
-        } else if (findProfession === -1) {
-          this.setState({ errorMessage: 'A profession with that name was not found.' });
-          notify();
+        console.log('a profession with that name was not found');
+      } else {
 
-          console.log('a profession with that name was not found');
-        } else {
+        this.checkProfession(currentProfession);
 
+        this.setState({ errorMessage: `${currentProfession} currently has no books associated with it.` });
 
-          this.checkProfession(currentProfession);
-
-          this.setState({ errorMessage: `${currentProfession} currently has no books associated with it.`});
-
-          notify();
-          this.setState({ profession: event.target.value });
-        }
+        notify();
+        this.setState({ profession: event.target.value });
+      }
     } else if (this.props.searchType === 'book') {
       this.checkGoogleBooks(this.state.searchField);
       this.setState({ searchField: this.state.searchField });
@@ -128,7 +123,7 @@ class Search extends React.Component {
       <div>
         {this.state.errorMessage}
       </div>
-    )
+    );
     const notify = () => toast.error(<Msg />);
 
     fetch('https://www.googleapis.com/books/v1/volumes?q=' + book + '&maxResults=5')
@@ -141,11 +136,11 @@ class Search extends React.Component {
           return response.json();
 
         } else if (response.status === 400) {
-        this.setState({ errorMessage: 'There is no text entered in the search field.' });
-        notify();
-        return response.json();
+          this.setState({ errorMessage: 'There is no text entered in the search field.' });
+          notify();
+          return response.json();
 
-      }
+        }
       })
       .then(data => {
         if (data.totalItems === 0) {
@@ -167,8 +162,6 @@ class Search extends React.Component {
     if (this.props.searchType == 'profession') {
       const errorMessage = this.state.errorMessage;
 
-
-
       // const checkSearch = errorMessage !== '';
       const allProfessions = professions.map(profession => {
         return {
@@ -177,9 +170,6 @@ class Search extends React.Component {
 
         };
       });
-
-
-
 
       return (
         <div className="container-fluid">
@@ -220,7 +210,7 @@ class Search extends React.Component {
                       draggable
                       pauseOnHover={false}
                     />
-                     </div>
+                  </div>
 
                 </form>
               </div>
@@ -234,7 +224,6 @@ class Search extends React.Component {
 
     } else if (this.props.searchType === 'book') {
 
-
       return (
         <div className="container-fluid">
           <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
@@ -245,7 +234,7 @@ class Search extends React.Component {
                 <form onSubmit={this.handleSubmit} className="fadeIn">
 
                   <input type="text" className="book-search-bar jwfbbd" placeholder="Enter a book name" onChange={this.handleChange} value={this.state.searchField || ''} />
-                    <input type="submit" value="Search" className="btn btn-success search-button" />
+                  <input type="submit" value="Search" className="btn btn-success search-button" />
                   <ToastContainer
                     position="top-center"
                     autoClose={5000}

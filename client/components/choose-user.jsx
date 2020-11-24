@@ -34,7 +34,7 @@ export default class ChooseUser extends React.Component {
         <div className='container login-container btn-color top-container'>
           <div className='main'>
             <div className="ml-2 text-center">
-              <img className="logo" src="../images/logo.png"></img>
+              <img className="logo" src="../images/book-light-bulb.png"></img>
             </div>
             <header className="header d-flex justify-content-center">
               <h1 className="display-4 title">ValueReads</h1>
