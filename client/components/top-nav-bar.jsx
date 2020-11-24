@@ -53,10 +53,11 @@ class TopNavBar extends React.Component {
     const checkLoginStatus = this.props.loginStatus ? 'Log out' : 'Log in';
 
     return (
-      <nav className="navbar navbar-expand-sm navbar-dark fixed-top">
+      <div className="nav-container">
+      <nav className="navbar navbar-expand-sm navbar-dark">
         <div onClick={this.setView} id="profession">
           <a className="navbar-brand" href="#">
-            <img src="images/logo.png" width="60" height="60" alt=""/>
+            <img src="images/book-light-bulb.png" width="60" height="60" alt=""/>
           </a>
           <a className="navbar-brand" href="#">ValueReads</a>
         </div>
@@ -78,6 +79,7 @@ class TopNavBar extends React.Component {
           </li>
         </ul>
       </nav>
+      </div>
     );
   }
 }
