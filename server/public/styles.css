@@ -7,6 +7,11 @@ html {
   /* 2 */
 }
 
+a.dropdown-item:active{
+
+  background-color: #28a745 !important;
+}
+
 
 /* LOGIN STYLES */
 
@@ -344,6 +349,8 @@ figure {
 .dropdown {
   color:#042d41;
 }
+
+
 
 /**
  * 1. Add the correct box sizing in Firefox.
@@ -1078,6 +1085,8 @@ background-color: #042d41;
   font-weight:bold;
 }
 
+
+
 .nav-link {
   font-weight: 600;
   font-size:1.1rem;
@@ -1102,6 +1111,7 @@ background-color: #042d41;
 .btn-primary {
   color: white!important;
   background-color:#0b72a5 !important;
+  border-color:#5ebeee !important;
 }
 
 .btn-success {
@@ -1163,7 +1173,7 @@ background-color: #042d41;
     border-radius: 7px;
     border: 1px solid #ffffff;
     border-bottom: 3px solid #b7b7b7;
-    height: 30rem;
+    height: 32rem;
 }
 
 .card-img-top {
@@ -1183,6 +1193,19 @@ margin-bottom: 6px;
 
 .book-info {
   margin-top:1rem;
+}
+
+.rank {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: -20px;
+  color:#042d41;
+}
+
+.rank span {
+  font-size: 1.5rem;
+  vertical-align: super;
 }
 
 

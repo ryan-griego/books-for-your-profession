@@ -187,7 +187,7 @@ class Search extends React.Component {
             <div className="col-md-8 p-lg-5 mx-auto my-5">
               <h1 className="display-4 title">ValueReads</h1>
 
-              <h2><strong>An online community building a comprehensive list of the most valuable books for your profession</strong></h2>
+              <h2><strong>Which books have greatly impacted the world's most common professions?</strong></h2>
 
               <div className="s003 fadeIn" >
 
@@ -240,7 +240,7 @@ class Search extends React.Component {
           <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
             <div className="col-md-8 p-lg-5 mx-auto my-5">
               <h1 className="display-4 title">ValueReads</h1>
-              <h2><strong>An online community building a comprehensive list of the most valuable books for your profession</strong></h2>
+              <h2><strong>Which books have greatly impacted the world's most common professions?</strong></h2>
               <div className="s003" >
                 <form onSubmit={this.handleSubmit} className="fadeIn">
 
