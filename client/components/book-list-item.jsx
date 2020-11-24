@@ -12,6 +12,8 @@ class BookListItem extends React.Component {
         <>
           <div className="col-md-4 mb-4">
             <div className="card fadeIn text-center" style={{ width: '18rem' }} onClick={this.props.view} id={this.props.bookId}>
+              <p className="card-text rank"><span>#</span>{this.props.rank}</p>
+
               <img src={this.props.image} className="card-img-top"></img>
               <div className="card-body">
                 <h5 className="card-title">{this.props.name}</h5>
