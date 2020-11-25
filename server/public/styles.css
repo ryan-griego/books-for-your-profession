@@ -13,6 +13,7 @@ a.dropdown-item:active{
 }
 
 
+
 /* LOGIN STYLES */
 
 .wrapper {
@@ -1109,8 +1110,8 @@ background-color: transparent;
   font-weight: 600;
   font-size:1.1rem;
   color: #042d41 !important;
-}
 
+}
 /** Text Styling Updates **/
 .btn {
   color:#042d41 !important;
