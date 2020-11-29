@@ -11,6 +11,8 @@ class BookDetails extends React.Component {
     this.setView = this.setView.bind(this);
     this.backToSearch = this.backToSearch.bind(this);
     this.backToUserList = this.backToUserList.bind(this);
+    this.backToSearchResults = this.backToSearchResults.bind(this);
+
   }
 
   getGoogleBooksByIsbn() {
@@ -120,6 +122,12 @@ class BookDetails extends React.Component {
     this.props.view('bookList', 'user', {});
   }
 
+  backToSearchResults() {
+
+    this.props.view('bookList', this.props.searchType, { });
+
+  }
+
 
 
   checkDetails() {
@@ -166,7 +174,10 @@ class BookDetails extends React.Component {
           <div className="container top-container">
 
             <div className="col-md-6 mb-4 mx-auto">
-              <div className="hover my-3 px-0 d-flex justify-content-start back-btn" onClick={checkSearchButton} style={{ cursor: 'pointer' }}>&lt; {checkSearchText}</div>
+              {/* <div className="hover my-3 px-0 d-flex justify-content-start back-btn" onClick={checkSearchButton} style={{ cursor: 'pointer' }}>&lt; {checkSearchText}</div> */}
+
+              <div className="hover my-3 px-0 d-flex justify-content-start back-btn" onClick={this.backToSearchResults} style={{ cursor: 'pointer' }}>&lt; Back to Search Results</div>
+
 
               <div className="details-card text-center fadeIn" style={{ width: '100%' }} id={this.state.book.bookId}>
                 <img src={this.state.book.imageurl} className="card-img-top img-thumbnail mt-2"></img>
@@ -235,7 +246,8 @@ class BookDetails extends React.Component {
           <div className="container top-container">
 
             <div className="col-md-6 mb-4 mx-auto">
-              <div className="hover my-3 px-0 back-btn d-flex justify-content-start" onClick={this.backToSearch} style={{ cursor: 'pointer' }}>&lt; Back to Search</div>
+
+              <div className="hover my-3 px-0 d-flex justify-content-start back-btn" onClick={this.backToSearchResults} style={{ cursor: 'pointer' }}>&lt; Back to Search Results</div>
 
               <div className="details-card fadeIn text-center" style={{ width: '100%' }} id={this.state.book.volumeInfo.bookId}>
                 <img src={checkImage} className="card-img-top img-thumbnail mt-2"></img>
