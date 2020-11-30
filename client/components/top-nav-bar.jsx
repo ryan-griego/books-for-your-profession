@@ -12,14 +12,11 @@ class TopNavBar extends React.Component {
 
   setView(e) {
     const searchType = e.currentTarget.id;
-
     if (searchType === 'user') {
-
       this.props.getUserList();
-      if (!this.props.loginStatus) {
-      } else {
+
         this.props.view('bookList', searchType, { });
-      }
+
     } else if (searchType === 'profession' || searchType === 'book') {
       this.props.resetState();
       this.props.view('search', searchType, { });
@@ -47,38 +44,32 @@ class TopNavBar extends React.Component {
   }
 
   render() {
-
-    const checkBook = !!this.props.message;
-
     const checkLoginStatus = this.props.loginStatus ? 'Log out' : 'Log in';
-
     return (
       <div className="nav-container">
-      <nav className="navbar navbar-expand-sm navbar-dark">
-        <div onClick={this.setView} id="profession">
-          <a className="navbar-brand" href="#">
-            <img src="images/book-light-bulb.png" width="60" height="60" alt=""/>
-          </a>
-          <a className="navbar-brand" href="#">ValueReads</a>
-        </div>
-
-        <ul className="navbar-nav ml-auto">
-          <li className="nav-item px-2 dropdown">
-
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Search by
+        <nav className="navbar navbar-expand-sm navbar-dark">
+          <div onClick={this.setView} id="profession">
+            <a className="navbar-brand" href="#">
+              <img src="images/book-light-bulb.png" width="60" height="60" alt=""/>
             </a>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a className="dropdown-item" href="#" onClick={this.setView} id="profession">Profession</a>
-              <a className="dropdown-item" href="#" onClick={this.setView} id="book">Book name</a>
-            </div>
-          </li>
-          {this.checkUserList()}
-          <li className="nav-item px-2">
-            <button type="button " className="btn btn-light" onClick={this.setView} id="log">{checkLoginStatus}</button>
-          </li>
-        </ul>
-      </nav>
+            <a className="navbar-brand" href="#">ValueReads</a>
+          </div>
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item px-2 dropdown">
+              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Search by
+              </a>
+              <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a className="dropdown-item" href="#" onClick={this.setView} id="profession">Profession</a>
+                <a className="dropdown-item" href="#" onClick={this.setView} id="book">Book name</a>
+              </div>
+            </li>
+            {this.checkUserList()}
+            <li className="nav-item px-2">
+              <button type="button " className="btn btn-light" onClick={this.setView} id="log">{checkLoginStatus}</button>
+            </li>
+          </ul>
+        </nav>
       </div>
     );
   }

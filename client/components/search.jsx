@@ -38,7 +38,7 @@ class Search extends React.Component {
   handleChange(event) {
     if (this.props.searchType === 'profession') {
       this.setState({ profession: event.target.value });
-    } else if (this.props.searchType == 'book') {
+    } else if (this.props.searchType === 'book') {
       this.setState({ searchField: event.target.value });
     }
   }
@@ -66,27 +66,14 @@ class Search extends React.Component {
       const findProfession = newProfessions.indexOf(currentProfession);
       if (currentProfession.length === 0) {
         this.setState({ errorMessage: 'There is no text entered in the search field' });
-        console.log('there was nothing entered into the profession search field');
-
-        const errorMessage = this.state.errorMessage;
-
-        console.log('log the type of notify', notify);
         notify();
-        // const checkSearch = errorMessage !== '';
-
       } else if (findProfession === -1) {
         this.setState({ errorMessage: 'A profession with that name was not found.' });
         notify();
-
-        console.log('a profession with that name was not found');
       } else {
-
         this.checkProfession(currentProfession);
-
         this.setState({ errorMessage: `${currentProfession} currently has no books associated with it.` });
-
         notify();
-        console.log("log the event.target.value", event.target.value);
         this.setState({ profession: event.target.value });
       }
     } else if (this.props.searchType === 'book') {
@@ -97,12 +84,16 @@ class Search extends React.Component {
   }
 
   checkProfession(currentProfession) {
+    const Msg = ({ closeToast }) => (
+      <div>
+        {this.state.errorMessage}
+      </div>
+    );
     const notify = () => toast.error(<Msg />);
 
     fetch(`/api/professions/${currentProfession}`)
       .then(response => {
         if (response.status === 404) {
-          console.log('You got a 404 response');
           this.setState({ errorMessage: 'There are no books associated with that profession yet.' });
           notify();
         } else if (response.status === 200) {
@@ -112,8 +103,6 @@ class Search extends React.Component {
       })
       .then(data => {
         this.props.view('bookList', this.props.searchType, { currentProfession });
-
-        console.log('Success:', data);
       })
       .catch(error => {
         console.error('There was a problem with your fetch GET operation: ', error);
@@ -132,7 +121,6 @@ class Search extends React.Component {
     fetch('https://www.googleapis.com/books/v1/volumes?q=' + book + '&maxResults=5')
       .then(response => {
         if (response.status === 404) {
-          console.log('You got a 404 response');
           this.setState({ errorMessage: 'There are no books found with that title.' });
           notify();
         } else if (response.status === 200) {
@@ -161,16 +149,11 @@ class Search extends React.Component {
   }
 
   render() {
-
-    if (this.props.searchType == 'profession') {
-      const errorMessage = this.state.errorMessage;
-
-      // const checkSearch = errorMessage !== '';
+    if (this.props.searchType === 'profession') {
       const allProfessions = professions.map(profession => {
         return {
           key: profession.toLowerCase(),
           value: profession.toLowerCase()
-
         };
       });
 
@@ -179,22 +162,13 @@ class Search extends React.Component {
           <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
             <div className="col-md-8 p-lg-5 mx-auto my-5">
               <h1 className="display-4 title">ValueReads</h1>
-
               <h2><strong>Which books have greatly impacted the world's most common professions?</strong></h2>
-
               <div className="s003 fadeIn" >
-
                 <form onSubmit={this.handleSubmit}>
-
                   <ReactSearchBox
                     placeholder="Enter a profession name"
                     data={allProfessions}
-                    // onSelect={record => console.log(record)}
                     onSumbit={this.onSumbit}
-                    onFocus={() => {
-                      // console.log('This function is called when is focused');
-                    }}
-                    // onChange={value => console.log(value)}
                     fuseConfigs={{
                       threshold: 0.05
                     }}
@@ -249,15 +223,12 @@ class Search extends React.Component {
                     draggable
                     pauseOnHover={false}
                   />
-
                 </form>
               </div>
-
             </div>
             <div className="product-device box-shadow d-none d-md-block"></div>
             <div className="product-device product-device-2 box-shadow d-none d-md-block"></div>
           </div>
-
         </div>
       );
     }

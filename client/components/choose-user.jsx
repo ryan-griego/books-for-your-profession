@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 export default class ChooseUser extends React.Component {
   constructor(props) {
@@ -17,12 +16,6 @@ export default class ChooseUser extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const setView = this.props.view;
-
-    // These 2 V V need to e removed
-    // const getProfile = this.props.getProfile;
-    // getProfile(this.state.activeUser);
-
     const chooseUser = this.props.chooseUser;
     chooseUser(this.state.activeUser);
 

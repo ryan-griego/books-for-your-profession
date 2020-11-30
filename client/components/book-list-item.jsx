@@ -2,17 +2,9 @@ import React from 'react';
 
 class BookListItem extends React.Component {
 
-
   render() {
-    const count = 300;
-    const description = this.props.shortDescription ? this.props.shortDescription.replace(/(<([^>]+)>)/gi, '') : 'No description available';
-    // const descriptionText = description.slice(0, count) + (description.length > count ? '...' : '');
-
     if (this.props.searchType === 'profession' || this.props.searchType === 'user') {
-
-
-      let fixAuthors = this.props.book.author ? this.props.book.author.replace(/{|"|}/g, '').replace(/,/g, ', ') : this.props.book.author;
-
+      const fixAuthors = this.props.book.author ? this.props.book.author.replace(/{|"|}/g, '').replace(/,/g, ', ') : this.props.book.author;
 
       return (
         <>
@@ -33,20 +25,7 @@ class BookListItem extends React.Component {
       );
     } else if (this.props.searchType === 'book') {
       const checkImage = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : 'images/no-image-available.png';
-
-      // if (this.props.author.length > 1) {
-
-      //   for (let i = 0; i <= this.props.author.length; i++) {
-      //     console.log("log this.props.author[i]", this.props.author[i]);
-      //     return this.props.author[i];
-      //   }
-
-      // }
-
-
-      // const fixAuthors = this.props.author.length > 1 ? this.props.author.replace(/,/g, ', ') : this.props.author;
       const fixedAuthor = this.props.author ? this.props.author.join(', ') : '';
-
       return (
         <>
           <div className="col-md-4 mb-4">

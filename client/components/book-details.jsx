@@ -1,5 +1,5 @@
 import React from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 class BookDetails extends React.Component {
   constructor(props) {
@@ -17,7 +17,6 @@ class BookDetails extends React.Component {
 
   getGoogleBooksByIsbn() {
     const isbn = this.props.viewParams.bookIsbn;
-
     const that = this;
     fetch('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn)
       .then(function (res) {
@@ -35,14 +34,11 @@ class BookDetails extends React.Component {
   }
 
   getGoogleBooksById() {
-
     const id = this.props.viewParams.bookId;
-
     const that = this;
     fetch('https://www.googleapis.com/books/v1/volumes?q=' + id)
       .then(function (res) {
         return res.json();
-
       })
       .then(function (result) {
         that.setState({ book: result.items[0].volumeInfo });
@@ -64,7 +60,6 @@ class BookDetails extends React.Component {
 
       })
       .then(function (result) {
-        console.log('log the result in getGoogleBooksBySelfLink', result.volumeInfo);
         that.setState({ book: result });
         that.setView();
       }),
@@ -74,10 +69,7 @@ class BookDetails extends React.Component {
   }
 
   componentDidMount() {
-
     if (this.props.searchType === 'user') {
-      console.log('you hit rith before check profession');
-
       fetch(`/api/books/id/${this.props.viewParams.bookId}`)
         .then(response => response.json())
         .then(data => this.setState({ book: data }))
@@ -128,15 +120,10 @@ class BookDetails extends React.Component {
 
   }
 
-
-
   checkDetails() {
 
     if (this.props.searchType === 'profession') {
 
-      const checkBook = !!this.props.message;
-      console.log('tell me the current login Status', this.props.loginStatus);
-      console.log('tell me the this.props.searchedItem in check Details in book details', this.props.searchedItem);
       if (this.props.loginStatus) {
         return (
           <a className="btn btn-primary" onClick={this.props.add}>Add to my list</a>
@@ -160,8 +147,6 @@ class BookDetails extends React.Component {
 
     if (this.props.searchType === 'profession' || this.props.searchType === 'user') {
 
-      const checkSearchButton = this.props.searchType === 'profession' ? this.backToSearch : this.backToUserList;
-      const checkSearchText = this.props.searchType === 'profession' ? 'Back to Profession Search' : 'Back to my List';
       const fixAuthors = this.state.book.author.length > 1 ? this.state.book.author.replace(/{|"|}/g, '').replace(/,/g, ', ') : this.state.book.author;
 
       const count = 300;
@@ -174,10 +159,8 @@ class BookDetails extends React.Component {
           <div className="container top-container">
 
             <div className="col-md-6 mb-4 mx-auto">
-              {/* <div className="hover my-3 px-0 d-flex justify-content-start back-btn" onClick={checkSearchButton} style={{ cursor: 'pointer' }}>&lt; {checkSearchText}</div> */}
 
               <div className="hover my-3 px-0 d-flex justify-content-start back-btn" onClick={this.backToSearchResults} style={{ cursor: 'pointer' }}>&lt; Back to Search Results</div>
-
 
               <div className="details-card text-center fadeIn" style={{ width: '100%' }} id={this.state.book.bookId}>
                 <img src={this.state.book.imageurl} className="card-img-top img-thumbnail mt-2"></img>
@@ -220,7 +203,6 @@ class BookDetails extends React.Component {
       );
     } else if (this.props.searchType === 'book') {
 
-      const checkBook = !!this.props.message;
       const count = 300;
       const description = this.state.book.volumeInfo.description ? this.state.book.volumeInfo.description.replace(/(<([^>]+)>)/gi, '') : 'No description available';
       const checkImage = this.state.book.volumeInfo.imageLinks ? this.state.book.volumeInfo.imageLinks.thumbnail : 'images/no-image-available.png';
@@ -244,20 +226,14 @@ class BookDetails extends React.Component {
             pauseOnHover={false}
           />
           <div className="container top-container">
-
             <div className="col-md-6 mb-4 mx-auto">
-
               <div className="hover my-3 px-0 d-flex justify-content-start back-btn" onClick={this.backToSearchResults} style={{ cursor: 'pointer' }}>&lt; Back to Search Results</div>
-
               <div className="details-card fadeIn text-center" style={{ width: '100%' }} id={this.state.book.volumeInfo.bookId}>
                 <img src={checkImage} className="card-img-top img-thumbnail mt-2"></img>
                 <div className="card-body">
                   <h5 className="card-title text-center">{this.state.book.volumeInfo.title}</h5>
                   <p className="card-text text-center">{joinAuthor}</p>
-
-                  {/* <a className="btn btn-primary">Share</a> */}
                   <a className="btn btn-primary" onClick={this.props.add}>Add to my list</a>
-
                   <div className="row book-info">
                     <div className="col-md-6">
                       <p className="text-muted text-uppercase">Genre</p>
