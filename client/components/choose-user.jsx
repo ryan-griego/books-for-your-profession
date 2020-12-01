@@ -18,7 +18,6 @@ export default class ChooseUser extends React.Component {
     event.preventDefault();
     const chooseUser = this.props.chooseUser;
     chooseUser(this.state.activeUser);
-
   }
 
   render() {

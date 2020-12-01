@@ -52,7 +52,6 @@ class BookDetails extends React.Component {
   getGoogleBooksBySelfLink() {
 
     const selfLink = this.props.viewParams.selfLink;
-
     const that = this;
     fetch(`${selfLink}`)
       .then(function (res) {
@@ -93,7 +92,6 @@ class BookDetails extends React.Component {
     if (this.props.searchType === 'book') {
       this.getGoogleBooksBySelfLink();
     }
-
   }
 
   setView(e) {
@@ -115,43 +113,29 @@ class BookDetails extends React.Component {
   }
 
   backToSearchResults() {
-
     this.props.view('bookList', this.props.searchType, { });
-
   }
 
   checkDetails() {
-
     if (this.props.searchType === 'profession') {
-
       if (this.props.loginStatus) {
         return (
           <a className="btn btn-primary" onClick={this.props.add}>Add to my list</a>
-
         );
       }
-
     } else if (this.props.searchType === 'user') {
       return (
         <a className="btn btn-primary btn-danger" onClick={this.props.delete}>Delete from my list</a>
-
       );
-
     }
-
   }
 
   render() {
-
     if (!this.state.book) return null;
-
     if (this.props.searchType === 'profession' || this.props.searchType === 'user') {
-
       const fixAuthors = this.state.book.author.length > 1 ? this.state.book.author.replace(/{|"|}/g, '').replace(/,/g, ', ') : this.state.book.author;
-
       const count = 300;
       const description = this.state.book.shortDescription ? this.state.book.shortDescription.replace(/(<([^>]+)>)/gi, '') : 'No description available';
-
       const descriptionText = description ? description.slice(0, count) + (description.length > count ? '...' : '') : ' There currently is no description for this book title.';
 
       return (
@@ -195,9 +179,7 @@ class BookDetails extends React.Component {
                 </div>
               </div>
             </div>
-
           </div>
-
         </>
 
       );
@@ -206,7 +188,6 @@ class BookDetails extends React.Component {
       const count = 300;
       const description = this.state.book.volumeInfo.description ? this.state.book.volumeInfo.description.replace(/(<([^>]+)>)/gi, '') : 'No description available';
       const checkImage = this.state.book.volumeInfo.imageLinks ? this.state.book.volumeInfo.imageLinks.thumbnail : 'images/no-image-available.png';
-
       const descriptionText = description.slice(0, count) + (description.length > count ? '...' : '');
       const joinAuthor = this.state.book.volumeInfo.authors ? this.state.book.volumeInfo.authors.join(', ') : 'No author listed';
       const category = this.state.book.volumeInfo.categories ? this.state.book.volumeInfo.categories : 'N/A';
@@ -248,13 +229,9 @@ class BookDetails extends React.Component {
                 </div>
               </div>
             </div>
-
           </div>
-
         </>
-
       );
-
     }
   }
 }

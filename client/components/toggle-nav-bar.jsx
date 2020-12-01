@@ -22,17 +22,14 @@ class ToggleNavBar extends React.Component {
   }
 
   render() {
-
     const links = document.getElementsByTagName('A');
     links.onclick = this.backdropClickHandler;
     let sideDrawer = null;
     let backdrop = null;
-
     if (this.state.sideDrawerOpen) {
       sideDrawer = <nav className="side-drawer"><ul><h2>Profession Books</h2><li><a href="">Search Books by Profession</a></li><li><a href="">Search Books by Title</a></li><li><a href="">Sign in/out</a></li></ul></nav>;
       backdrop = <div className="backdrop" onClick={this.backdropClickHandler}></div>;
     }
-
     return (
       <div style={{ height: '100%' }}>
         <header className="toolbar">

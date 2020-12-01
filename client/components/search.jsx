@@ -6,7 +6,6 @@ import { ToastContainer, toast } from 'react-toastify';
 const $ = window.$;
 
 class Search extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -16,11 +15,9 @@ class Search extends React.Component {
       message: '',
       errorMessage: ''
     };
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setView = this.setView.bind(this);
-
   }
 
   setView(e) {
@@ -28,7 +25,6 @@ class Search extends React.Component {
     if (this.props.searchType === 'profession') {
       const currentProfession = $(e.target).find('.jwfbbd').attr('value');
       this.props.view('bookList', this.props.searchType, { currentProfession });
-
     } else if (this.props.searchType === 'book') {
       const searchedBook = $(e.target).find('.book-search-bar').attr('value');
       this.props.view('bookList', this.props.searchType, { searchedBook });
@@ -51,16 +47,13 @@ class Search extends React.Component {
       </div>
     );
     const notify = () => toast.error(<Msg />);
-
     const newProfessions = professions.map(profession => {
       return profession.toLowerCase();
     });
-
     const searchValue = $(event.target).find('.jwfbbd').attr('value');
     if (searchValue.length === 0) {
       this.setState({ errorMessage: 'There is no text entered in the search field' });
     }
-
     if (this.props.searchType === 'profession') {
       const currentProfession = $(event.target).find('.jwfbbd').attr('value');
       const findProfession = newProfessions.indexOf(currentProfession);
@@ -80,7 +73,6 @@ class Search extends React.Component {
       this.checkGoogleBooks(this.state.searchField);
       this.setState({ searchField: this.state.searchField });
     }
-
   }
 
   checkProfession(currentProfession) {
@@ -90,7 +82,6 @@ class Search extends React.Component {
       </div>
     );
     const notify = () => toast.error(<Msg />);
-
     fetch(`/api/professions/${currentProfession}`)
       .then(response => {
         if (response.status === 404) {
@@ -98,7 +89,6 @@ class Search extends React.Component {
           notify();
         } else if (response.status === 200) {
           return response.json();
-
         }
       })
       .then(data => {
@@ -125,12 +115,10 @@ class Search extends React.Component {
           notify();
         } else if (response.status === 200) {
           return response.json();
-
         } else if (response.status === 400) {
           this.setState({ errorMessage: 'There is no text entered in the search field.' });
           notify();
           return response.json();
-
         }
       })
       .then(data => {
@@ -140,12 +128,10 @@ class Search extends React.Component {
         } else if (data.totalItems >= 1) {
           this.props.view('bookList', this.props.searchType, { book });
         }
-
       })
       .catch(error => {
         console.error('There was a problem with your fetch GET operation: ', error);
       });
-
   }
 
   render() {
@@ -162,7 +148,7 @@ class Search extends React.Component {
           <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
             <div className="col-md-8 p-lg-5 mx-auto my-5">
               <h1 className="display-4 title">ValueReads</h1>
-              <h2><strong>Which books have greatly impacted the world's most common professions?</strong></h2>
+              <h2><strong>Which books have greatly impacted the world&#39;s most common professions?</strong></h2>
               <div className="s003 fadeIn" >
                 <form onSubmit={this.handleSubmit}>
                   <ReactSearchBox
@@ -188,28 +174,23 @@ class Search extends React.Component {
                       pauseOnHover={false}
                     />
                   </div>
-
                 </form>
               </div>
-
             </div>
             <div className="product-device box-shadow d-none d-md-block"></div>
             <div className="product-device product-device-2 box-shadow d-none d-md-block"></div>
           </div>
         </div>
       );
-
     } else if (this.props.searchType === 'book') {
-
       return (
         <div className="container-fluid">
           <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
             <div className="col-md-8 p-lg-5 mx-auto my-5">
               <h1 className="display-4 title">ValueReads</h1>
-              <h2><strong>Which books have greatly impacted the world's most common professions?</strong></h2>
+              <h2><strong>Which books have greatly impacted the world&#39;s most common professions?</strong></h2>
               <div className="s003" >
                 <form onSubmit={this.handleSubmit} className="fadeIn">
-
                   <input type="text" className="book-search-bar jwfbbd" placeholder="Enter a book name" onChange={this.handleChange} value={this.state.searchField || ''} />
                   <input type="submit" value="Search" className="btn btn-success search-button" />
                   <ToastContainer
