@@ -148,9 +148,9 @@ class Search extends React.Component {
           <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
             <div className="col-md-8 p-lg-5 mx-auto my-5">
               <h1 className="display-4 title">ValueReads</h1>
-              <h2><strong>Which books have greatly impacted the world&#39;s most common professions?</strong></h2>
+              <h2 className="tag-question"><strong>Which books have greatly impacted the world&#39;s most common professions?</strong></h2>
               <div className="s003 fadeIn" >
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} className="flex-inner">
                   <ReactSearchBox
                     placeholder="Enter a profession name"
                     data={allProfessions}
@@ -188,9 +188,9 @@ class Search extends React.Component {
           <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
             <div className="col-md-8 p-lg-5 mx-auto my-5">
               <h1 className="display-4 title">ValueReads</h1>
-              <h2><strong>Which books have greatly impacted the world&#39;s most common professions?</strong></h2>
+              <h2 className="tag-question"><strong>Which books have greatly impacted the world&#39;s most common professions?</strong></h2>
               <div className="s003" >
-                <form onSubmit={this.handleSubmit} className="fadeIn">
+                <form onSubmit={this.handleSubmit} className="fadeIn flex-inner">
                   <input type="text" className="book-search-bar jwfbbd" placeholder="Enter a book name" onChange={this.handleChange} value={this.state.searchField || ''} />
                   <input type="submit" value="Search" className="btn btn-success search-button" />
                   <ToastContainer

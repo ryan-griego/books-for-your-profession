@@ -1002,7 +1002,6 @@ legend {
   }
 }
 
-
 /** App Drawer Styling **/
 
 .backdrop {
@@ -1088,7 +1087,7 @@ legend {
 
 .nav-container {
   max-width:1200px;
-      margin: auto auto 30px;
+  margin: auto auto 30px;
 }
 
 .navbar {
@@ -1101,10 +1100,7 @@ background-color: transparent;
   font-family: 'Libre Baskerville', serif;
   font-weight:bold;
   color: #042d41 !important;
-
 }
-
-
 
 .nav-link {
   font-weight: 600;
@@ -1733,3 +1729,226 @@ margin-bottom: 6px;
 }
 
 /*# sourceMappingURL=ReactToastify.css.map */
+
+
+
+/* Media Queries */
+
+/* ----------- iPhone 5 / SE ----------- */
+ /* Portrait */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+   .nav-container {
+    width: 100%;
+    text-align: center;
+  }
+  .navbar-nav {
+    display: contents;
+    display: block;
+    margin: 0 auto;
+  }
+    #profession {
+    margin: 0 auto;
+  }
+    .display-4 {
+    font-size: 2.3rem;
+  }
+
+  .flex-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.search-button {
+    margin-top: 5px;
+    margin: 0 auto;
+}
+
+.book-search-bar {
+    margin-bottom: 10px;
+}
+
+.s003 {
+    margin-top: 1rem;
+}
+
+    h2.tag-question{
+    width:100%;
+    font-size:1.2rem;
+  }
+  .s003 form {
+    width: 100%;
+}
+
+.results{
+  margin: 0px 20px;
+  width: 100%;
+  text-align: center;
+
+}
+
+.top-container {
+  margin-top: 2rem;
+}
+
+h1 span {
+    padding-left: 1rem;
+  }
+
+
+
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+ /* Portrait */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+  .nav-container {
+    width: 100%;
+    text-align: center;
+  }
+  .navbar-nav {
+    display: contents;
+    display: block;
+    margin: 0 auto;
+  }
+
+  nav #profession {
+    width: 100%;
+  }
+
+  .card {
+    width: 100% !important;
+  }
+  h1 span {
+    text-align: center;
+  }
+  h2.tag-question{
+    width:100%;
+    font-size:1.5rem;
+  }
+  .display-4 {
+    font-size: 2.5rem;
+  }
+  .s003 {
+    margin-top:1rem;
+  }
+
+  .s003 form {
+  width: 100%;
+  }
+  .smaller-text {
+    font-size: .8rem;
+  }
+  .text-size-4 {
+    font-size: 2rem;
+  }
+  .detail-image-display-container {
+    margin-right: 0px;
+  }
+  .detail-image-display {
+    height: 200px;
+    object-fit: contain;
+  }
+  .thumbnail-container {
+    height: 50px;
+    background-color: white;
+  }
+  .notice-container {
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+  }
+  .notice-body-container {
+    background-color: rgba(79, 105, 162, 1);
+    height: 60px;
+  }
+  .video-overlay {
+    top: 40px;
+    height: 32%;
+  }
+
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+/* Landscape */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+  .card {
+    width: 100%;
+    padding-top: 10%;
+  }
+  .container {
+    max-width: 100%;
+    margin: auto;
+  }
+  h4.iphone-678-landscape {
+    font-size: 1.2rem;
+  }
+ .thumbnail-container {
+    height: 50px;
+    background-color: white;
+  }
+}
+
+/* ----------- iPhone X ----------- */
+/* Landscape */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 812px)
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) {
+  .card {
+    width: 45%;
+  }
+  .detail-image-display-container {
+    margin-right: 0px;
+  }
+  h4.iphone-678-landscape {
+    font-size: 1.2rem;
+  }
+}
+
+/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+/* Landscape */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (orientation: landscape)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .search-button {
+    margin-top: 5px;
+    margin: 0 auto;
+}
+
+.book-search-bar {
+    margin-bottom: 10px;
+}
+
+.s003 {
+    margin-top: 1rem;
+}
+
+    h2.tag-question{
+    width:100%;
+    font-size:1.2rem;
+  }
+  .s003 form {
+    width: 100%;
+}
+    .card {
+    width: 45%;
+  }
+    h4.iphone-678-landscape {
+    font-size: 1.2rem;
+  }
+}
