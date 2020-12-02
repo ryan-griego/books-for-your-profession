@@ -146,11 +146,11 @@ class Search extends React.Component {
       return (
         <div className="container-fluid">
           <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-            <div className="col-md-8 p-lg-5 mx-auto my-5">
+            <div className="col-md-10 p-lg-5 mx-auto my-5">
               <h1 className="display-4 title">ValueReads</h1>
               <h2 className="tag-question"><strong>Which books have greatly impacted the world&#39;s most common professions?</strong></h2>
-              <div className="s003 fadeIn" >
-                <form onSubmit={this.handleSubmit} className="flex-inner">
+              <div className="s003" >
+                <form onSubmit={this.handleSubmit} className="flex-inner fadeIn">
                   <ReactSearchBox
                     placeholder="Enter a profession name"
                     data={allProfessions}
@@ -186,7 +186,7 @@ class Search extends React.Component {
       return (
         <div className="container-fluid">
           <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-            <div className="col-md-8 p-lg-5 mx-auto my-5">
+            <div className="col-md-10 p-lg-5 mx-auto my-5">
               <h1 className="display-4 title">ValueReads</h1>
               <h2 className="tag-question"><strong>Which books have greatly impacted the world&#39;s most common professions?</strong></h2>
               <div className="s003" >
