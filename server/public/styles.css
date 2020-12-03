@@ -13,7 +13,7 @@ a.dropdown-item:active{
 }
 
   .tag-question {
-    width: 100%;
+    width: 70%;
     margin: 0 auto;
 }
 
@@ -1948,7 +1948,7 @@ h1 span {
 }
 
   .tag-question{
-    width:100%;
+    width:70%;
     font-size:1.2rem;
   }
   .s003 form {
