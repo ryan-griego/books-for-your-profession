@@ -147,7 +147,7 @@ class BookDetails extends React.Component {
               <div className="hover my-3 px-0 d-flex justify-content-start back-btn" onClick={this.backToSearchResults} style={{ cursor: 'pointer' }}>&lt; Back to Search Results</div>
 
               <div className="details-card text-center fadeIn" style={{ width: '100%' }} id={this.state.book.bookId}>
-                <img src={this.state.book.imageurl} className="card-img-top img-thumbnail mt-2"></img>
+                <img src={this.state.book.imageurl} className="card-img-top img-thumbnail mt-2 fadeIn second"></img>
                 <div className="card-body">
                   <h5 className="card-title">{this.state.book.name}</h5>
                   <p className="card-text">{fixAuthors}</p>
@@ -166,16 +166,16 @@ class BookDetails extends React.Component {
                   />
                   {this.checkDetails()}
                   <div className="row book-info">
-                    <div className="col-md-6">
+                    <div className="col-md-6 fadeIn third">
                       <p className="text-muted text-uppercase">Genre</p>
                       <p>{this.state.book.genre}</p>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-6 fadeIn first">
                       <p className="text-muted text-uppercase">Released</p>
                       <p>{this.state.book.releaseYear}</p>
                     </div>
                   </div>
-                  <p className="card-text">{descriptionText}</p>
+                  <p className="card-text fadeIn fourth">{descriptionText}</p>
                 </div>
               </div>
             </div>
@@ -209,23 +209,23 @@ class BookDetails extends React.Component {
           <div className="container top-container">
             <div className="col-md-6 mb-4 mx-auto">
               <div className="hover my-3 px-0 d-flex justify-content-start back-btn" onClick={this.backToSearchResults} style={{ cursor: 'pointer' }}>&lt; Back to Search Results</div>
-              <div className="details-card fadeIn text-center" style={{ width: '100%' }} id={this.state.book.volumeInfo.bookId}>
-                <img src={checkImage} className="card-img-top img-thumbnail mt-2"></img>
+              <div className="details-card text-center" style={{ width: '100%' }} id={this.state.book.volumeInfo.bookId}>
+                <img src={checkImage} className="card-img-top img-thumbnail mt-2 fadeIn second"></img>
                 <div className="card-body">
                   <h5 className="card-title text-center">{this.state.book.volumeInfo.title}</h5>
                   <p className="card-text text-center">{joinAuthor}</p>
                   <a className="btn btn-primary" onClick={this.props.add}>Add to my list</a>
-                  <div className="row book-info">
+                  <div className="row book-info fadeIn third">
                     <div className="col-md-6">
                       <p className="text-muted text-uppercase">Genre</p>
                       <p>{category}</p>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-6 fadeIn first">
                       <p className="text-muted text-uppercase">Released</p>
                       <p>{publishedDate}</p>
                     </div>
                   </div>
-                  <p className="card-text">{descriptionText}</p>
+                  <p className="card-text fadeIn fourth">{descriptionText}</p>
                 </div>
               </div>
             </div>

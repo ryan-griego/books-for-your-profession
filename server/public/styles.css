@@ -55,8 +55,6 @@ a.dropdown-item:active{
   border-radius: 0 0 10px 10px;
 }
 
-
-
 /* TABS */
 
 h2.inactive {
@@ -802,7 +800,7 @@ legend {
 }
 
 .s003 form {
-  width: 75%;
+  width: 36%;
   max-width: 790px;
   margin-bottom: 0;
   display: flex;
