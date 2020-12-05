@@ -164,7 +164,7 @@ class Search extends React.Component {
                     }}
                     value=""
                   />
-                  <div>
+                  <div className="profession-search-bar">
                     <input type="submit" value="Search" className="btn btn-success search-button"/>
                     <ToastContainer
                       position="top-center"
