@@ -66,7 +66,7 @@ class Search extends React.Component {
       } else {
         this.checkProfession(currentProfession);
         this.setState({ errorMessage: `${currentProfession} currently has no books associated with it.` });
-        notify();
+        // notify();
         this.setState({ profession: event.target.value });
       }
     } else if (this.props.searchType === 'book') {
@@ -85,14 +85,18 @@ class Search extends React.Component {
     fetch(`/api/professions/${currentProfession}`)
       .then(response => {
         if (response.status === 404) {
-          this.setState({ errorMessage: 'There are no books associated with that profession yet.' });
+          console.log("you received a 404 error when doing a profession search for a profession that does not yet have a book list");
           notify();
         } else if (response.status === 200) {
           return response.json();
         }
       })
       .then(data => {
-        this.props.view('bookList', this.props.searchType, { currentProfession });
+        console.log("log the data in the profession search", data);
+        if(data) {
+          this.props.view('bookList', this.props.searchType, { currentProfession });
+
+        }
       })
       .catch(error => {
         console.error('There was a problem with your fetch GET operation: ', error);
