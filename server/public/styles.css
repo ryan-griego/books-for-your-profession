@@ -1210,6 +1210,18 @@ margin-bottom: 6px;
   color: #636363;
 }
 
+.toggle-description-button {
+  padding: 5px;
+  margin: 5px;
+}
+
+.toggle-description-link {
+  padding: 5px;
+  margin: 5px;
+  color: #0b72a5 !important;
+  font-weight: bolder;
+}
+
 .book-info {
   margin-top:1rem;
 }
