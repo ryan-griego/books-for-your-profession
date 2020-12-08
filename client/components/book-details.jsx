@@ -14,7 +14,6 @@ class BookDetails extends React.Component {
     this.backToUserList = this.backToUserList.bind(this);
     this.backToSearchResults = this.backToSearchResults.bind(this);
     this.toggleDescription = this.toggleDescription.bind(this);
-
   }
 
   getGoogleBooksByIsbn() {
@@ -23,10 +22,8 @@ class BookDetails extends React.Component {
     fetch('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn)
       .then(function (res) {
         return res.json();
-
       })
       .then(function (result) {
-
         that.setState({ book: result.items[0].volumeInfo });
         that.setView();
       }),
@@ -52,13 +49,11 @@ class BookDetails extends React.Component {
   }
 
   getGoogleBooksBySelfLink() {
-
     const selfLink = this.props.viewParams.selfLink;
     const that = this;
     fetch(`${selfLink}`)
       .then(function (res) {
         return res.json();
-
       })
       .then(function (result) {
         that.setState({ book: result });
@@ -77,7 +72,6 @@ class BookDetails extends React.Component {
         .catch(error => {
           console.error('There was a problem with your fetch GET operation: ', error);
         });
-
     }
 
     if (this.props.searchType === 'profession') {
@@ -88,22 +82,17 @@ class BookDetails extends React.Component {
         .catch(error => {
           console.error('There was a problem with your fetch GET operation: ', error);
         });
-
     }
-
     if (this.props.searchType === 'book') {
       this.getGoogleBooksBySelfLink();
     }
   }
 
   setView(e) {
-
     if (this.props.searchType === 'book' || this.props.searchType === 'profession') {
       const bookObject = this.state.book;
-
       this.props.view('bookDetails', this.props.searchType, { bookObject });
     }
-
   }
 
   backToSearch() {
@@ -134,33 +123,21 @@ class BookDetails extends React.Component {
 
 
   toggleDescription() {
-    console.log("you hit the toggleDescription");
     this.setState({ descriptionOn: !this.state.descriptionOn});
-    // return <p>Yardstick D</p>;
   }
 
   getRenderedDescription() {
-    console.log("tell me the book that was clicked with this.props.viewParams", this.props.viewParams);
-    console.log("tell me  this.props", this.props);
-    console.log("tell me  this.state in book-details user search", this.state);
-
-
-
     const count = 300;
     if(this.props.searchType === "profession") {
     const longDescription = this.props.viewParams.clickedBook.[0].shortDescription ? this.props.viewParams.clickedBook.[0].shortDescription.replace(/(<([^>]+)>)/gi, '') : 'No description available';
     const shortDescription = longDescription.slice(0, count);
-
     if (longDescription.length < 300) {
       return (
         <div>
           {longDescription}
-
         </div>
       );
     }
-
-    // THIS WORKS FOR ALL PROFESSION SEARCHES
     if (longDescription === "No description available"){
       return;
     } else if (longDescription !== "No description available") {
@@ -175,25 +152,20 @@ class BookDetails extends React.Component {
           );
         }
         else {
-      return (
-        <div>
-          {shortDescription}
-            <a className="toggle-description-link" onClick={this.toggleDescription} style={{ cursor: 'pointer' }}>
-              {this.state.descriptionOn ? 'See less' : '[ ... ] See more'}
-            </a>
-        </div>
-      );
+          return (
+            <div>
+              {shortDescription}
+                <a className="toggle-description-link" onClick={this.toggleDescription} style={{ cursor: 'pointer' }}>
+                  {this.state.descriptionOn ? 'See less' : '[ ... ] See more'}
+                </a>
+            </div>
+          );
     }
   }
 
-
     } else if(this.props.searchType === "user") {
-      // THIS WORKS FOR ALL USER SEARCHES
-
       const longDescription = this.state.book.shortDescription ? this.state.book.shortDescription.replace(/(<([^>]+)>)/gi, '') : 'No description available';
       const shortDescription = longDescription.slice(0, count);
-      console.log("log the long description in a user search", longDescription);
-      console.log("log the long description.length in a user search", longDescription.length);
 
       if (longDescription === "No description available" || longDescription.length < 300) {
         return longDescription;
@@ -219,18 +191,35 @@ class BookDetails extends React.Component {
           );
         }
       }
-
-
     } else if (this.props.searchType === "book") {
-      console.log("tell me the book that was clicked with this.props.viewParams WITH BOOK SEARCH", this.props.viewParams);
-      console.log("tell me  this.props", this.props);
-      console.log("tell me  this.state in book-details user search", this.state);
-
+      const longDescription = this.state.book.volumeInfo.description ? this.state.book.volumeInfo.description.replace(/(<([^>]+)>)/gi, '') : 'No description available';
+      const shortDescription = longDescription.slice(0, count);
+      if (longDescription === "No description available" || longDescription.length < 300) {
+        return longDescription;
+      } else if (longDescription !== "No description available") {
+        if (this.state.descriptionOn) {
+          return (
+            <div>
+              {longDescription}
+              <a className="toggle-description-link" onClick={this.toggleDescription} style={{ cursor: 'pointer' }}>
+                {this.state.descriptionOn ? 'See less' : '[ ... ] See more'}
+              </a>
+            </div>
+          );
+        }
+        else {
+          return (
+            <div>
+              {shortDescription}
+              <a className="toggle-description-link" onClick={this.toggleDescription} style={{ cursor: 'pointer' }}>
+                {this.state.descriptionOn ? 'See less' : '[ ... ] See more'}
+              </a>
+            </div>
+          );
+        }
+      }
     }
-
-    }
-
-
+  }
 
   render() {
     if (!this.state.book) return null;
@@ -238,38 +227,21 @@ class BookDetails extends React.Component {
       const fixAuthors = this.state.book.author.length > 1 ? this.state.book.author.replace(/{|"|}/g, '').replace(/,/g, ', ') : this.state.book.author;
       const count = 500;
       const description = this.state.book.shortDescription ? this.state.book.shortDescription.replace(/(<([^>]+)>)/gi, '') : 'No description available';
-
-
-
-
-
       const shortDescription = description.slice(0, count);
       const longDescription = description;
-      console.log("log the shortDescription", shortDescription);
-      console.log("log the longDescription", longDescription);
       const checkDescriptionStatus = this.state.descriptionOn ? longDescription : shortDescription;
-
-
       const descriptionText = description ? checkDescriptionStatus : ' There currently is no description for this book title.';
-
-
-      // const descriptionText = description ? description.slice(0, count) + (description.length > count ? '...' : '') : ' There currently is no description for this book title.';
 
       return (
         <>
           <div className="container top-container">
-
             <div className="col-md-6 mb-4 mx-auto">
-
               <div className="hover my-3 px-0 d-flex justify-content-start back-btn" onClick={this.backToSearchResults} style={{ cursor: 'pointer' }}>&lt; Back to Search Results</div>
-
               <div className="details-card text-center fadeIn" style={{ width: '100%' }} id={this.state.book.bookId}>
                 <img src={this.state.book.imageurl} className="card-img-top img-thumbnail mt-2 fadeIn second"></img>
                 <div className="card-body">
                   <h5 className="card-title">{this.state.book.name}</h5>
                   <p className="card-text">{fixAuthors}</p>
-
-                  {/* <a className="btn btn-primary">Share</a> */}
                   <ToastContainer
                     position="top-center"
                     autoClose={5000}
@@ -292,39 +264,20 @@ class BookDetails extends React.Component {
                       <p>{this.state.book.releaseYear}</p>
                     </div>
                   </div>
-                  <p className="card-text fadeIn fourth">{descriptionText}</p>
-                  <div>
+                  <div className="card-text fadeIn fourth">
                     {this.getRenderedDescription()}
                   </div>
-                  {/* <div>
-                  {this.getRenderedDescription()}
-                  <button className="toggle-description-button" onClick={this.toggleDescription}>
-                    {this.state.descriptionOn ? 'See less' : 'See more'}
-                  </button>
-                  </div> */}
-                  {/* <a className="card-text fadeIn fourth" onClick={this.toggleDescription} style={{ cursor: 'pointer' }}>See More</a> */}
-
                 </div>
               </div>
             </div>
           </div>
         </>
-
       );
     } else if (this.props.searchType === 'book') {
-
-
-
       const count = 300;
       const description = this.state.book.volumeInfo.description ? this.state.book.volumeInfo.description.replace(/(<([^>]+)>)/gi, '') : 'No description available';
       const checkImage = this.state.book.volumeInfo.imageLinks ? this.state.book.volumeInfo.imageLinks.thumbnail : 'images/no-image-available.png';
-
-
-      // const descriptionText = description.slice(0, count) + (description.length > count ? '...' : '');
       const descriptionText = description ? description : 'There currently is no description for this book title.';
-
-
-      console.log("log the descriptionText", descriptionText);
       const joinAuthor = this.state.book.volumeInfo.authors ? this.state.book.volumeInfo.authors.join(', ') : 'No author listed';
       const category = this.state.book.volumeInfo.categories ? this.state.book.volumeInfo.categories : 'No genre listed';
       const publishedDate = this.state.book.volumeInfo.publishedDate ? this.state.book.volumeInfo.publishedDate.slice(0, 4) : 'No release date listed';
@@ -361,12 +314,9 @@ class BookDetails extends React.Component {
                       <p>{publishedDate}</p>
                     </div>
                   </div>
-                  <p className="card-text fadeIn fourth">{descriptionText}</p>
-                  <div>
+                  <div className="card-text fadeIn fourth">
                     {this.getRenderedDescription()}
                   </div>
-
-
                 </div>
               </div>
             </div>
