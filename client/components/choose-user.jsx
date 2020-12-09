@@ -25,13 +25,13 @@ export default class ChooseUser extends React.Component {
       <>
         <div className='container login-container btn-color top-container'>
           <div className='main'>
-            <div className="ml-2 text-center">
+            <div className="ml-2 text-center fadeIn first">
               <img className="logo" src="../images/book-light-bulb.png"></img>
             </div>
             <header className="header d-flex justify-content-center">
-              <h1 className="display-4 title">ValueReads</h1>
+              <h1 className="display-4 title fadeIn second">ValueReads</h1>
             </header>
-            <form className='d-flex flex-column justify-content-center align-items-center mt-3' onSubmit={this.handleSubmit}>
+            <form className='d-flex flex-column justify-content-center align-items-center mt-3 fadeIn third' onSubmit={this.handleSubmit}>
               <p className="back-btn">Select a user to log in</p>
               <select style={{ fontSize: '18px' }} className='select-option btn-group dropdown w-75' type="button" value={this.state.activeUser} required onChange={this.handleChange}>
                 <option style={{ fontSize: '12px', color: 'black' }} className='dropdown-item' value="" disabled >Select User</option>
@@ -40,7 +40,7 @@ export default class ChooseUser extends React.Component {
                 <option style={{ fontSize: '12px' }} className='dropdown-item' value="3">George Wilson -  Animator</option>
               </select>
               <div className='mt-5'>
-                <button className='btn btn-success search-button'>Log In</button>
+                <button className='btn btn-success search-button fadeIn fourth'>Log In</button>
               </div>
             </form>
           </div>

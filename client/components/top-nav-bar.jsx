@@ -49,7 +49,7 @@ class TopNavBar extends React.Component {
             <a className="navbar-brand" href="#">
               <img src="images/book-light-bulb.png" width="60" height="60" alt=""/>
             </a>
-            <a className="navbar-brand" href="#">ValueReads</a>
+            <a className="navbar-brand site-name" href="#">ValueReads</a>
           </div>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item px-2 dropdown">
