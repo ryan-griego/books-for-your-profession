@@ -1,4 +1,4 @@
-# ValueReads
+# Books For Your Profession
 An app for professionals who want to find out the most recommended books for their profession.
 > - Maintained by: `ryan-griego`
 
@@ -29,4 +29,4 @@ Url coming soon
  1. Users can delete a book from their book list.
 
  ## Preview
- <img src="server/public/images/ValueReads.png">
+ <img src="server/public/images/books-for-your-profession.png">

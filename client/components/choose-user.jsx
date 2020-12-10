@@ -29,7 +29,7 @@ export default class ChooseUser extends React.Component {
               <img className="logo" src="../images/book-light-bulb.png"></img>
             </div>
             <header className="header d-flex justify-content-center">
-              <h1 className="display-4 title fadeIn second">ValueReads</h1>
+              <h1 className="display-4 title fadeIn second">Books For Your Profession</h1>
             </header>
             <form className='d-flex flex-column justify-content-center align-items-center mt-3 fadeIn third' onSubmit={this.handleSubmit}>
               <p className="back-btn">Select a user to log in</p>
