@@ -12,6 +12,7 @@ a.dropdown-item:active {
 .tag-question {
   width: 70%;
   margin: 0 auto;
+  color:#042d41;
 }
 /* LOGIN STYLES */
 
@@ -273,19 +274,22 @@ h1 {
   font-size: 2em;
   margin: 0.67em 0;
   font-family: 'Libre Baskerville', serif;
-}
-h1 span {
-  font-size: 1.2rem;
-}
-.title {
-  font-weight: 900;
-  text-shadow: 0px 1px 4px #23430C;
-  margin-bottom: 15px;
-}
-h1 {
   font-family: 'Libre Baskerville', serif;
   color: #042d41;
 }
+
+h1 span {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: .2px;
+}
+.title {
+  font-weight: 900;
+  text-shadow: 0px 1px 4px rgba(35, 67, 12, 1);
+  margin-bottom: 15px;
+  letter-spacing: .2;
+}
+
 h2 {
   width: 75%;
   margin: 0 auto;
@@ -981,11 +985,12 @@ legend {
 }
 .navbar-brand {
   font-size: 1.5rem;
+  letter-spacing: .1px;
   font-family: 'Libre Baskerville', serif;
   color: #042d41 !important;
   vertical-align: middle !important;
   font-weight: 900;
-  text-shadow: 0px 1px 1px #23430C;
+  text-shadow: 0px 1px 1px rgba(35, 67, 12, .4);
 }
 .nav-link {
   font-weight: 600;
@@ -1016,7 +1021,7 @@ legend {
 }
 .btn-danger {
   color: white!important;
-  background-color: #741019 !important;
+  background-color: #bc2533 !important;
 }
 .btn-light {
   color: white!important;
@@ -1066,13 +1071,29 @@ legend {
   margin: 0 auto;
   margin-top: 1rem;
 }
+
+.card-img-top-details {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
 .card-title {
   font-family: 'Libre Baskerville', serif;
   margin-bottom: 6px;
+  font-weight: 600;
 }
+
 .card-text {
   color: #636363;
+  text-align: left;
 }
+
+.card-author {
+  color: #1d1d1d;
+  text-align: center;
+}
+
 .toggle-description-button {
   padding: 5px;
   margin: 5px;
@@ -1083,9 +1104,29 @@ legend {
   color: #0b72a5 !important;
   font-weight: bolder;
 }
+
 .book-info {
   margin-top: 1rem;
+  border-bottom: .5px solid #e6e6e6;
+  border-top: .5px solid #e6e6e6;
+  padding: 10px;
+  width: 95%;
+  margin: 0 auto;
 }
+
+.book-desc {
+  padding: 10px;
+  line-height: 1.6rem;
+}
+
+.book-info:first-child {
+  background-color: blue;
+}
+
+.subject {
+  border-right: .5px solid #e6e6e6;
+}
+
 .rank {
   font-family: 'Libre Baskerville', serif;
   font-size: 2.8rem;
@@ -1100,6 +1141,7 @@ legend {
 .background-dark {
   background-color: #042d41;
 }
+
 .footer {
   color: white;
   text-align: center;

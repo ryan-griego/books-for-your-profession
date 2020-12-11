@@ -39,7 +39,7 @@ export default class ChooseUser extends React.Component {
                 <option style={{ fontSize: '12px' }} className='dropdown-item' value="2">Mike Athan - Marketing assistant</option>
                 <option style={{ fontSize: '12px' }} className='dropdown-item' value="3">George Wilson -  Animator</option>
               </select>
-              <div className='mt-5'>
+              <div className='mt-5 mb-5'>
                 <button className='btn btn-success search-button fadeIn fourth'>Log In</button>
               </div>
             </form>

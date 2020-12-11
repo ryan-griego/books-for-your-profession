@@ -9,11 +9,11 @@ class BookListItem extends React.Component {
         <>
           <div className="col-md-4 mb-4">
             <div className="card fadeIn text-center" style={{ width: '18rem' }} onClick={this.props.view} id={this.props.bookId}>
-              <p className="card-text rank"><span>#</span>{this.props.rank}</p>
+              <p className="rank"><span>#</span>{this.props.rank}</p>
               <img src={this.props.image} className="card-img-top"></img>
               <div className="card-body">
                 <h5 className="card-title">{this.props.name}</h5>
-                <p className="card-text">{fixAuthors}</p>
+                <p className="card-author">{fixAuthors}</p>
                 <a className="btn btn-primary info-btn">More information</a>
               </div>
             </div>
@@ -30,7 +30,7 @@ class BookListItem extends React.Component {
               <img src={checkImage} className="card-img-top"></img>
               <div className="card-body">
                 <h5 className="card-title text-center">{this.props.name}</h5>
-                <p className="card-text text-center">{fixedAuthor}</p>
+                <p className="card-author text-center">{fixedAuthor}</p>
                 <a className="btn btn-primary info-btn">More information</a>
               </div>
             </div>
