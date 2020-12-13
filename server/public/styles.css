@@ -544,6 +544,7 @@ button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focus
 
 .search-button {
   margin-left: 10px;
+  padding-bottom: 8px;
 }
 .book-search-bar {
   border-radius: 5px;
@@ -1049,6 +1050,10 @@ legend {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 2rem;
+}
+
+.card-group {
+  width:100%;
 }
 .details-card {
   box-shadow: 1px 2px 9px rgba(0, 0, 0, .22);

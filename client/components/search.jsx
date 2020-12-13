@@ -87,6 +87,7 @@ class Search extends React.Component {
         if (response.status === 404) {
           notify();
         } else if (response.status === 200) {
+          console.log('log the response in checkProfession', response);
           return response.json();
         }
       })
@@ -97,6 +98,7 @@ class Search extends React.Component {
         }
       })
       .catch(error => {
+        notify();
         console.error('There was a problem with your fetch GET operation: ', error);
       });
   }
@@ -162,8 +164,10 @@ class Search extends React.Component {
                     value=""
                   />
                   <div className="profession-search-bar">
-                    <input type="submit" value="Search" className="btn btn-success search-button"/>
-                    <ToastContainer
+                    <button type="submit" className="btn btn-success search-button">
+                      <i className="fas fa-search"></i>
+                    </button>
+                      <ToastContainer
                       position="top-center"
                       autoClose={5000}
                       hideProgressBar={false}
@@ -192,7 +196,9 @@ class Search extends React.Component {
               <div className="s003" >
                 <form onSubmit={this.handleSubmit} className="fadeIn flex-inner">
                   <input type="text" className="book-search-bar jwfbbd" placeholder="Enter a book name" onChange={this.handleChange} value={this.state.searchField || ''} />
-                  <input type="submit" value="Search" className="btn btn-success search-button" />
+                  <button type="submit" className="btn btn-success search-button">
+                    <i className="fas fa-search"></i>
+                  </button>
                   <ToastContainer
                     position="top-center"
                     autoClose={5000}
