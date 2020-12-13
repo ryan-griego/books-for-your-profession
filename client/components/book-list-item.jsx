@@ -8,13 +8,13 @@ class BookListItem extends React.Component {
       return (
         <>
           <div className="col-md-4 mb-4">
-            <div className="card fadeIn text-center" style={{ width: '18rem' }} onClick={this.props.view} id={this.props.bookId}>
+            <div className="card fadeIn text-center" style={{ width: '18rem' }}>
               <p className="rank"><span>#</span>{this.props.rank}</p>
               <img src={this.props.image} className="card-img-top"></img>
               <div className="card-body">
                 <h5 className="card-title">{this.props.name}</h5>
                 <p className="card-author">{fixAuthors}</p>
-                <a className="btn btn-primary info-btn">More info</a>
+                <a className="btn btn-primary info-btn" onClick={this.props.view} id={this.props.bookId}>More info</a>
               </div>
             </div>
           </div>
@@ -26,12 +26,12 @@ class BookListItem extends React.Component {
       return (
         <>
           <div className="col-md-4 mb-4">
-            <div className="card fadeIn text-center" style={{ width: '18rem' }} onClick={this.props.view} id={this.props.id} selflink={this.props.link}>
+            <div className="card fadeIn text-center" style={{ width: '18rem' }}>
               <img src={checkImage} className="card-img-top"></img>
               <div className="card-body">
                 <h5 className="card-title text-center">{this.props.name}</h5>
                 <p className="card-author text-center">{fixedAuthor}</p>
-                <a className="btn btn-primary info-btn">More info</a>
+                <a className="btn btn-primary info-btn" onClick={this.props.view} id={this.props.id} selflink={this.props.link}>More info</a>
               </div>
             </div>
           </div>

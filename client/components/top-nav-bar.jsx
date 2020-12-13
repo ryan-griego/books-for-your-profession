@@ -14,7 +14,6 @@ class TopNavBar extends React.Component {
     const searchType = e.currentTarget.id;
     if (searchType === 'user') {
       this.props.getUserList();
-      this.props.view('bookList', searchType, { });
     } else if (searchType === 'profession' || searchType === 'book') {
       this.props.resetState();
       this.props.view('search', searchType, { });
