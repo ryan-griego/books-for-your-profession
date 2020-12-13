@@ -115,7 +115,7 @@ class BookDetails extends React.Component {
       }
     } else if (this.props.searchType === 'user') {
       return (
-        <a className="btn btn-primary btn-danger fadeIn third" onClick={this.props.delete}>Delete from my list</a>
+        <a className="btn btn-primary btn-danger fadeIn third" onClick={this.props.delete}>Remove from my list</a>
       );
     }
   }

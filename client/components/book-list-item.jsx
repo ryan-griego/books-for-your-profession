@@ -14,7 +14,7 @@ class BookListItem extends React.Component {
               <div className="card-body">
                 <h5 className="card-title">{this.props.name}</h5>
                 <p className="card-author">{fixAuthors}</p>
-                <a className="btn btn-primary info-btn">More information</a>
+                <a className="btn btn-primary info-btn">More info</a>
               </div>
             </div>
           </div>
@@ -31,7 +31,7 @@ class BookListItem extends React.Component {
               <div className="card-body">
                 <h5 className="card-title text-center">{this.props.name}</h5>
                 <p className="card-author text-center">{fixedAuthor}</p>
-                <a className="btn btn-primary info-btn">More information</a>
+                <a className="btn btn-primary info-btn">More info</a>
               </div>
             </div>
           </div>
