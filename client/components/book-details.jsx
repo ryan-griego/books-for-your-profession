@@ -191,7 +191,7 @@ class BookDetails extends React.Component {
       const longDescription = this.state.book.volumeInfo.description ? this.state.book.volumeInfo.description.replace(/(<([^>]+)>)/gi, '') : 'No description available';
       const shortDescription = longDescription.slice(0, count);
       if (longDescription === 'No description available' || longDescription.length < 350) {
-        return longDescription;
+        return <p className="text-center">{longDescription}</p>;
       } else if (longDescription !== 'No description available') {
         if (this.state.descriptionOn) {
           return (

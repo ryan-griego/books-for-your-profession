@@ -906,6 +906,7 @@ legend {
     width: 100%;
   }
 }
+
 /** App Drawer Styling **/
 
 .backdrop {
@@ -1043,6 +1044,17 @@ legend {
   width: 50%;
 }
 /** Card Styling Updates **/
+
+.results {
+    font-size: 1.5rem;
+    text-transform: none !important;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.results span {
+    color: #0b5a1d;
+
+}
 
 .card-heading {
   color: white !important;
