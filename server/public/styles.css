@@ -545,6 +545,7 @@ button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focus
 .search-button {
   margin-left: 10px;
   padding-bottom: 8px;
+  font-size: 1.5rem;
 }
 .book-search-bar {
   border-radius: 5px;
@@ -1690,6 +1691,7 @@ legend {
   .search-button {
     margin-top: 5px;
     margin: 0 auto;
+    font-size: 1.2rem;
   }
   .book-search-bar {
     margin-bottom: 5px;
@@ -1710,16 +1712,27 @@ legend {
     width: 100%;
   }
   .results {
-    margin: 0px 20px;
+    margin: 5px 5px 15px 20px;
     width: 100%;
     text-align: center;
   }
+
+  .card {
+    height: 34rem;
+}
+
+
   .top-container {
     margin-top: 2rem;
   }
   h1 span {
     padding-left: 1rem;
   }
+
+  .footer span {
+    display:block;
+    padding-top: 10px;
+}
   /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
   /* Portrait */
   @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
