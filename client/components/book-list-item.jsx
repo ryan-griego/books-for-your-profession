@@ -8,7 +8,7 @@ class BookListItem extends React.Component {
       return (
         <>
           <div className="col-md-4 mb-4">
-            <div className="card fadeIn text-center" style={{ width: '18rem' }}>
+            <div className="card fadeIn text-center">
               <p className="rank"><span>#</span>{this.props.rank}</p>
               <img src={this.props.image} className="card-img-top"></img>
               <div className="card-body">
@@ -26,7 +26,7 @@ class BookListItem extends React.Component {
       return (
         <>
           <div className="col-md-4 mb-4">
-            <div className="card fadeIn text-center" style={{ width: '18rem' }}>
+            <div className="card fadeIn text-center">
               <img src={checkImage} className="card-img-top"></img>
               <div className="card-body">
                 <h5 className="card-title text-center">{this.props.name}</h5>

@@ -87,7 +87,6 @@ class Search extends React.Component {
         if (response.status === 404) {
           notify();
         } else if (response.status === 200) {
-          console.log('log the response in checkProfession', response);
           return response.json();
         }
       })
@@ -167,7 +166,7 @@ class Search extends React.Component {
                     <button type="submit" className="btn btn-success search-button">
                       <i className="fas fa-search"></i>
                     </button>
-                      <ToastContainer
+                    <ToastContainer
                       position="top-center"
                       autoClose={5000}
                       hideProgressBar={false}

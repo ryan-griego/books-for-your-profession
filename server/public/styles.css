@@ -545,7 +545,7 @@ button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focus
 .search-button {
   margin-left: 10px;
   padding-bottom: 8px;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 .book-search-bar {
   border-radius: 5px;
@@ -1082,6 +1082,7 @@ legend {
   border-radius: 7px;
   border: 1px solid #ffffff;
   border-bottom: 3px solid #b7b7b7;
+  width: 18rem;
   height: 32rem;
 }
 .card-img-top {
@@ -1751,12 +1752,10 @@ legend {
 
      .search-nav-item {
       order: 2;
-
      }
 
     .log-nav-item {
      order: 1;
-
      }
     nav #profession {
       width: 100%;
