@@ -51,7 +51,7 @@ class TopNavBar extends React.Component {
             <a className="navbar-brand site-name" href="#">Books For Your Profession</a>
           </div>
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item px-2 dropdown">
+            <li className="nav-item px-2 dropdown search-nav-item">
               <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Search by
               </a>
@@ -61,7 +61,7 @@ class TopNavBar extends React.Component {
               </div>
             </li>
             {this.checkUserList()}
-            <li className="nav-item px-2">
+            <li className="nav-item px-2 log-nav-item">
               <button type="button " className="btn btn-light" onClick={this.setView} id="log">{checkLoginStatus}</button>
             </li>
           </ul>

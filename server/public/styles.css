@@ -1739,12 +1739,25 @@ legend {
     .nav-container {
       width: 100%;
       text-align: center;
+      margin: auto auto 0px;
+    }
+
     }
     .navbar-nav {
-      display: contents;
-      display: block;
+      display: flex;
+      /* display: block; */
       margin: 0 auto;
     }
+
+     .search-nav-item {
+      order: 2;
+
+     }
+
+    .log-nav-item {
+     order: 1;
+
+     }
     nav #profession {
       width: 100%;
     }
