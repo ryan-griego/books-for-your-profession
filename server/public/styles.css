@@ -1880,4 +1880,12 @@ legend {
     .s003 form {
       width: 100%;
     }
+
+  }
+
+  /* Portrait iPad */
+  @media only screen and (min-device-width:768px ) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+    .site-name {
+    font-size: 1.1rem;
+}
   }
