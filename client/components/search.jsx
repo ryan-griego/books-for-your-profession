@@ -148,7 +148,7 @@ class Search extends React.Component {
 
       return (
         <div className="container-fluid">
-          <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+          <div className="position-relative overflow-hidden p-md-5 m-md-3 text-center bg-light">
             <div className="col-md-10 p-lg-5 mx-auto my-5">
               <h2 className="tag-question"><strong>Which books have greatly impacted the world&#39;s most common professions?</strong></h2>
               <div className="s003" >
@@ -189,7 +189,7 @@ class Search extends React.Component {
     } else if (this.props.searchType === 'book') {
       return (
         <div className="container-fluid">
-          <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+          <div className="position-relative overflow-hidden p-md-5 m-md-3 text-center bg-light">
             <div className="col-md-10 p-lg-5 mx-auto my-5">
               <h2 className="tag-question"><strong>Which books have greatly impacted the world&#39;s most common professions?</strong></h2>
               <div className="s003" >

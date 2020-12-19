@@ -544,12 +544,11 @@ button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focus
 
 .search-button {
   margin-left: 10px;
-  padding-bottom: 8px;
   font-size: 1rem;
 }
 .book-search-bar {
   border-radius: 5px;
-  width: 135%;
+  width: 75%;
   font-size: 14px;
   padding: 10px 20px;
 }
@@ -1678,6 +1677,9 @@ legend {
     display: block;
     margin: 0 auto;
   }
+  .navbar-brand {
+  font-size: 1.2rem;
+}
   #profession {
     margin: 0 auto;
   }
@@ -1690,12 +1692,9 @@ legend {
     align-items: center;
   }
   .search-button {
-    margin-top: 5px;
-    margin: 0 auto;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .book-search-bar {
-    margin-bottom: 5px;
   }
   .profession-search-bar {
     margin-top: 5px;
@@ -1852,7 +1851,6 @@ legend {
   @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
     .search-button {
       margin-top: 5px;
-      margin: 0 auto;
     }
     .book-search-bar {
       margin-bottom: 10px;
