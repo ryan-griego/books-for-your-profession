@@ -162,8 +162,8 @@ class Search extends React.Component {
                     }}
                     value=""
                   />
-                  <div className="profession-search-bar">
-                    <button type="submit" className="btn btn-success search-button">
+                  <div>
+                    <button type="submit" className="btn btn-success search-button-ht">
                       <i className="fas fa-search"></i>
                     </button>
                     <ToastContainer
@@ -194,7 +194,7 @@ class Search extends React.Component {
               <h2 className="tag-question"><strong>Which books have greatly impacted the world&#39;s most common professions?</strong></h2>
               <div className="s003" >
                 <form onSubmit={this.handleSubmit} className="fadeIn flex-inner">
-                  <input type="text" className="book-search-bar jwfbbd" placeholder="Enter a book name" onChange={this.handleChange} value={this.state.searchField || ''} />
+                  <input type="text" className="main-search-bar jwfbbd" placeholder="Enter a book name" onChange={this.handleChange} value={this.state.searchField || ''} />
                   <button type="submit" className="btn btn-success search-button">
                     <i className="fas fa-search"></i>
                   </button>

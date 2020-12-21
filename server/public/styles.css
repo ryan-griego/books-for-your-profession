@@ -386,7 +386,7 @@ b, strong {
   font-weight: bolder;
 }
 .dePyzG {
-  width: 135%;
+  width: 75%;
 }
 /** Search bar list fixes **/
 
@@ -545,8 +545,16 @@ button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focus
 .search-button {
   margin-left: 10px;
   font-size: 1rem;
+  /* height: 100%; */
 }
-.book-search-bar {
+
+.search-button-ht {
+  margin-left: 10px;
+  font-size: 1rem;
+  height: 100%;
+}
+
+.main-search-bar {
   border-radius: 5px;
   width: 75%;
   font-size: 14px;
@@ -723,7 +731,7 @@ legend {
   -ms-flex-align: center;
   align-items: center;
   font-family: 'Poppins', sans-serif;
-  margin-top: 5rem;
+  margin-top: 3rem;
   padding: 15px;
 }
 .s003 form {
@@ -1169,6 +1177,7 @@ legend {
   font-family: 'Libre Baskerville', serif;
   font-size: 1.5rem;
   vertical-align: middle;
+  display:block;
 }
 /* React Toastify */
 
@@ -1694,12 +1703,9 @@ legend {
   .search-button {
     font-size: 1rem;
   }
-  .book-search-bar {
+  .main-search-bar {
   }
-  .profession-search-bar {
-    margin-top: 5px;
-    padding-top: 5px;
-  }
+
   .s003 {
     margin-top: 1rem;
   }
@@ -1851,7 +1857,7 @@ legend {
     .search-button {
       margin-top: 5px;
     }
-    .book-search-bar {
+    .main-search-bar {
       margin-bottom: 10px;
     }
     .s003 {
