@@ -13,6 +13,7 @@ a.dropdown-item:active {
   width: 70%;
   margin: 0 auto;
   color:#042d41;
+  font-size:1.8rem;
 }
 /* LOGIN STYLES */
 
@@ -285,7 +286,7 @@ h1 span {
 }
 .title {
   font-weight: 900;
-  text-shadow: 0px 1px 4px rgba(35, 67, 12, 1);
+  text-shadow: 0px 1px 4px rgba(35, 67, 12, .4);
   margin-bottom: 15px;
   letter-spacing: .2;
 }
@@ -738,7 +739,7 @@ legend {
   width: 100%;
   max-width: 790px;
   margin-bottom: 0;
-  /* display: flex; */
+  display: flex;
 }
 .s003 form .inner-form {
   background: #fff;
@@ -1049,7 +1050,7 @@ legend {
   margin-right: auto;
   left: 0;
   right: 0;
-  width: 50%;
+  width: 60%;
 }
 /** Card Styling Updates **/
 
@@ -1089,8 +1090,7 @@ legend {
   border-radius: 7px;
   border: 1px solid #ffffff;
   border-bottom: 3px solid #b7b7b7;
-  width: 18rem;
-  height: 32rem;
+  height: 36rem;
 }
 .card-img-top {
   width: 60%;
@@ -1166,6 +1166,18 @@ legend {
 }
 .background-dark {
   background-color: #042d41;
+}
+
+footer {
+}
+
+
+footer img {
+ margin-bottom: 0;
+}
+
+footer h6 {
+ margin-bottom: 0;
 }
 
 .footer {
@@ -1726,6 +1738,11 @@ legend {
     height: 34rem;
 }
 
+.subject {
+  border-left:black 2px;
+  border-right:none;
+}
+
 
   .top-container {
     margin-top: 2rem;
@@ -1772,7 +1789,7 @@ legend {
     }
     h2.tag-question {
       width: 100%;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
 
     .title {
@@ -1876,7 +1893,6 @@ legend {
       width: 100%;
     }
     .card {
-      width: 45%;
     }
     h4.iphone-678-landscape {
       font-size: 1.2rem;
