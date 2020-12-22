@@ -1855,7 +1855,7 @@ legend {
 
   @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
     .search-button {
-      margin-top: 5px;
+      height: 100%;
     }
     .main-search-bar {
       margin-bottom: 10px;
