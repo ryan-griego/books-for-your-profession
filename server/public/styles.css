@@ -10,13 +10,17 @@ a.dropdown-item:active {
   background-color: #28a745 !important;
 }
 .tag-question {
-  width: 70%;
+  width: 65%;
   margin: 0 auto;
   color:#042d41;
   font-size:1.8rem;
 }
-/* LOGIN STYLES */
 
+.headline-img {
+  width: 33%;
+}
+
+/* LOGIN STYLES */
 .wrapper {
   display: flex;
   align-items: center;
@@ -387,7 +391,8 @@ b, strong {
   font-weight: bolder;
 }
 .dePyzG {
-  width: 75%;
+  width: 65%;
+  display: inline !important;
 }
 /** Search bar list fixes **/
 
@@ -397,6 +402,7 @@ b, strong {
 }
 .jwfbbd {
   border: 2px solid #0d5b1e !important;
+  width: 65%;
 }
 /**
  * 1. Correct the inheritance and scaling of font size in all browsers.
@@ -557,7 +563,7 @@ button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focus
 
 .main-search-bar {
   border-radius: 5px;
-  width: 75%;
+  width: 65%;
   font-size: 14px;
   padding: 10px 20px;
 }
@@ -739,7 +745,7 @@ legend {
   width: 100%;
   max-width: 790px;
   margin-bottom: 0;
-  display: flex;
+  display: flow-root;
 }
 .s003 form .inner-form {
   background: #fff;

@@ -149,7 +149,9 @@ class Search extends React.Component {
       return (
         <div className="container-fluid">
           <div className="position-relative overflow-hidden p-md-5 m-md-3 text-center bg-light">
-            <div className="col-md-10 p-lg-5 mx-auto my-5">
+            <div className="col-md-10 p-lg-5 mx-auto">
+              <img className="headline-img" src="../images/book.png"></img>
+
               <h2 className="tag-question"><strong>Which books have greatly impacted the world&#39;s most&#10; common professions?</strong></h2>
               <div className="s003" >
                 <form onSubmit={this.handleSubmit} className="flex-inner fadeIn">
@@ -190,17 +192,10 @@ class Search extends React.Component {
       return (
         <div className="container-fluid">
           <div className="position-relative overflow-hidden p-md-5 m-md-3 text-center bg-light">
-            <div className="col-md-10 p-lg-5 mx-auto my-5">
-              <h2 className="tag-question"><strong>Which books have greatly impacted the world&#39;s most&#10; common professions?</strong></h2>
-              <h2 className="tag-question"><strong>Which books have greatly impacted the world&#39;s most&#10; common professions?</strong></h2>
+            <div className="col-md-10 p-lg-5 mx-auto">
+              <img className="headline-img" src="../images/book.png"></img>
 
               <h2 className="tag-question"><strong>Which books have greatly impacted the world&#39;s most&#10; common professions?</strong></h2>
-
-              <h2 className="tag-question"><strong>Which books have greatly impacted the world&#39;s most&#10; common professions?</strong></h2>
-
-              <h2 className="tag-question"><strong>Which books have greatly impacted the world&#39;s most&#10; common professions?</strong></h2>
-
-
               <div className="s003" >
                 <form onSubmit={this.handleSubmit} className="fadeIn flex-inner">
                   <input type="text" className="main-search-bar jwfbbd" placeholder="Enter a book name" onChange={this.handleChange} value={this.state.searchField || ''} />
