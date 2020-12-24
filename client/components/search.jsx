@@ -165,7 +165,7 @@ class Search extends React.Component {
                     value=""
                   />
 
-                    <button type="submit" className="btn btn-success search-button-ht">
+                  <button type="submit" className="btn btn-success search-button-ht">
                       <i className="fas fa-search"></i>
                     </button>
                     <ToastContainer

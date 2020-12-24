@@ -392,7 +392,7 @@ b, strong {
 }
 .dePyzG {
   width: 65%;
-  display: inline !important;
+  display: inline-grid !important;
 }
 /** Search bar list fixes **/
 
@@ -402,7 +402,11 @@ b, strong {
 }
 .jwfbbd {
   border: 2px solid #0d5b1e !important;
-  width: 65%;
+  width: 100%;
+}
+
+.zNoeh {
+
 }
 /**
  * 1. Correct the inheritance and scaling of font size in all browsers.
