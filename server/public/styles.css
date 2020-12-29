@@ -406,7 +406,10 @@ b, strong {
 }
 
 .zNoeh {
+}
 
+.navbar-nav .dropdown-menu {
+    position: absolute !important;
 }
 /**
  * 1. Correct the inheritance and scaling of font size in all browsers.
@@ -1109,7 +1112,7 @@ legend {
 }
 
 .card-img-top-details {
-  width: 50%;
+  width: 40%;
   margin: 0 auto;
   margin-top: 1rem;
 }
@@ -1193,6 +1196,9 @@ footer h6 {
 .footer {
   color: white;
   text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 .footer span {
   color: white;
@@ -1773,6 +1779,17 @@ footer h6 {
       text-align: center;
       margin: auto auto 0px;
     }
+    .headline-img {
+    width: 100%;
+    }
+    .dePyzG {
+    width: 75%;
+   }
+   .navbar-brand {
+     margin-right: 0px;
+     display:inline-block;
+   }
+
 
     }
     .navbar-nav {
@@ -1780,6 +1797,7 @@ footer h6 {
       /* display: block; */
       margin: 0 auto;
     }
+
 
      .search-nav-item {
       order: 2;
@@ -1890,7 +1908,6 @@ footer h6 {
       height: 100%;
     }
     .main-search-bar {
-      margin-bottom: 10px;
     }
     .s003 {
       margin-top: 1rem;
@@ -1914,7 +1931,6 @@ footer h6 {
     .s003 form {
       width: 100%;
     }
-
   }
 
   /* Portrait iPad */
@@ -1925,4 +1941,10 @@ footer h6 {
   .details-card {
 
   }
+  .headline-img {
+    width:100%;
+  }
+  .tag-question {
+    width: 70%;
+}
   }
