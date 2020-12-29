@@ -5,7 +5,7 @@ An app for professionals who want to find out the most recommended books for the
 
 
 ## Live Demo
-Url coming soon
+https://booksforyourprofession.ryangriego.com
 
 ## Technologies Used
   - HTML
