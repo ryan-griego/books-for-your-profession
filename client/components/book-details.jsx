@@ -223,7 +223,7 @@ class BookDetails extends React.Component {
       return (
         <>
           <div className="container top-container">
-            <div className="col-md-6 mb-4 mx-auto">
+            <div className="col-md-6 col-sm-8 mb-4 mx-auto">
               <div className="hover my-3 px-0 d-flex justify-content-start back-btn" onClick={this.backToSearchResults} style={{ cursor: 'pointer' }}>&lt; Back to Search Results</div>
               <div className="details-card text-center" style={{ width: '100%' }} id={this.state.book.bookId}>
                 <img src={this.state.book.imageurl} className="card-img-top-details img-thumbnail mt-2 fadeIn first"></img>
@@ -281,7 +281,7 @@ class BookDetails extends React.Component {
             pauseOnHover={false}
           />
           <div className="container top-container">
-            <div className="col-md-6 mb-4 mx-auto">
+            <div className="col-md-6 col-sm-8 mb-4 mx-auto">
               <div className="hover my-3 px-0 d-flex justify-content-start back-btn" onClick={this.backToSearchResults} style={{ cursor: 'pointer' }}>&lt; Back to Search Results</div>
               <div className="details-card text-center" style={{ width: '100%' }} id={this.state.book.volumeInfo.bookId}>
                 <img src={checkImage} className="card-img-top-details img-thumbnail mt-2 fadeIn first"></img>
