@@ -1723,6 +1723,9 @@ footer h6 {
   .display-4 {
     font-size: 2.3rem;
   }
+  .card-img-top-details {
+  width: 75%;
+  }
   .flex-inner {
     display: flex;
     flex-wrap: wrap;
@@ -1731,8 +1734,7 @@ footer h6 {
   .search-button {
     font-size: 1rem;
   }
-  .main-search-bar {
-  }
+
 
   .s003 {
     margin-top: 1rem;
@@ -1781,6 +1783,9 @@ footer h6 {
     }
     .headline-img {
     width: 100%;
+    }
+    .card-img-top-details {
+    width: 75%;
     }
     .dePyzG {
     width: 75%;
@@ -1882,6 +1887,10 @@ footer h6 {
       height: 50px;
       background-color: white;
     }
+    .title {
+      font-size: 2rem;
+      text-align: center;
+    }
   }
   /* ----------- iPhone X ----------- */
   /* Landscape */
@@ -1899,6 +1908,15 @@ footer h6 {
     .s003 form {
       width: 100%;
     }
+    .title {
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .card-img-top-details {
+    width: 75%;
+
+}
   }
   /* ----------- iPad 3, 4 and Pro 9.7" ----------- */
   /* Landscape */
