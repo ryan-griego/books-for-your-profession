@@ -21,7 +21,6 @@ class Search extends React.Component {
   }
 
   setView(e) {
-
     if (this.props.searchType === 'profession') {
       const currentProfession = $(e.target).find('.jwfbbd').attr('value');
       this.props.view('bookList', this.props.searchType, { currentProfession });
@@ -93,7 +92,6 @@ class Search extends React.Component {
       .then(data => {
         if (data) {
           this.props.view('bookList', this.props.searchType, { currentProfession });
-
         }
       })
       .catch(error => {
@@ -151,7 +149,6 @@ class Search extends React.Component {
           <div className="position-relative overflow-hidden p-md-5 m-md-3 text-center bg-light">
             <div className="col-md-10 p-lg-5 mx-auto">
               <img className="headline-img" src="../images/book.png"></img>
-
               <h2 className="tag-question"><strong>Which books have greatly impacted the world&#39;s most&#10; common professions?</strong></h2>
               <div className="s003" >
                 <form onSubmit={this.handleSubmit} className="flex-inner fadeIn">
@@ -166,20 +163,19 @@ class Search extends React.Component {
                   />
 
                   <button type="submit" className="btn btn-success search-button-ht">
-                      <i className="fas fa-search"></i>
-                    </button>
-                    <ToastContainer
-                      position="top-center"
-                      autoClose={5000}
-                      hideProgressBar={false}
-                      newestOnTop={false}
-                      closeOnClick
-                      rtl={false}
-                      pauseOnFocusLoss
-                      draggable
-                      pauseOnHover={false}
-                    />
-
+                    <i className="fas fa-search"></i>
+                  </button>
+                  <ToastContainer
+                    position="top-center"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover={false}
+                  />
                 </form>
               </div>
             </div>
@@ -194,7 +190,6 @@ class Search extends React.Component {
           <div className="position-relative overflow-hidden p-md-5 m-md-3 text-center bg-light">
             <div className="col-md-10 p-lg-5 mx-auto">
               <img className="headline-img" src="../images/book.png"></img>
-
               <h2 className="tag-question"><strong>Which books have greatly impacted the world&#39;s most&#10; common professions?</strong></h2>
               <div className="s003" >
                 <form onSubmit={this.handleSubmit} className="fadeIn flex-inner">

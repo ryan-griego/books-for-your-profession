@@ -1,7 +1,6 @@
 import React from 'react';
 
 class ToggleNavBar extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {

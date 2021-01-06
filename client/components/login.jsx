@@ -1,8 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 class Login extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -24,37 +22,22 @@ class Login extends React.Component {
   }
 
   handleSubmit(event) {
-
     event.preventDefault();
     this.props.login(this.state.email, this.state.password);
   }
 
   render() {
-    // const loginExists = (
-    //   <Popover id="popover-basic">
-    //     <Popover.Title as="h3">Attention</Popover.Title>
-    //     <Popover.Content>
-    //       {this.props.message}
-    //     </Popover.Content>
-    //   </Popover>
-    // );
-
-    const checkLogin = this.props.message === 'Email address and/or password is incorrect. Please try again.';
-
     return (
       <div className="wrapper fadeInDown">
         <h1>ValueReads</h1>
-
         <div id="formContent">
           <div className="fadeIn first">
-            {/* <img src="" id="icon" alt="User Icon" /> */}
           </div>
           <form onSubmit={this.handleSubmit}>
             <input type="text" id="login" className="fadeIn second log-input" name="email" placeholder="email" value={this.state.email} onChange={this.handleChangeEmail}/>
             <input type="password" id="password" className="fadeIn log-input" name="password" placeholder="password" value={this.state.password} onChange={this.handleChangePassword}/>
-              <input type="submit" value="Submit" className="fadeIn log-button" value="Log In" />
+            <input type="submit" className="fadeIn log-button" value="Log In" />
           </form>
-
         </div>
       </div>
     );
