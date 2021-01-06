@@ -5,7 +5,7 @@ An app for professionals who want to find out the most recommended books for the
 
 
 ## Live Demo
-https://booksforyourprofession.ryangriego.com
+Try the application live at https://booksforyourprofession.ryangriego.com
 
 ## Technologies Used
   - HTML
@@ -20,6 +20,7 @@ https://booksforyourprofession.ryangriego.com
   - Webpack
   - Babel
   - Bootstrap 4
+  - AWS EC2
 
   ## Features
  1. User can search by profession.
