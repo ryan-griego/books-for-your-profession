@@ -30,4 +30,4 @@ https://booksforyourprofession.ryangriego.com
  1. Users can delete a book from their book list.
 
  ## Preview
- <img src="server/public/images/books-for-your-profession.png">
+ <img src="server/public/images/books-for-your-profession-animation.gif">
