@@ -302,7 +302,12 @@ export default class App extends React.Component {
         }
       })
       .then(data => {
+        console.log("log the data.professionName of the user that is currently logged in.", data.professionName);
+        if(!data.professionName) {
+          return;
+        } else {
         this.setState({ userProfession: data.professionName });
+        }
       })
       .catch(error => {
         console.error('There was a problem with your fetch GET operation: ', error);
