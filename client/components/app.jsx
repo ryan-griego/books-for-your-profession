@@ -302,7 +302,7 @@ export default class App extends React.Component {
         }
       })
       .then(data => {
-        if(!data.professionName) {
+        if(!data) {
           return;
         } else {
         this.setState({ userProfession: data.professionName });
