@@ -1862,6 +1862,7 @@ footer h6 {
       width: 100%;
     }
     .card {
+      width: 100%;
     }
     h4.iphone-678-landscape {
       font-size: 1.2rem;
@@ -1879,6 +1880,9 @@ footer h6 {
   @media only screen and (min-device-width:768px ) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
     .site-name {
     font-size: 1.1rem;
+}
+.card {
+  height: 30rem;
 }
   .headline-img {
     width:100%;

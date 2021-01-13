@@ -124,7 +124,7 @@ export default class App extends React.Component {
     const unencodedBook = decodeURIComponent(bookTitle);
     this.setState({ searchedItem: unencodedBook });
     const that = this;
-    fetch('https://www.googleapis.com/books/v1/volumes?q=' + book + '&maxResults=15')
+    fetch('https://www.googleapis.com/books/v1/volumes?q=' + book + '&maxResults=15/')
       .then(function (res) {
         return res.json();
       })
