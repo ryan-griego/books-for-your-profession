@@ -117,7 +117,8 @@ app.get('/api/users/logcheck', (req, res, next) => {
   if (req.session.userInfo) {
     res.send(req.session.userInfo);
   } else {
-    res.status(400).send('there is not a log in');
+    // res.status(400).send('there is not a log in');
+    return;
   }
 });
 
