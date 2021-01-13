@@ -109,7 +109,7 @@ class Search extends React.Component {
     );
     const notify = () => toast.error(<Msg />);
 
-    fetch('https://www.googleapis.com/books/v1/volumes?q=' + book + '&maxResults=5')
+    fetch('https://www.googleapis.com/books/v1/volumes?q=' + book)
       .then(response => {
         if (response.status === 404) {
           this.setState({ errorMessage: 'There are no books found with that title.' });

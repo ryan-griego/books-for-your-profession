@@ -13,6 +13,7 @@ class BookDetails extends React.Component {
     this.backToUserList = this.backToUserList.bind(this);
     this.backToSearchResults = this.backToSearchResults.bind(this);
     this.toggleDescription = this.toggleDescription.bind(this);
+
   }
 
   getGoogleBooksByIsbn() {
@@ -116,6 +117,16 @@ class BookDetails extends React.Component {
     } else if (this.props.searchType === 'user') {
       return (
         <a className="btn btn-primary btn-danger fadeIn third" onClick={this.props.delete}>Remove from my list</a>
+      );
+    }
+  }
+
+  checkLoginStatus() {
+    if (!this.props.loginStatus) {
+        return;
+    } else {
+      return (
+        <a className="btn btn-success fadeIn third" onClick={this.props.add}>Add to my list</a>
       );
     }
   }
@@ -288,7 +299,7 @@ class BookDetails extends React.Component {
                 <div className="card-body">
                   <h5 className="card-title text-center fadeIn second">{this.state.book.volumeInfo.title}</h5>
                   <p className="card-author text-center fadeIn second">{joinAuthor}</p>
-                  <a className="btn btn-success fadeIn third" onClick={this.props.add}>Add to my list</a>
+                  {this.checkLoginStatus()}
                   <div className="row book-info fadeIn fourth mt-4">
                     <div className="col-md-6 subject">
                       <p className="text-muted text-uppercase">Subject</p>
