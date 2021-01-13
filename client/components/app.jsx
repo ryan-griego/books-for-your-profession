@@ -302,7 +302,6 @@ export default class App extends React.Component {
         }
       })
       .then(data => {
-        console.log("log the data.professionName of the user that is currently logged in.", data.professionName);
         if(!data.professionName) {
           return;
         } else {
