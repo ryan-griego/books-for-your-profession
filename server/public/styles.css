@@ -1887,6 +1887,9 @@ footer h6 {
   .headline-img {
     width:100%;
   }
+  .title {
+    text-align: center;
+  }
   .tag-question {
     width: 70%;
 }
