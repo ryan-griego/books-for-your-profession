@@ -108,10 +108,10 @@ app.get('/api/users/login/:email/:password', (req, res, next) => {
 
 // User logs out
 app.get('/api/users/logout', (req, res, next) => {
-  console.log("log the req.session", req.session);
+  console.log('log the req.session', req.session);
 
   delete req.session.userInfo;
-  console.log("log the req.session after delete", req.session);
+  console.log('log the req.session after delete', req.session);
 
 });
 
@@ -120,7 +120,7 @@ app.get('/api/users/logcheck', (req, res, next) => {
     res.send(req.session.userInfo);
   } else {
     // console.log("log the res", res);
-    return;
+
   }
 });
 
