@@ -87,7 +87,7 @@ class Search extends React.Component {
           this.setState({ errorMessage: `${currentProfession} currently has no books associated with it.` });
           this.setState({ message: 'A few suggestions are web developer, marketing assistant and animator.' });
         } else if (response.status === 200) {
-          this.setState({ message: '' });
+          // this.setState({ message: '' });
           return response.json();
         }
       })
@@ -140,7 +140,7 @@ class Search extends React.Component {
 
   render() {
     if (this.props.searchType === 'profession') {
-      const checkBookList = this.state.message === 'A few suggetions are web developer, marketing assistant and animator.' ? this.state.message : '';
+      const checkBookList = this.state.message === 'A few suggestions are web developer, marketing assistant and animator.' ? this.state.message : '';
       const allProfessions = professions.map(profession => {
         return {
           key: profession.toLowerCase(),
