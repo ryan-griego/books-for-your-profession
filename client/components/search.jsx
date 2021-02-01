@@ -64,11 +64,10 @@ class Search extends React.Component {
         notify();
       } else {
         this.checkProfession(currentProfession);
-        this.setState({ errorMessage: `${currentProfession} currently has no books associated with it.` });
-        // notify();
         this.setState({ profession: event.target.value });
       }
     } else if (this.props.searchType === 'book') {
+
       this.checkGoogleBooks(this.state.searchField);
       this.setState({ searchField: this.state.searchField });
     }
@@ -85,12 +84,16 @@ class Search extends React.Component {
       .then(response => {
         if (response.status === 404) {
           notify();
+          this.setState({ errorMessage: `${currentProfession} currently has no books associated with it.` });
+          this.setState({ message: 'A few suggestions are web developer, marketing assistant and animator.' });
         } else if (response.status === 200) {
+          this.setState({ message: '' });
           return response.json();
         }
       })
       .then(data => {
         if (data) {
+          this.setState({ message: '' });
           this.props.view('bookList', this.props.searchType, { currentProfession });
         }
       })
@@ -137,6 +140,7 @@ class Search extends React.Component {
 
   render() {
     if (this.props.searchType === 'profession') {
+      const checkBookList = this.state.message === 'A few suggetions are web developer, marketing assistant and animator.' ? this.state.message : '';
       const allProfessions = professions.map(profession => {
         return {
           key: profession.toLowerCase(),
@@ -177,7 +181,9 @@ class Search extends React.Component {
                     pauseOnHover={false}
                   />
                 </form>
+
               </div>
+              <p><strong>{checkBookList}</strong></p>
             </div>
             <div className="product-device box-shadow d-none d-md-block"></div>
             <div className="product-device product-device-2 box-shadow d-none d-md-block"></div>
